@@ -1,0 +1,1876 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>API | Konduto</title>
+    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css">    
+    <link rel="stylesheet" type="text/css" href="../assets/css/kdtdocs.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/highlight/atelier-forest.light.css">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Ubuntu:400,700">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script type="text/javascript" src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script type="text/javascript" src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <!-- START NAVBAR -->
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <a class="navbar-brand" rel="home" href="#"><img style="max-width:100px; margin-top: -7px;" src="../assets/images/logo_invisible.png" alt="Konduto Logo"></a>
+          <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          </button>
+          <ul class="nav navbar-nav navbar-left hidden-xs">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="white">Contents</span> <b class="caret white"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#intro">Introduction</a></li>
+                <li><a href="#started">Quickstart</a></li>
+                <li><a href="#authentication">Authentication</a></li>
+                <li><a href="#code">Response and error codes</a></li>
+                <li><a href="#post">Send an order</a></li>
+                <li><a href="#put">Update an order</a></li>
+                <li><a href="#get">Query an order</a></li>
+              </ul>
+            </li>
+          </ul> -->
+        </div>
+        <!-- <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <button type="button" style="margin-left:1px;margin-right:1px" class="btn btn-default navbar-btn navbar-right" id="toggle-dotnet">.NET</button>
+          <button type="button" style="margin-left:1px;margin-right:1px" class="btn btn-default navbar-btn navbar-right" id="toggle-java">Java</button>
+          <button type="button" style="margin-left:1px;margin-right:1px" class="btn btn-default navbar-btn navbar-right" id="toggle-ruby">Ruby</button>
+          <button type="button" style="margin-left:1px;margin-right:1px" class="btn btn-default navbar-btn navbar-right" id="toggle-php">PHP</button>
+          <button type="button" style="margin-left:1px;margin-right:1px" class="btn btn-default navbar-btn navbar-right" id="toggle-curl">cURL</button>
+        </div> -->
+      </div>
+    </nav>
+    <!-- END NAVBAR -->
+    <!-- START CONTAINER -->
+    <div class="container-fluid" id="content">
+      <div class="row" id="intro">&nbsp;
+        <div class="col-sm-7"></div>
+        <div class="col-sm-5 lightgrey hidden-xs"></div>
+      </div>
+      <div class="row">
+        <!-- INTRO -->
+        <div class="col-sm-7">
+          <h3>1. Introdução</h3>
+          Bem-vindo à documentação nossa API! Este documento detalha as especificações para enviar, buscar e atualizar um pedido analisado pelo serviço de <strong>Buying Behavior do Konduto</strong>.
+          <br /><br />
+          Este documento é constantemente atualizado e agradecemos qualquer opinião que tiver para melhorá-lo. Você pode nos mandar uma mensagem para <a href="mailto:hi@konduto.com?subject=API%20documentation%20feedback">hi@konduto.com</a> com perguntas ou sugestões.
+        </div>
+        <div class="col-sm-5 lightgrey">
+          <h4>Conteúdo</h4>
+          <ol>
+            <li><a href="#intro" class="index">Introdução</a></li>
+            <li><a href="#started" class="index">Primeiros passos</a></li>
+            <li><a href="#authentication" class="index">Autenticação</a></li>
+            <li><a href="#code" class="index">Códigos de status e erros</a></li>
+            <li><a href="#post" class="index">Enviar um pedido</a></li>
+            <li><a href="#put" class="index">Atualizar um pedido</a></li>
+            <li><a href="#get" class="index">Buscar um pedido</a></li>
+            <li><a href="#tables" class="index">Tabelas de Referências</a></li>
+            <li><a href="#changelog" class="index">Changelog</a></li>
+          </ol>
+        </div>
+      </div>
+      <!-- END INTRO -->
+      <div class="row" id="started">&nbsp;
+        <div class="col-sm-7"></div>
+        <div class="col-sm-5 lightgrey hidden-xs"></div>
+      </div>
+      <div class="row">
+        <!-- GETTING STARTED -->
+        <div class="col-sm-7">
+          <h3>2. Primeiros passos</h3>
+          Você vai precisar de uma <strong>chave de API</strong> para autenticar as requisições. Para facilitar, os exemplos abaixo já estão populados com uma chave que funciona, assim você só precisa copiar e colar para ver como funciona.
+          <br /><br />
+          Apesar disso, nós <strong>recomendamos</strong> que você crie uma <strong>conta Grátis</strong> para ter a sua própria chave única. Isso permite que você use o serviço à vontade e em toda sua capacidade.
+          <br /><br />
+          Para enviar um pedido para análise você precisa colar nosso <strong>código JavaScript</strong> e chamar a nossa <strong>API de pedidos</strong>.        </div>
+        <div class="col-sm-5 lightgrey">
+        <h4>Respostas do ambiente de teste</h4>
+        Nosso ambiente de teste (Sandbox) permite que você teste a integração com a nossa API e receba respostas pré-definidas, que estão baseadas nos decimais do campo <code>total_amount</code>.
+        <br /><br />
+        <table class="table table-condensed">
+            <thead>
+              <tr>
+                <th class="text-center">total_amount</th>
+                <th>resposta</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-center">*.00</td>
+                <td>Aprovar.<br />
+                  <strong>Score entre 0 e 0.3</strong>.
+                </td>
+              </tr>
+              <tr>
+                <td class="text-center">*.01 to *.50</td>
+                <td>Revisar.<br />
+                  <strong>Score entre 0.31 e 0.6</strong>.
+                </td>
+              </tr>
+              <tr>
+                <td class="text-center">*.51 to *.99</td>
+                <td>Negar.<br />
+                  <strong>Score entre 0.61 e 0.99</strong>.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!-- END GETTING STARTED -->
+      <div class="row" id="js">&nbsp;
+        <div class="col-sm-7"></div>
+        <div class="col-sm-5 lightgrey hidden-xs"></div>
+      </div>
+      <div class="row">
+        <!-- JS -->
+        <div class="col-sm-7">
+          <h4>Código JavaScript</h4>
+          Nosso serviço de Buying Behavior funciona melhor quando você combina o nosso JavaScript com as chamadas à API.
+          <br /><br />
+          O JavaScript é usado para coletar informações de navegação dos seus visitantes para que possamos determinar um padrão de comportamento para eles.
+          <br /><br />
+          Quando o visitante decide fazer uma compra você precisa nos enviar o <code>visitor_id</code> deles, assim podemos cruzar o pedido com a navegação.
+          <!-- <br /><br />
+          <div class="alert alert-info">
+            A sua privacidade e a do seu visitante são muito importante para nós. Nós nunca compartilharemos nenhuma informação com terceiros a não ser que você, o lojista, nos peça para faze-lo. Para mais informações por favor consulte a nossa política de privacidade.
+          </div> -->
+        </div>
+        <div class="col-sm-5 lightgrey">
+          <h4>Exemplo do JavaScript</h4>
+          <pre class="codehighlight javascript"><code>&lt;script type="text/javascript">
+  var __kdt = __kdt || [];
+  <strong>// Defina sua chave pública para sabermos que é você</strong>
+  __kdt.push({"public_key": "TEE973BEC88"});
+  <strong>// Defina também o customer_id do cliente (opcional)</strong>
+  __kdt.push({"customer_id": "278393793"});
+  (function() {
+  var kdt = document.createElement('script');
+  kdt.id = 'kdtjs'; kdt.type = 'text/javascript';
+  kdt.async = true; 
+  kdt.src = 'https://i.konduto.com/k.js';
+  var s = document.getElementsByTagName('body')[0];
+  s.parentNode.insertBefore(kdt, s);
+  })();
+&lt;/script></code></pre>
+          <h4>Recupere o ID do visitante</h4>
+          <pre class="codehighlight javascript"><code>&lt;script type="text/javascript">
+  var visitor_id = getKondutoID();
+&lt;/script></code></pre>
+        </div>
+        <!-- END JS -->
+      </div>
+      <div class="row" id="quickstart">
+        &nbsp;
+        <div class="col-sm-7"></div>
+        <div class="col-sm-5 lightgrey hidden-xs"></div>
+      </div>
+      <div class="row">
+        <!-- QUICKSTART -->
+        <div class="col-sm-7">
+          <h4>Chamada à API</h4>
+          Este exemplo mostra a chamada mais simples que esperamos receber para podemos analisar um pedido e produzir uma recomendação e um score de fraude.
+          <br /><br />
+          Abaixo você verá mais detalhes sobre cada parâmetro que nossa API suporte, mas isto será o mínimo necessário.
+          <br /><br />
+          <table class="table table-condensed table-striped">
+            <thead>
+              <tr>
+                <th class="text-center">Parâmetro</th>
+                <th>Descrição</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-center">id<br /></td>
+                <td>
+                  Identificador <strong>único</strong> para cada pedido.<br />
+                  <strong>Max. 100 chars, alpha-numérico</strong>.
+                </td>
+              </tr>
+              <tr>
+                <td class="text-center">visitor<br /></td>
+                <td>Identificador do visitante obtido pelo JavaScript.<br />
+                  <strong>Exatamente 32 chars, alpha-numérico</strong>.
+                </td>
+              </tr>
+              <tr>
+                <td class="text-center">total_amount<br /></td>
+                <td>Valor total do pedido.<br />
+                  <strong>Max. 10 dígitos, número</strong>.
+                </td>
+              </tr>
+              <tr>
+                <td class="text-center">customer.<strong>id</strong></td>
+                <td>Identificador <strong>único</strong> do cliente. Pode ser qualquer valor (sequencial, documento, e-mail) desde que seja consistente em pedidos futuros.<br />
+                  <strong>Max. 100 chars, string</strong>.
+                  <br /><br />
+                  <em>Você pode também definir este campo no JavaScript, mostrado acima.</em>
+                </td>
+              </tr>
+              <tr>
+                <td class="text-center">customer.<strong>name</strong></td>
+                <td>Nome completo do cliente.<br />
+                  <strong>Max. 100 chars, string</strong>.
+                </td>
+              </tr>
+              <tr>
+                <td class="text-center">customer.<strong>email</strong></td>
+                <td>Endereço de email do cliente.<br />
+                  <strong>Max. 100 chars, string</strong>.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-sm-5 lightgrey">
+          <h4>Exemplo de chamada</h4>
+          <div id="example-curl-quickstart" class="show">
+            <pre class="codehighlight bash"><code>$ curl -u T738D516F09CAB3A2C1EE: -X POST \
+ -H 'Content-Type: application/json; charset=UTF-8' \
+ -d '{"id": <span id="order_id_6"></span>
+       "visitor": "f10e2821bbbe2313bc059445190d7ab4",
+       "total_amount": 2061.48,
+       "customer": {
+         "id": "28373",
+         "name": "Marina Souza",
+         "email": "msouza@exemplo.com.br"
+       }
+      }' \
+https://api.konduto.com/v1/orders</code></pre>
+          </div>
+          <div id="example-php-quickstart" class="hidden">
+            <pre class="codehighlight php"><code>php div</code></pre>
+          </div>
+          <div id="example-java-quickstart" class="hidden">
+            <pre class="codehighlight java"><code>java div</code></pre>
+          </div>
+          <div id="example-dotnet-quickstart" class="hidden">
+            <pre class="codehighlight cs"><code>dotnet div</code></pre>
+          </div>
+          <div id="example-ruby-quickstart" class="hidden">
+            <pre class="codehighlight ruby"><code>ruby div</code></pre>
+          </div>
+          <em><strong>Este exemplo funciona!</strong> Cole isto em seu terminal para mandar um pedido para o nosso ambiente de teste.</em>
+          <h4>Exemplo de resposta</h4>
+          <pre class="codehighlight json"><code><strong>HTTP Status Code: 200 OK</strong>
+
+{
+  "status": "ok",
+  "id": <span id="order_id_8"></span>
+  "visitor": "f10e2821bbbe2313bc059445190d7ab4",
+  "timestamp": 1389047680,
+  "score": 0.75,
+  "recommendation": "review",
+  "device": {
+    "user_id": "405961fab293600daeed93ae561",
+    "fingerprint": "e4f2c690951038a8f77aa583847",
+    "platform": "MacIntel",
+    "browser": "Chrome",
+    "language": "en_US",
+    "timezone": "GMT -3",
+    "cookie": true,
+    "javascript":  true,
+    "flash": true,
+    "geolocation": {
+      "city": "SAO PAULO",
+      "state": "SP",
+      "country": "BR"
+    },
+    "ip": "189.68.156.200"
+  }
+}</code></pre>
+        </div>
+      </div>
+      <!-- END QUICKSTART -->
+      <div class="row" id="authentication">
+        &nbsp;
+        <div class="col-sm-7"></div>
+        <div class="col-sm-5 lightgrey hidden-xs"></div>
+      </div>
+      <div class="row">
+        <!-- START AUTHENTICATION -->
+        <div class="col-sm-7">
+          <h3>3. Autenticação</h3>
+          Para poder enviar pedidos você precisa se identificar usando a nossa chave de API, que pode ser obtida no seu painel.
+          <br /><br />
+          Nós usamos <a href="https://en.wikipedia.org/wiki/Basic_access_authentication" target="_blank">HTTP Basic Auth</a> para autenticar os lojistas. A chave de API precisa ser passada como seu nome de usuário (username), e nós não pedimos senha.
+          <br /><br />
+          Por favor note que todas as chamadas devem ser feitas via <strong>HTTPS</strong>. Se as chamadas forem feitas via HTTP normal nós responderemos com um erro <strong>400 Bad Request</strong>.
+        </div>
+        <div class="col-sm-5 lightgrey">
+          <h4>Endpoint de API e Recursos</h4>
+          <pre><strong>POST</strong> https://api.konduto.com/v1/orders
+<strong>PUT </strong> https://api.konduto.com/v1/orders/{order_id}
+<strong>GET </strong> https://api.konduto.com/v1/orders/{order_id}</pre>
+          <br />
+          <h4>Definindo sua chave de API</h4>
+          <pre class="codehighlight bash"><code>$ curl -u <strong>T738D516F09CAB3A2C1EE:</strong> -X POST \
+ -H 'Content-Type: application/json; charset=UTF-8' \
+ -d '{}' https://api.konduto.com/v1/orders</code></pre>
+        </div>
+      </div>
+      <!-- END AUTHENTICATION -->
+      <div class="row" id="code">
+        &nbsp;
+        <div class="col-sm-7"></div>
+        <div class="col-sm-5 lightgrey hidden-xs"></div>
+      </div>
+      <div class="row">
+        <!-- START RESPONSE CODES -->
+        <div class="col-sm-7">
+          <h3>4. Códigos de status e erros</h3>
+          Nossa API usa <a href="https://pt.wikipedia.org/wiki/Anexo:Lista_de_c%C3%B3digos_de_status_HTTP" target="_blank">códigos de resposta HTTP</a> para indicar o resultado de uma chamada. Uma requisição bem sucedida retornará o status 200 enquanto que requisições que falharam terão outros códigos de resposta.
+          <br /><br /><br />
+          <!-- START ERROR RESPONSE TABLE -->
+          <table class="table table-condensed table-striped">
+            <thead>
+              <tr>
+                <th class="text-center">Parêmetro</th>
+                <th>Descrição</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-center"><strong>status</strong></td>
+                <td>Mensagem de status da chamada.<br />
+                  Traz <code>ok</code> quando bem sucedida e <code>error</code> quando falhou.</td>
+              </tr>
+              <tr>
+                <td class="text-center"><strong>where</strong></td>
+                <td>Recurso onde o erro ocorreu.<br />
+                  Se for <code>/</code> então o erro está no objeto raíz.</td>
+              </tr>
+              <tr>
+                <td class="text-center"><strong>why</strong></td>
+                <td>Objeto que contém a razão da falha da chamada.</td>
+              </tr>
+              <tr>
+                <td class="text-center">why.<strong>expected</strong></td>
+                <td><em>(opcional)</em><br />
+                  Valor que espera-se receber nesta chamada.<br />Isto pode ser uma string ou um array de valores.
+                </td>
+              </tr>
+              <tr>
+                <td class="text-center">why.<strong>found</strong></td>
+                <td><em>(opcional)</em><br />
+                  Valor que foi recebido nesta chamada.
+                </td>
+              </tr>
+              <tr>
+                <td class="text-center">why.<strong>missing</strong></td>
+                <td><em>(opcional)</em><br />
+                  Parâmetro obrigatório que está faltando na chamada.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <!-- END ERROR RESPONSE TABLE -->
+        </div>
+        <div class="col-sm-5 lightgrey">
+          <h4>Códigos de Resposta HTTP</h4>
+          <strong>200 OK</strong> - Chamada é válida e temos uma resposta.<br /><br />
+          <strong>400 Bad Request</strong> - Houve um problema com a requisição enviada. Por favor veja o corpo da resposta para mais informações.<br /><br />
+          <strong>401 Unauthorized</strong> - Não foi encontrada uma chave de API.<br /><br />
+          <strong>403 Forbidden</strong> - Há algum problema com a sua conta. Por favor entre em contato com o nosso Suporte para mais informações.<br /><br />
+          <strong>404 Not Found</strong> - O recurso solicitado não foi encontrado.<br /><br />
+          <strong>405 Method Not Allowed</strong> - O método HTTP enviado não é permitido para este recurso.<br /><br />
+          <strong>500, 502, 503 Server Error</strong> - Houve algum erro no nosso lado. Por favor entre em contato com o Suporte para mais informações.
+          <h4>Exemplo de resposta de erro</h4>
+          <pre class="codehighlight json"><code><strong>HTTP Status Code: 400 Bad Request</strong><br />
+{
+  "status": "error",
+  "where": "/total_amount",
+  "why": {
+    "expected": ["integer","number"],
+    "found": "string"
+  }
+}</code></pre>
+        </div>
+      </div>
+      <!-- END RESPONSE CODES -->
+      <div class="row" id="post">
+        &nbsp;
+        <div class="col-sm-7"></div>
+        <div class="col-sm-5 lightgrey hidden-xs"></div>
+      </div>
+      <!-- START POST INTRO -->
+      <div class="row">
+        <div class="col-sm-7">
+          <h3>5. Enviar um pedido para análise</h3>
+          Você pode mandar pedidos usando o método <strong>POST</strong> e passando um JSON no corpo da requisição.
+          <br /><br />
+          A chamada consiste em um objeto raíz que contém informações relacionadas ao pedido, bem como os objectos <code>customer</code>, <code>billing</code> e <code>shipping</code> e os arrays <code>payment</code> e <code>shopping_cart</code>.
+          <br /><br />
+          <strong>Todos os campos são obrigatórios quando não especificado</strong>.
+        </div>
+        <div class="col-sm-5 lightgrey hidden-xs"></div>
+      </div>
+      <!-- END POST INTRO -->
+      <!-- START SEND ORDER ROOT -->
+      <div class="row">
+        <div class="col-sm-7">
+          <h4>O Objeto Raíz</h4>
+          <table class="table table-condensed table-striped">
+            <thead>
+              <tr>
+                <th class="text-center">Parâmetro</th>
+                <th>Descrição</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-center">id<br /></td>
+                <td>
+                  Identificador <strong>único</strong> para cada pedido.<br />
+                  <strong>Max. 100 chars, alpha-numérico</strong>.
+                </td>
+              </tr>
+              <tr>
+                <td class="text-center">visitor<br /></td>
+                <td>Identificador do visitante obtido do nosso JavaScript.<br />
+                  <strong>Exatamente 32 chars, alpha-numérico</strong>.
+                </td>
+              </tr>
+              <tr>
+                <td class="text-center">total_amount<br /></td>
+                <td>Valor total do pedido.<br />
+                  <strong>Max. 10 dígitos, número</strong>.
+                </td>
+              </tr>
+              <tr>
+                <td class="text-center">shipping_amount<br /></td>
+                <td><em>(opcional)</em><br />
+                  Valor do frete<br />
+                  <strong>Max. 10 dígitos, número</strong>.
+                </td>
+              </tr>
+              <tr>
+                <td class="text-center">tax_amount<br /></td>
+                <td><em>(opcional)</em><br />
+                  Valor dos impostos.<br />
+                  <strong>Max. 10 dígitos, número</strong>.
+                </td>
+              </tr>
+              <tr>
+                <td class="text-center">currency<br /></td>
+                <td><em>(opcional)</em><br />
+                  Código da moeda com 3 letras (<a href="http://pt.wikipedia.org/wiki/ISO_4217" target="_blank">ISO-4712</a>).<br />
+                  <strong>Exatamente 3 chars, string</strong>.
+                </td>
+              </tr>
+              <tr>
+                <td class="text-center">installments<br /></td>
+                <td><em>(opcional)</em><br />
+                  Número de parcelas do pagamento.<br />
+                  <strong>Max. 3 dígitos, número</strong>.
+                </td>
+              </tr>
+              <tr>
+                <td class="text-center">ip</td>
+                <td><em>(opcional)</em><br />
+                  Endereço IPv4 do cliente<br />
+                  <strong>Max. 15 chars, string</strong>.
+                </td>
+              </tr>
+              <tr>
+                <td class="text-center">customer<br /></td>
+                <td>Objeto que contém os detalhes do cliente.<br />
+                  <a href="#customer">Veja abaixo</a>.
+                </td>
+              </tr>
+              <tr>
+                <td class="text-center">payment<br /></td>
+                <td>Array que contém os meios de pagamento.<br />
+                  <a href="#payment">Veja abaixo</a>.
+                </td>
+              </tr>
+              <tr>
+                <td class="text-center">billing<br /></td>
+                <td><em>(opcional)</em><br />
+                  Objeto que contém o endereço de cobrança.<br />
+                  <a href="#billing">Veja abaixo</a>.
+                </td>
+              </tr>
+              <tr>
+                <td class="text-center">shipping<br /></td>
+                <td><em>(opcional)</em><br />
+                  Objeto que contém o endereço de entrega.<br />
+                  <a href="#shipping">Veja abaixo</a>.
+                </td>
+              </tr>
+              <tr>
+                <td class="text-center">shopping_cart<br /></td>
+                <td>Array que contém os itens comprados.<br />
+                  <a href="#cart">Veja abaixo</a>.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-sm-5 lightgrey">
+          <div id="sample-curl-send" class="visible">
+            <h4>Exemplo de chamada</h4>
+            <pre class="codehighlight bash"><code>$ curl -u T738D516F09CAB3A2C1EE: -X POST \
+ -H 'Content-Type: application/json; charset=UTF-8' \
+ -d '{"id": <em>"string"</em>,
+      "visitor": <em>"string"</em>,
+      "total_amount": <em>"number"</em>,
+      "shipping_amount": <em>"number"</em>,
+      "tax_amount": <em>"number"</em>,
+      "currency": <em>"string"</em>,
+      "installments": <em>"integer"</em>,
+      "ip": <em>"string"</em>,
+      "customer": {...},
+      "payment": [...],
+      "billing": {...},
+      "shipping": {...},
+      "shopping_cart": [...]
+      }' \
+https://api.konduto.com/v1/orders</code></pre>
+          </div>
+          <div id="example-php-send" class="hidden">
+            <pre class="codehighlight php"><code>php div</code></pre>
+          </div>
+          <div id="example-java-send" class="hidden">
+            <pre class="codehighlight java"><code>java div</code></pre>
+          </div>
+          <div id="example-dotnet-send" class="hidden">
+            <pre class="codehighlight cs"><code>dotnet div</code></pre>
+          </div>
+          <div id="example-ruby-send" class="hidden">
+            <pre class="codehighlight ruby"><code>ruby div</code></pre>
+          </div>
+        </div>
+      </div>
+      <!-- END SEND ORDER ROOT -->
+      <div class="row" id="customer">
+        &nbsp;
+        <div class="col-sm-7"></div>
+        <div class="col-sm-5 lightgrey hidden-xs"></div>
+      </div>
+      <div class="row">
+        <!-- START CUSTOMER OBJECT -->
+        <div class="col-sm-7">
+          <h4>O Objeto 'Customer'</h4>
+          Este objeto deve ser usado para enviar informações sobre a pessoa que está fazendo a compra, que na maioria dos casos é aquele que está logado em seu sistema.
+          <br /><br />
+          Para passar informações sobre o portador do cartão ou o destinatário do produto você deve usar o objeto <code>billing</code> e <code>shipping</code>, respectivamente.
+          <br /><br />
+          <table class="table table-condensed table-striped">
+            <thead>
+              <tr>
+                <th class="text-center">Parâmetro</th>
+                <th>Descrição</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-center"><strong>id</strong></td>
+                <td>Identificador <strong>único</strong> do cliente. Pode ser qualquer valor (sequencial, documento, e-mail) desde que seja consistente em pedidos futuros.<br />
+                  <strong>Max. 100 chars, string</strong>.
+                </td>
+              </tr>
+              <tr>
+                <td class="text-center"><strong>name</strong></td>
+                <td>Nome completo do cliente.<br />
+                  <strong>Max. 100 chars, string</strong>.
+                </td>
+              </tr>
+              <tr>
+                <td class="text-center"><strong>tax_id</strong></td>
+                <td><em>(opcional)</em><br />
+                  Número de documento fiscal do cliente (CPF, CNPJ, etc).<br />
+                  <strong>Max. 100 chars, string</strong>.
+                </td>
+              </tr>
+              <tr>
+                <td class="text-center"><strong>phone1</strong></td>
+                <td><em>(opcional)</em><br />
+                  Número de telefone principal do cliente<br />
+                  <strong>Max. 100 chars, string</strong>.
+                </td>
+              </tr>
+              <tr>
+                <td class="text-center"><strong>phone2</strong></td>
+                <td><em>(opcional)</em><br />
+                  Número de telefone secundário do cliente.<br />
+                  <strong>Max. 100 chars, string</strong>.
+                </td>
+              </tr>
+              <tr>
+                <td class="text-center"><strong>email</strong></td>
+                <td><em>(opcional)</em><br />
+                  Endereço de e-mail do cliente.<br />
+                  <strong>Max. 100 chars, string</strong>.
+                </td>
+              </tr>
+              <tr>
+                <td class="text-center"><strong>new</strong></td>
+                <td><em>(opcional)</em><br />
+                  Flag indicando se o cliente está usando uma conta recém-criada nesta compra.<br />
+                  <strong>boolean</strong>.
+                </td>
+              </tr>
+              <tr>
+                <td class="text-center"><strong>vip</strong></td>
+                <td><em>(opcional)</em><br />
+                  Flag indicando se este é um cliente VIP ou comprador frequente.<br />
+                  <strong>boolean</strong>.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-sm-5 lightgrey">
+          <h4>Exemplo de chamada</h4>
+          <div id="sample-curl-customer" class="visible">
+            <pre class="codehighlight bash"><code>$ curl -u T738D516F09CAB3A2C1EE: -X POST \
+-H 'Content-Type: application/json; charset=UTF-8' \
+-d '{"id": <span id="order_id_1"></span>
+     "visitor": "f10e2821bbbe2313bc059445190d7ab4",
+     "total_amount": 2061.89,
+     "shipping_amount": 37.00,
+     "tax_amount": 206.18,
+     "currency": "BRL",
+     "installments": 5,
+     "ip": "187.10.182.200",
+     "customer": {
+       "id": "28372",
+       "name": "Marina Souza",
+       "tax_id": "613.815.776-10",
+       "phone1": "+559912345678",
+       "phone2": "(11)1234-5678",
+       "email": "msouza@exemplo.com.br",
+       "new": false,
+       "vip": false
+     }
+    }' \
+https://api.konduto.com/v1/orders</code></pre>
+          </div>
+          <div id="example-php-customer" class="hidden">
+            <pre class="codehighlight php"><code>php div</code></pre>
+          </div>
+          <div id="example-java-customer" class="hidden">
+            <pre class="codehighlight java"><code>java div</code></pre>
+          </div>
+          <div id="example-dotnet-customer" class="hidden">
+            <pre class="codehighlight cs"><code>dotnet div</code></pre>
+          </div>
+          <div id="example-ruby-customer" class="hidden">
+            <pre class="codehighlight ruby"><code>ruby div</code></pre>
+          </div>
+          <em><strong>Este exemplo funciona!</strong> Cole isto em seu terminal para mandar um pedido para o nosso ambiente de teste.</em>
+        </div>
+      </div>
+      <!-- END CUSTOMER OBJECT -->
+      <div class="row" id="payment">
+        &nbsp;
+        <div class="col-sm-7"></div>
+        <div class="col-sm-5 lightgrey hidden-xs"></div>
+      </div>
+      <div class="row">
+        <!-- START PAYMENT OBJECT -->
+        <div class="col-sm-7">
+          <h4>O Array 'Payment'</h4>
+          Este array de objetos deve ser usado para enviar informações sobre os meios de pagamentos usados na compra.
+          <br /><br />
+          Você pode mandar um pedido que contém <strong>múltiplos meios de pagamento</strong>, como compras com dois cartões de crédito.
+          <br /><br />
+          Atualmente nós suportamos apenas compras com <strong>cartão de crédito</strong>. Consulte com o <a href="mailto:support@konduto.com?subject=Payment%20method%20support">support</a> a respeito de outros meios de pagamento para análise.
+          <br /><br />
+          <div class="alert alert-info">
+            Nossa API não aceita o envio de números de cartões abertos. Se você não estiver usando nossos SDKs você deve fazer um hash do número de cartão de crédito do cliente usando <a href="https://en.wikipedia.org/wiki/SHA-1" class="alert-link" target="_blank">SHA1</a> antes de submeter a compra para nós.<br /><br />Não é necessário fazer hash se você estiver usando um dos nossos SDKs, pois eles já fazem isso. Por favor note que os campos <code>bin</code> e <code>last4</code> <strong>não devem</strong> ser hasheados.
+          </div>
+          <br />
+          <table class="table table-condensed table-striped">
+            <thead>
+              <tr>
+                <th class="text-center">Parâmetros</th>
+                <th>Descrição</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-center"><strong>type</strong></td>
+                <td>Meio de pagamento usado pelo cliente. Atualmente suportamos apenas <code>credit</code><br />
+                  <strong>Max. 6 chars, string</strong>.
+                </td>
+              </tr>
+              <tr>
+                <td class="text-center"><strong>sha1</strong></td>
+                <td>Hash <a href="https://en.wikipedia.org/wiki/SHA-1" target="_blank">SHA1</a> do cartão de crédito completo do cliente.<br />
+                  <strong>Exatamente 40 chars, string</strong>.
+                </td>
+              </tr>
+              <tr>
+                <td class="text-center"><strong>bin</strong></td>
+                <td>Os primeiros seis números do cartão de crédito. É usado para identificar o tipo de cartão usado.<br />
+                  <strong>Exatamente 6 chars, string</strong>.
+                </td>
+              </tr>
+              <tr>
+                <td class="text-center"><strong>last4</strong></td>
+                <td>Os últimos quatro dígitos do cartão de crédito.<br />
+                  <strong>Exatamente 4 chars, string</strong>.
+                </td>
+              </tr>
+              <tr>
+                <td class="text-center"><strong>expiration_date</strong></td>
+                <td><em>(opcional)</em><br />
+                  Data de validade do cartão no formato MMAAAA<br/>
+                  <strong>Exatamente 6 chars, string</strong>.
+                </td>
+              </tr>
+              <tr>
+                <td class="text-center"><strong>status</strong></td>
+                <td><em>(opcional)</em><br />
+                  O status do pagamento retornado pela operadora de cartão.<br />
+                  Pode ser <code>approved</code> (aprovado), <code>declined</code> (negado) ou <code>pending</code> (pendente), caso o pagamento não tenha sido feito ainda.<br />
+                  <strong>Max. 8 chars, string</strong>.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-sm-5 lightgrey">
+          <h4>Exemplo de chamada</h4>
+          <div id="sample-curl-payment" class="visible">
+            <pre class="codehighlight bash"><code>$ curl -u T738D516F09CAB3A2C1EE: -X POST \
+-H 'Content-Type: application/json; charset=UTF-8' \
+-d '{"id": <span id="order_id_2"></span>
+   "visitor": "f10e2821bbbe2313bc059445190d7ab4",
+   "total_amount": 2061.89,
+   "shipping_amount": 37.00,
+   "tax_amount": 206.18,
+   "currency": "BRL",
+   "installments": 5,
+   "ip": "187.10.182.200",
+   "customer": {
+     "id": "28372",
+     "name": "Marina Souza",
+     "email": "msouza@exemplo.com.br"
+   },
+   "payment": [
+    {
+     "type": "credit",
+     "sha1": "68bfb396f35af3876fc509665b3dc23a0930aab1",
+     "bin": "490172",
+     "last4": "0012",
+     "expiration_date": "072015",
+     "status": "approved"
+    },
+    {
+     "type": "credit",
+     "sha1": "4ef746d590bb85932caf8665e1d87637593e979d",
+     "bin": "514800",
+     "last4": "3752",
+     "expiration_date": "082016",
+     "status": "approved"
+    }
+   ] 
+   }' \
+https://api.konduto.com/v1/orders</code></pre>
+          </div>
+          <div id="example-php-payment" class="hidden">
+            <pre class="codehighlight php"><code>php div</code></pre>
+          </div>
+          <div id="example-java-payment" class="hidden">
+            <pre class="codehighlight java"><code>java div</code></pre>
+          </div>
+          <div id="example-dotnet-payment" class="hidden">
+            <pre class="codehighlight cs"><code>dotnet div</code></pre>
+          </div>
+          <div id="example-ruby-payment" class="hidden">
+            <pre class="codehighlight ruby"><code>ruby div</code></pre>
+          </div>
+          <em><strong>Este exemplo funciona!</strong> Cole isto em seu terminal para mandar um pedido para o nosso ambiente de teste.</em>
+        </div>
+      </div>
+      <!-- END PAYMENT OBJECT -->
+      <div class="row" id="billing">
+        &nbsp;
+        <div class="col-sm-7"></div>
+        <div class="col-sm-5 lightgrey hidden-xs"></div>
+      </div>
+      <div class="row">
+        <!-- START BILLING OBJECT -->
+        <div class="col-sm-7">
+          <h4>O Objeto 'Billing'</h4>
+          Este objeto deve conter informações do <strong>titular do cartão</strong>. É o mesmo nome e endereço que consta na fatura.
+          <br /><br />
+          <strong>Todos os parâmetros deste objeto são opcionais</strong>.
+          <br /><br />
+          <table class="table table-condensed table-striped">
+            <thead>
+              <tr>
+                <th class="text-center">Parâmetro</th>
+                <th>Descrição</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-center"><strong>name</strong></td>
+                <td><em>(opcional)</em><br />
+                  Nome do titular do cartão.<br />
+                  <strong>Max. 100 chars, string</strong>.
+                </td>
+              </tr>
+              <tr>
+                <td class="text-center"><strong>address1</strong></td>
+                <td><em>(opcional)</em><br />
+                  Endereço da fatura do cliente com o bnaco.<br />
+                  <strong>Max. 255 chars, string</strong>.
+                </td>
+              </tr>
+              <tr>
+                <td class="text-center"><strong>address2</strong></td>
+                <td><em>(opcional)</em><br />
+                  Complemento do endereço de fatura.<br />
+                  <strong>Max. 255 chars, string</strong>.
+                </td>
+              </tr>
+              <tr>
+                <td class="text-center"><strong>city</strong></td>
+                <td><em>(opcional)</em><br />
+                  Cidade do titular.<br />
+                  <strong>Max. 100 chars, string</strong>.
+                </td>
+              </tr>
+              <tr>
+                <td class="text-center"><strong>state</strong></td>
+                <td><em>(opcional)</em><br />
+                  Estado do titular<br />
+                  <strong>Max. 100 chars, string</strong>.
+                </td>
+              </tr>
+              <tr>
+                <td class="text-center"><strong>zip</strong></td>
+                <td><em>(opcional)</em><br />
+                  CEP do titular.<br />
+                  <strong>Max. 100 chars, string</strong>.
+                </td>
+              </tr>
+              <tr>
+                <td class="text-center"><strong>country</strong></td>
+                <td><em>(opcional)</em><br />
+                  Código do país do titular (<a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2" target="_blank">ISO 3166-1</a>)<br />
+                  <strong>Exatamente 2 chars, string</strong>.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-sm-5 lightgrey">
+          <h4>Exemplo de chamada</h4>
+          <div id="sample-curl-billing" class="visible">
+            <pre class="codehighlight bash"><code>$ curl -u T738D516F09CAB3A2C1EE: -X POST \
+-H 'Content-Type: application/json; charset=UTF-8' \
+-d '{"id": <span id="order_id_3"></span>
+     "visitor": "f10e2821bbbe2313bc059445190d7ab4",
+     "total_amount": 2061.89,
+     "shipping_amount": 37.00,
+     "tax_amount": 206.18,
+     "currency": "BRL",
+     "installments": 5,
+     "ip": "187.10.182.200",
+     "customer": {
+       "id": "28372",
+       "name": "Marina Souza",
+       "email": "msouza@exemplo.com.br"
+     },
+     "billing": {
+       "name": "Marina Souza",
+       "address1": "Avenida Paulista, 123",
+       "address2": "4o Andar",
+       "city": "São Paulo",
+       "state": "SP",
+       "zip": "012345-000",
+       "country": "BR"
+     }
+    }' \
+https://api.konduto.com/v1/orders</code></pre>
+          </div>
+          <div id="example-php-billing" class="hidden">
+            <pre class="codehighlight php"><code>php div</code></pre>
+          </div>
+          <div id="example-java-billing" class="hidden">
+            <pre class="codehighlight java"><code>java div</code></pre>
+          </div>
+          <div id="example-dotnet-billing" class="hidden">
+            <pre class="codehighlight cs"><code>dotnet div</code></pre>
+          </div>
+          <div id="example-ruby-billing" class="hidden">
+            <pre class="codehighlight ruby"><code>ruby div</code></pre>
+          </div>
+          <em><strong>Este exemplo funciona!</strong> Cole isto em seu terminal para mandar um pedido para o nosso ambiente de teste.</em>
+        </div>
+      </div>
+      <!-- END BILLING OBJECT -->
+      <div class="row" id="shipping">
+        &nbsp;
+        <div class="col-sm-7"></div>
+        <div class="col-sm-5 lightgrey hidden-xs"></div>
+      </div>
+      <div class="row">
+        <!-- START SHIPPING OBJECT -->
+        <div class="col-sm-7">
+          <h4>O Objeto 'Shipping'</h4>
+          Este objeto deve conter informações do <strong>destinatário</strong> que vai receber os produtos. Não há necessidade de enviá-lo caso você forneça um serviço ou download de software.
+          <br /><br />
+          <strong>Todos os parâmetros deste objeto são opcionais</strong>.
+          <br /><br />
+          <table class="table table-condensed table-striped">
+            <thead>
+              <tr>
+                <th class="text-center">Parâmetro</th>
+                <th>Descrição</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-center"><strong>name</strong></td>
+                <td><em>(opcional)</em><br />
+                  Nome completo do destinatário<br />
+                  <strong>Max. 100 chars, string</strong>.
+                </td>
+              </tr>
+              <tr>
+                <td class="text-center"><strong>address1</strong></td>
+                <td><em>(opcional)</em><br />
+                  Endereço de entrega do destinatário.<br />
+                  <strong>Max. 255 chars, string</strong>.
+                </td>
+              </tr>
+              <tr>
+                <td class="text-center"><strong>address2</strong></td>
+                <td><em>(opcional)</em><br />
+                  Complemento do endereço de entrega.<br />
+                  <strong>Max. 255 chars, string</strong>.
+                </td>
+              </tr>
+              <tr>
+                <td class="text-center"><strong>city</strong></td>
+                <td><em>(opcional)</em><br />
+                  Cidade do destinatário.<br />
+                  <strong>Max. 100 chars, string</strong>.
+                </td>
+              </tr>
+              <tr>
+                <td class="text-center"><strong>state</strong></td>
+                <td><em>(opcional)</em><br />
+                  Estado do destinatário.<br />
+                  <strong>Max. 100 chars, string</strong>.
+                </td>
+              </tr>
+              <tr>
+                <td class="text-center"><strong>zip</strong></td>
+                <td><em>(opcional)</em><br />
+                  CEP do destinatário.<br />
+                  <strong>Max. 100 chars, string</strong>.
+                </td>
+              </tr>
+              <tr>
+                <td class="text-center"><strong>country</strong></td>
+                <td><em>(opcional)</em><br />
+                  Código do país de entrega (<a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2" target="_blank">ISO 3166-1</a>)<br />
+                  <strong>Exatamente 2 chars, string</strong>.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-sm-5 lightgrey">
+          <h4>Exemplo de chamada</h4>
+          <div id="sample-curl-shipping" class="visible">
+            <pre class="codehighlight bash"><code>$ curl -u T738D516F09CAB3A2C1EE: -X POST \
+-H 'Content-Type: application/json; charset=UTF-8' \
+-d '{"id": <span id="order_id_4"></span>
+     "visitor": "f10e2821bbbe2313bc059445190d7ab4",
+     "total_amount": 2061.89,
+     "shipping_amount": 37.00,
+     "tax_amount": 206.18,
+     "currency": "BRL",
+     "installments": 5,
+     "ip": "187.10.182.200",
+     "customer": {
+       "id": "28372",
+       "name": "Marina Souza",
+       "email": "msouza@exemplo.com.br"
+     },
+     "shipping": {
+       "name": "Marina Souza",
+       "address1": "Avenida Paulista, 123",
+       "address2": "4o Andar",
+       "city": "São Paulo",
+       "state": "SP",
+       "zip": "012345-000",
+       "country": "BR"
+     }
+    }' \
+https://api.konduto.com/v1/orders</code></pre>
+          </div>
+          <div id="example-php-shipping" class="hidden">
+            <pre class="codehighlight php"><code>php div</code></pre>
+          </div>
+          <div id="example-java-shipping" class="hidden">
+            <pre class="codehighlight java"><code>java div</code></pre>
+          </div>
+          <div id="example-dotnet-shipping" class="hidden">
+            <pre class="codehighlight cs"><code>dotnet div</code></pre>
+          </div>
+          <div id="example-ruby-shipping" class="hidden">
+            <pre class="codehighlight ruby"><code>ruby div</code></pre>
+          </div>
+          <em><strong>Este exemplo funciona!</strong> Cole isto em seu terminal para mandar um pedido para o nosso ambiente de teste.</em>
+        </div>
+      </div>
+      <!-- END SHIPPING OBJECT -->
+      <div class="row" id="cart">
+        &nbsp;
+        <div class="col-sm-7"></div>
+        <div class="col-sm-5 lightgrey hidden-xs"></div>
+      </div>
+      <div class="row">
+        <!-- START CART OBJECT -->
+        <div class="col-sm-7">
+          <h4>O Array do Carrinho ('Shopping Cart')</h4>
+          Este <strong>array de objetos</strong> contém uma lista dos produtos que foram comprados neste pedido. Não existe limite para a quantidade de objetos que este array aceita.
+          <br /><br />
+          <strong>Todos os parâmetros deste array são opcionais</strong>.
+          <br /><br />
+          <table class="table table-condensed table-striped">
+            <thead>
+              <tr>
+                <th class="text-center">Parâmetro</th>
+                <th>Descrição</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-center"><strong>sku</strong></td>
+                <td><em>(opcional)</em><br />
+                  <a href="https://en.wikipedia.org/wiki/Stock-keeping_unit" target="_blank">SKU</a> ou número de inventário do produto ou serviço.<br />
+                  <strong>Max. 100 chars, string</strong>.
+                </td>
+              </tr>
+              <tr>
+                <td class="text-center"><strong>product_code</strong></td>
+                <td><em>(opcional)</em><br />
+                  Código de barras ou <a href="https://en.wikipedia.org/wiki/Universal_Product_Code" target="_blank">UPC</a> do produto ou serviço.<br />
+                  <strong>Max. 100 chars, string</strong>.
+                </td>
+              </tr>
+              <tr>
+                <td class="text-center"><strong>category</strong></td>
+                <td><em>(opcional)</em><br />
+                  Código da categoria do produto comprado.<br />
+                  Veja nossa <a href="#tables">lista de categorias</a> para mais informações.<br />
+                  <strong>Max. 4 dígitos, número</strong>.
+                </td>
+              </tr>
+              <tr>
+                <td class="text-center"><strong>name</strong></td>
+                <td><em>(opcional)</em><br />
+                  Nome do produto ou serviço.<br />
+                  <strong>Max. 100 chars, string</strong>.
+                </td>
+              </tr>
+              <tr>
+                <td class="text-center"><strong>description</strong></td>
+                <td><em>(opcional)</em><br />
+                  Descrição de detalhada do produto ou serviço.<br />
+                  <strong>Max. 100 chars, string</strong>.
+                </td>
+              </tr>
+              <tr>
+                <td class="text-center"><strong>unit_cost</strong></td>
+                <td><em>(opcional)</em><br />
+                  Custo unitário deste produto ou serviço.<br />
+                  <strong>Max. 10 dígitos, número</strong>.
+                </td>
+              </tr>
+              <tr>
+                <td class="text-center"><strong>quantity</strong></td>
+                <td><em>(opcional)</em><br />
+                  Quantidade de unidades compradas.<br />
+                  <strong>Max. 10 dígitos, número</strong>.
+                </td>
+              </tr>
+              <tr>
+                <td class="text-center"><strong>discount</strong></td>
+                <td><em>(opcional)</em><br />
+                  Valor de desconto do produto.<br />
+                  <strong>Max. 10 dígitos, número</strong>.
+                </td>
+              </tr>
+              <tr>
+                <td class="text-center"><strong>image</strong></td>
+                <td><em>(opcional)</em><br />
+                  URL da imagem do produto.<br />
+                  <strong>Max. 255 chars, string</strong>.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-sm-5 lightgrey">
+          <h4>Exemplo de chamada</h4>
+          <div id="sample-curl-cart" class="visible">
+            <pre class="codehighlight bash"><code>$ curl -u T738D516F09CAB3A2C1EE: -X POST \
+-H 'Content-Type: application/json; charset=UTF-8' \
+-d '{"id": <span id="order_id_5"></span>
+     "visitor": "f10e2821bbbe2313bc059445190d7ab4",
+     "total_amount": 2061.89,
+     "shipping_amount": 37.00,
+     "tax_amount": 206.18,
+     "currency": "BRL",
+     "installments": 5,
+     "ip": "187.10.182.200",
+     "customer": {
+       "id": "28372",
+       "name": "Marina Souza",
+       "email": "msouza@exemplo.com.br"
+     },
+     "shopping_cart": [
+      {
+        "sku": "9919023",
+        "product_code": "885370702903",
+        "category": "716",
+        "name": "Xbox One",
+        "description": "Xbox One Promoção",
+        "unit_cost": 1999.99,
+        "quantity": 1,
+        "discount": 0.00,
+        "image": "http://img.kdt.li/xbox.jpg"
+      },
+      {
+        "sku": "0017273",
+        "product_code": "602527779089",
+        "category": "2601",
+        "name": "CD Nirvana Nevermind",
+        "description": "CD Nirvana Nevermind",
+        "unit_cost": 29.90,
+        "quantity": 1,
+        "discount": 5.00,
+        "image": "http://img.kdt.li/nevermind.jpeg"
+      }
+     ]
+    }' \
+https://api.konduto.com/v1/orders</code></pre>
+          </div>
+          <div id="example-php-cart" class="hidden">
+            <pre class="codehighlight php"><code>php div</code></pre>
+          </div>
+          <div id="example-java-cart" class="hidden">
+            <pre class="codehighlight java"><code>java div</code></pre>
+          </div>
+          <div id="example-dotnet-cart" class="hidden">
+            <pre class="codehighlight cs"><code>dotnet div</code></pre>
+          </div>
+          <div id="example-ruby-cart" class="hidden">
+            <pre class="codehighlight ruby"><code>ruby div</code></pre>
+          </div>
+          <em><strong>Este exemplo funciona!</strong> Cole isto em seu terminal para mandar um pedido para o nosso ambiente de teste.</em>
+        </div>
+      </div>
+      <!-- END CART OBJECT -->
+      <div class="row" id="put">
+        &nbsp;
+        <div class="col-sm-7"></div>
+        <div class="col-sm-5 lightgrey hidden-xs"></div>
+      </div>
+      <!-- START PUT ORDER -->
+      <div class="row">
+        <div class="col-sm-7">
+          <h3>6. Atualizar um pedido</h3>
+          Você pode atualiar o <code>status</code> de um pedido programáticamente através do método <strong>PUT</strong> e passando um JSON no corpo da requisição.
+          <br /><br />
+          A chamada consiste em um objeto simples que contém dois campos, <code>status</code> e <code>comments</code>.
+          <br /><br />
+          Você também pode atualizar o status de um pedido no nosso <a href="#">dashboard</a>.
+          <br /><br />
+          <table class="table table-condensed table-striped">
+              <thead>
+                <tr>
+                  <th class="text-center">Parâmetros</th>
+                  <th>Descrição</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="text-center">status<br /></td>
+                  <td>Novo status deste pedido.<br />
+                    Pode ser <code>approved</code> (aprovado), <code>declined</code> (negado) ou <code>fraud</code> (fraude), quando você identificou uma fraude ou chargeback.<br />
+                    <strong>Max. 8 chars, string</strong>.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="text-center">comments<br /></td>
+                  <td>Razão ou comentários sobre a atualização do status.<br />
+                    <strong>Max. 255 chars, string</strong>.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+        <div class="col-sm-5 lightgrey">
+          <div id="sample-curl-update" class="visible">
+            <h4>Exemplo de chamada</h4>
+            <pre class="codehighlight bash"><code>$ curl -u T738D516F09CAB3A2C1EE: -X PUT \
+ -H 'Content-Type: application/json; charset=UTF-8' \
+ -d '{"status": "approve",
+      "comments": "Talked to the customer and confirmed 
+      their billing address."
+      }' \
+https://api.konduto.com/v1/orders/<strong>{order_id}</strong></code></pre>
+            <h4>Exemplo de resposta</h4>
+            <pre class="codehighlight json"><code><strong>HTTP Status Code: 200 OK</strong>
+
+{
+  "old_status": "review",
+  "new_satus": "approve"
+}</code></pre>
+          </div>
+          <div id="example-php-update" class="hidden">
+            <pre class="codehighlight php"><code>php div</code></pre>
+          </div>
+          <div id="example-java-update" class="hidden">
+            <pre class="codehighlight java"><code>java div</code></pre>
+          </div>
+          <div id="example-dotnet-update" class="hidden">
+            <pre class="codehighlight cs"><code>dotnet div</code></pre>
+          </div>
+          <div id="example-ruby-update" class="hidden">
+            <pre class="codehighlight ruby"><code>ruby div</code></pre>
+          </div>
+        </div>
+      </div>
+      <!-- END PUT ORDER -->
+      <div class="row" id="get">
+        &nbsp;
+        <div class="col-sm-7"></div>
+        <div class="col-sm-5 lightgrey hidden-xs"></div>
+      </div>
+      <!-- START GET ORDER -->
+      <div class="row">
+        <div class="col-sm-7">
+          <h3>7. Bucar um pedido</h3>
+          Você pode buscar os dados de um pedido usando o método <strong>GET</strong>. A resposta será um JSON com todos os dados que temos sonbre o pedido, incluindo <code>recommendation</code>, <code>score</code> e o <code>status</code> atual.
+        </div>
+        <div class="col-sm-5 lightgrey">
+          <div id="sample-get" class="visible">
+            <h4>Exemploe de chamada</h4>
+            <pre>$ curl -u T738D516F09CAB3A2C1EE: -X GET \
+  https://api.konduto.com/v1/orders/<strong>{order_id}</strong></pre>
+            <h4>Response example</h4>
+            <pre class="codehighlight json"><code><strong>HTTP Status Code: 200 OK</strong>
+
+{
+  "id": "28318372133",
+  "visitor": "f10e2821bbbea527ea02200352313bc059445190",
+  "timestamp": 1389047680,
+  "score": 0.75,
+  "recommendation": "review",
+  "status": "declined",
+  "device": {
+    "user_id": "405961fab293600daeed93ae561",
+    "fingerprint": "e4f2c690951038a8f77aa583847",
+    "platform": "MacIntel",
+    "browser": "Chrome",
+    "language": "en_US",
+    "timezone": "-3",
+    "cookie": true,
+    "javascript":  true,
+    "flash": true,
+    "ip": "187.10.182.200",
+    "geolocation": {
+      "city": "SAO PAULO",
+      "state": "SP",
+      "country": "BR"
+    }
+  },
+  "total_amount": 2061.89,
+  "shipping_amount": 37.00,
+  "tax_amount": 206.18,
+  "currency": "BRL",
+  "installments": 5,
+  "payment": [
+    {
+      "type": "credit",
+      "sha1": "68bfb396f35af3876fc509665b3dc23a0930aab1",
+      "bin": "490172",
+      "last4": "0012",
+      "expiration_date": "102015",
+      "status": "approved"
+    }
+  ],
+  "customer": {
+    "id": "28372",
+    "name": "Marina Souza",
+    "tax_id": "613.815.776-10",
+    "phone1": "+559912345678",
+    "phone2": "(11)1234-5678",
+    "email": "msouza@exemplo.com.br",
+    "ip": "123.123.123.123",
+    "new": false,
+    "vip": false
+  },
+  "billing": {
+    "name": "Marina Souza",
+    "address1": "Avenida Paulista, 123",
+    "address2": "4o Andar",
+    "city": "São Paulo",
+    "state": "SP",
+    "zip": "012345-000",
+    "country": "BR"
+  },
+  "shipping": {
+    "name": "Marina Souza,
+    "address1": "Av. Paulista, 123",
+    "address2": "Quarto Andar",
+    "city": "São Paulo",
+    "state": "SP",
+    "zip": "12345000",
+    "country": "BR"
+  },
+  "shopping_cart": [
+  {
+    "sku": "9919023",
+    "product_code": "885370702903",
+    "category": "716",
+    "name": "Xbox One",
+    "description": "Xbox One Promoção",
+    "unit_cost": 1999.99,
+    "quantity": 1,
+    "discount": 0.00,
+    "image": "http://img.kdt.li/xbox.jpg"
+  },
+  {
+    "sku": "0017273",
+    "product_code": "602527779089",
+    "category": "2601",
+    "name": "CD Nirvana Nevermind",
+    "description": "CD Nirvana Nevermind",
+    "unit_cost": 29.90,
+    "quantity": 1,
+    "discount": 5.00,
+    "image": "http://img.kdt.li/nevermind.jpeg"
+  }
+  ]
+}</code></pre>
+          </div>
+        </div>
+      </div>
+      <!-- END GET ORDER -->
+      <div class="row" id="tables">
+        &nbsp;
+        <div class="col-sm-7"></div>
+        <div class="col-sm-5 lightgrey xhidden-s"></div>
+      </div>
+      <!-- START REFERENCES -->
+      <div class="row">
+        <div class="col-sm-7">
+          <h3>8. Tabelas de Referências</h3>
+          Abaixo você encontrará as tabelas de referência que contém informações adicionais sobre os parâmetros das chamadas, especificamente <code>currency</code> e o código da lista de <code>category</code>.
+        </div>
+        <div class="col-sm-5 lightgrey hidden-xs"></div>
+      </div>
+      <!-- END REFERENCES -->
+      <!-- START CURRENCIES -->
+      <div class="row">
+        <div class="col-sm-7">
+          <h4>Moedas Mais Usadas</h4>
+          <table class="table table-condensed table-striped">
+            <thead>
+              <tr>
+                <th class="text-center">Código</th>
+                <th>Moeda</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-center"><strong>USD</strong></td>
+                <td>Dólar Americano ($)</td>
+              </tr>
+              <tr>
+                <td class="text-center"><strong>BRL</strong></td>
+                <td>Real Brasileiro (R$)</td>
+              </tr>
+              <tr>
+                <td class="text-center"><strong>ARS</strong></td>
+                <td>Peso Argentino ($)</td>
+              </tr>
+              <tr>
+                <td class="text-center"><strong>AUD</strong></td>
+                <td>Dólar Australiano ($)</td>
+              </tr>
+              <tr>
+                <td class="text-center"><strong>CAD</strong></td>
+                <td>Dólar Canadense ($)</td>
+              </tr>
+              <tr>
+                <td class="text-center"><strong>CLP</strong></td>
+                <td>Pelo Chileno ($)</td>
+              </tr>
+              <tr>
+                <td class="text-center"><strong>EUR</strong></td>
+                <td>Euro (€)</td>
+              </tr>
+              <tr>
+                <td class="text-center"><strong>GBP</strong></td>
+                <td>Libra Esterlina (£)</td>
+              </tr>
+              <tr>
+                <td class="text-center"><strong>JPY</strong></td>
+                <td>Yen Japonês (¥)</td>
+              </tr>
+              <tr>
+                <td class="text-center"><strong>MXP</strong></td>
+                <td>Peso Mexicano ($)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-sm-5 lightgrey">
+          <h4>Lista completa de moedas</h4>
+          Aqui nós listamos apenas as moedas mais usadas. Você pode encontrar a lista completa de códigos de moeda na <a href="https://en.wikipedia.org/wiki/ISO_4217" target="_blank">Wikipedia</a>.
+        </div>
+      </div>
+      <!-- END CURRENCIES -->
+      <!-- START CATEGORIES -->
+      <div class="row">
+        <div class="col-sm-7">
+          <h4>Categorias de Produto</h4>
+          <table class="table table-condensed">
+            <thead>
+              <tr>
+                <th>Descrição</th>
+                <th class="text-center">Código</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="warning">
+                <td><strong>Animals & Pet Supplies</strong></td>
+                <td class="text-center">100</td>
+              </tr>
+              <tr class="warning">
+                <td colspan="2"><strong>Roupas e Acessórios</strong></td>
+              </tr>
+              <tr>
+                <td>Roupas em geral</td>
+                <td class="text-center">201</td>
+              </tr>
+              <tr>
+                <td>Accessórios em geral</td>
+                <td class="text-center">202</td>
+              </tr>
+              <tr>
+                <td>Fantasias e Acessórios</td>
+                <td class="text-center">203</td>
+              </tr>
+              <tr>
+                <td>Acessórios para Bolsas e Carteiras</td>
+                <td class="text-center">204</td>
+              </tr>
+              <tr>
+                <td>Bolsas, Carteiras e Malas</td>
+                <td class="text-center">205</td>
+              </tr>
+              <tr>
+                <td>Jóias</td>
+                <td class="text-center">206</td>
+              </tr>
+              <tr>
+                <td>Acessórios para sapatos</td>
+                <td class="text-center">207</td>
+              </tr>
+              <tr>
+                <td>Sapatos</td>
+                <td class="text-center">208</td>
+              </tr>
+              <tr>
+                <td>Outros</td>
+                <td class="text-center">299</td>
+              </tr>
+              <tr class="warning">
+                <td><strong>Arte e Entretenimento</strong></td>
+                <td class="text-center">300</td>
+              </tr>
+              <tr class="warning">
+                <td><strong>Bebês e Recém-nascidos</strong></td>
+                <td class="text-center">400</td>
+              </tr>
+              <tr class="warning">
+                <td colspan="2"><strong>Negócios e Indústria</strong></td>
+              </tr>
+              <tr>
+                <td>Propaganda e Marketing</td>
+                <td class="text-center">501</td>
+              </tr>
+              <tr>
+                <td>Agricultura</td>
+                <td class="text-center">502</td>
+              </tr>
+              <tr>
+                <td>Construção</td>
+                <td class="text-center">503</td>
+              </tr>
+              <tr>
+                <td>Filme e Televisão</td>
+                <td class="text-center">504</td>
+              </tr>
+              <tr>
+                <td>Finanças e Seguros</td>
+                <td class="text-center">505</td>
+              </tr>
+              <tr>
+                <td>Serviços de Comida</td>
+                <td class="text-center">506</td>
+              </tr>
+              <tr>
+                <td>Madeireiras</td>
+                <td class="text-center">507</td>
+              </tr>
+              <tr>
+                <td>Maquinário Pesado</td>
+                <td class="text-center">508</td>
+              </tr>
+              <tr>
+                <td>Hotel e Hospedagem</td>
+                <td class="text-center">509</td>
+              </tr>
+              <tr>
+                <td>Armazém Industrial</td>
+                <td class="text-center">510</td>
+              </tr>
+              <tr>
+                <td>Law Enforcement</td>
+                <td class="text-center">511</td>
+              </tr>
+              <tr>
+                <td>Manufatura</td>
+                <td class="text-center">512</td>
+              </tr>
+              <tr>
+                <td>Material Handling</td>
+                <td class="text-center">513</td>
+              </tr>
+              <tr>
+                <td>Médico</td>
+                <td class="text-center">514</td>
+              </tr>
+              <tr>
+                <td>Mineração</td>
+                <td class="text-center">515</td>
+              </tr>
+              <tr>
+                <td>Piercing e tatuagem</td>
+                <td class="text-center">516</td>
+              </tr>
+              <tr>
+                <td>Varejo</td>
+                <td class="text-center">517</td>
+              </tr>
+              <tr>
+                <td>Ciência e Laboratório</td>
+                <td class="text-center">518</td>
+              </tr>
+              <tr>
+                <td>Signage</td>
+                <td class="text-center">519</td>
+              </tr>
+              <tr>
+                <td>Equipamento de Segurança do Trabalho</td>
+                <td class="text-center">520</td>
+              </tr>
+              <tr>
+                <td>Outros</td>
+                <td class="text-center">599</td>
+              </tr>
+              <tr class="warning">
+                <td colspan="2"><strong>Câmeras e Óticas</strong></td>
+              </tr>
+              <tr>
+                <td>Câmeras</td>
+                <td class="text-center">601</td>
+              </tr>
+              <tr>
+                <td>Acessórios de câmeras</td>
+                <td class="text-center">602</td>
+              </tr>
+              <tr>
+                <td>Fotografia</td>
+                <td class="text-center">603</td>
+              </tr>
+              <tr>
+                <td>Outros</td>
+                <td class="text-center">699</td>
+              </tr>
+              <tr class="warning">
+                <td colspan="2"><strong>Eletrônicos</strong></td>
+              </tr>
+              <tr>
+                <td>Impressoras 3D</td>
+                <td class="text-center">701</td>
+              </tr>
+              <tr>
+                <td>Áudio</td>
+                <td class="text-center">702</td>
+              </tr>
+              <tr>
+                <td>Componentes de Circuito</td>
+                <td class="text-center">703</td>
+              </tr>
+              <tr>
+                <td>Comunicação</td>
+                <td class="text-center">704</td>
+              </tr>
+              <tr>
+                <td>Componentes</td>
+                <td class="text-center">705</td>
+              </tr>
+              <tr>
+                <td>Computadores</td>
+                <td class="text-center">706</td>
+              </tr>
+              <tr>
+                <td>Acessórios Eletrônicos</td>
+                <td class="text-center">707</td>
+              </tr>
+              <tr>
+                <td>Aparelho GPS</td>
+                <td class="text-center">708</td>
+              </tr>
+              <tr>
+                <td>Acessórios de GPS</td>
+                <td class="text-center">709</td>
+              </tr>
+              <tr>
+                <td>Rastreadores GPS</td>
+                <td class="text-center">710</td>
+              </tr>
+              <tr>
+                <td>Redes</td>
+                <td class="text-center">711</td>
+              </tr>
+              <tr>
+                <td>Impressão, Cópia, Scanner e Fax</td>
+                <td class="text-center">712</td>
+              </tr>
+              <tr>
+                <td>Acessórios de Impressão, Cópia, Scanner e Fax</td>
+                <td class="text-center">713</td>
+              </tr>
+              <!--<tr>
+                <td>Toll Collection Devices</td>
+                <td class="text-center">714</td>
+              </tr>-->
+              <tr>
+                <td>Vídeo</td>
+                <td class="text-center">715</td>
+              </tr>
+              <tr>
+                <td>Consoles de Vídeo Game</td>
+                <td class="text-center">716</td>
+              </tr>
+              <tr>
+                <td>Acessórios de Vídeo Game</td>
+                <td class="text-center">717</td>
+              </tr>
+              <tr>
+                <td>Outros</td>
+                <td class="text-center">799</td>
+              </tr>
+              <tr class="warning">
+                <td><strong>Comidas, Bebicas e Cigarro</strong></td>
+                <td class="text-center">800</td>
+              </tr>
+              <tr class="warning">
+                <td><strong>Móveis</strong></td>
+                <td class="text-center">900</td>
+              </tr>
+              <tr class="warning">
+                <td><strong>Ferramentas</strong></td>
+                <td class="text-center">1000</td>
+              </tr>
+              <tr class="warning">
+                <td><strong>Saúde e Beleza</strong></td>
+                <td class="text-center">1100</td>
+              </tr>
+              <tr class="warning">
+                <td><strong>Casa e Jardim</strong></td>
+                <td class="text-center">1200</td>
+              </tr>
+              <tr class="warning">
+                <td><strong>Malas e Bagagens</strong></td>
+                <td class="text-center">1300</td>
+              </tr>
+              <tr class="warning">
+                <td><strong>Adulto</strong></td>
+                <td class="text-center">1400</td>
+              </tr>
+              <tr class="warning">
+                <td><strong>Armas e Munição</strong></td>
+                <td class="text-center">1500</td>
+              </tr>
+              <tr class="warning">
+                <td><strong>Materiais de Escritório</strong></td>
+                <td class="text-center">1600</td>
+              </tr>
+              <tr class="warning">
+                <td><strong>Religião e Cerimoniais</strong></td>
+                <td class="text-center">1700</td>
+              </tr>
+              <tr class="warning">
+                <td colspan="2"><strong>Software</strong></td>
+              </tr>
+              <tr>
+                <td>Software de Computador</td>
+                <td class="text-center">1801</td>
+              </tr>
+              <tr>
+                <td>Bens e Moedas Digitais</td>
+                <td class="text-center">1802</td>
+              </tr>
+              <tr>
+                <td>Serviços Digitais</td>
+                <td class="text-center">1803</td>
+              </tr>
+              <tr>
+                <td>Jogos de Vídeo Games</td>
+                <td class="text-center">1804</td>
+              </tr>
+              <tr>
+                <td>Outros</td>
+                <td class="text-center">1899</td>
+              </tr>
+              <tr class="warning">
+                <td><strong>Equipamento de Esporte</strong></td>
+                <td class="text-center">1900</td>
+              </tr>
+              <tr class="warning">
+                <td><strong>Brinquedos e Jogos</strong></td>
+                <td class="text-center">2000</td>
+              </tr>
+              <tr class="warning">
+                <td><strong>Veículos e Peças</strong></td>
+                <td class="text-center">2100</td>
+              </tr>
+              <!-- <tr class="warning">
+                <td><strong>Sporting Goods</strong></td>
+                <td class="text-center">2200</td>
+              </tr> -->
+              <tr class="warning">
+                <td><strong>Livros</strong></td>
+                <td class="text-center">2300</td>
+              </tr>
+              <tr class="warning">
+                <td><strong>DVDs e Vídeos</strong></td>
+                <td class="text-center">2400</td>
+              </tr>
+              <tr class="warning">
+                <td><strong>Revistas e Jornais</strong></td>
+                <td class="text-center">2500</td>
+              </tr>
+              <tr class="warning">
+                <td colspan="2"><strong>Música</strong></td>
+              </tr>
+              <tr>
+                <td>CDs e Vinil</td>
+                <td class="text-center">2601</td>
+              </tr>
+              <tr>
+                <td>Instrumentos Musicais</td>
+                <td class="text-center">2602</td>
+              </tr>
+              <tr>
+                <td>Música Digital</td>
+                <td class="text-center">2603</td>
+              </tr>
+              <tr>
+                <td>Outros</td>
+                <td class="text-center">2699</td>
+              </tr>
+              <tr class="warning">
+                <td><strong>Outros</strong></td>
+                <td class="text-center">9999</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-sm-5 lightgrey">
+          <h4>O que são as categorias?</h4>
+          Categorias de produto são importantes pois elas nos dizem o tipo de produto que o cliente está comprando (sapatos, jóiais ou um GPS). Comprar um TV é muito diferente de comprar um livro, então <strong>as categorias fazem diferença para nós</strong>.
+          <br /><br />
+          Esta lista foi baseada na <a href="https://support.google.com/merchants/answer/160081" target="_blank">taxonomia de produtos</a> do Google e elas representam os principais agrupamentos de produtos.
+          <br /><br />
+          Se você acha que há alguma categoria faltando fique à vontade para nos contactar no <a href="mailto:hi@konduto.com?subject=Product%20category%20suggestion">hi@konduto.com</a> e nos avisar!
+        </div>
+      </div>
+      <!-- END CATEGORIES -->
+      <div class="row" id="changelog">
+        &nbsp;
+        <div class="col-sm-7"></div>
+        <div class="col-sm-5 lightgrey hidden-xs"></div>
+      </div>
+      <!-- START CHANGELOG -->
+      <div class="row">
+        <div class="col-sm-7">
+          <h3>9. Changelog</h3>
+          <br />
+          <table class="table table-condensed table-striped">
+              <thead>
+                <tr>
+                  <th class="text-center">Data</th>
+                  <th>Mudanças</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="text-center">2014-03-31<br /></td>
+                  <td>Versão inicial deste documento.<br /></td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+        <div class="col-sm-5 lightgrey">
+          <!-- <h4>Versões antigas</h4>
+          Este documento está hospedado nas páginas do Github. Para versões anteriores visit <a href="#"> o repositório</a>. -->
+        </div>
+      </div>
+      <!-- END CHANGELOG -->
+    </div>
+    <!-- END CONTAINER -->
+    <!-- FOOTER ->
+    <div id="container-fluid">
+      <div class="row-fluid footer">
+        <div class="col-sm-12 text-left">
+          <small><em>
+            Konduto © <script>document.write(new Date().getFullYear());</script>. Todos os direitos reservados.
+          </em></small>
+        </div>
+      </div>
+    </div>
+    <!- END FOOTER -->
+    <script type="text/javascript" src="//code.jquery.com/jquery.js"></script>
+    <script>window.jQuery || document.write('<script type="text/javascript" src="../assets/js/jquery.min.js">\x3C/script>')</script>
+    <script type="text/javascript" src="../assets/js/kdtdocs.js"></script>
+    <script type="text/javascript" src="../assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../assets/js/highlight.pack.js"></script>
+    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
