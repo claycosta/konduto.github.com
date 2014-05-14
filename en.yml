@@ -1,0 +1,240 @@
+---
+intro: 
+  title: "Introduction"
+  welcome: "Welcome! This document will explain how to integrate with Konduto's anti-fraud service so you can begin to spot fraud on your e-commerce website."
+  goals: "Once you are setup we will be able to see how customers use your site (how they browse, what they see, how long they were there), ask us what we think about an order that was placed and receive a recommendation of what to do and a score."
+  requirements: "Our service uses the visitor's behavior to analyze browsing patterns and detect fraud. You will need to add a JavaScript snippet to your website and tag your pages, so we can see your visitors, and call our REST API to send purchases, so we can analyze them."
+  feedback: "We are constantly improving this document and we appreciate any feedback you have. You can drop us a line at hi@konduto.com with questions and suggestions about how to improve it."
+
+snippet: 
+  title: "JavaScript snippet"
+  summary: "We capture the customer's buying behavior to spot fraudulent activities. You will need to paste a JavaScript snippet at the botton of your website so we can receive this data and analyze it."
+  description: "This snippet does not affect the performance of your website and is invisible to your visitor. Among many things it creates a unique id for each visitor, which you'll need to recover before sending the purchase to us for analysis."
+  install: "To install copy this code just before your closing </body> tag:"
+  recover: "To recover the visitor id simply call the getKondutoID() method:"
+
+tags: 
+  title: "Page tags"
+  summary: "Page tagging allows us to have a deeper understanding of the content you are displaying on your website. This will help us determine what a visitor is seeing and doing on your page and will greatly increase our algorithms precision, so it's highly recommended you use them."
+  description: "To tag a page add our <meta> tags to your header. They will tell us what kind of page you are serving and, optionally, what product or category of products are displayed there."
+  example_home: "This is an example of a tag you place on your home page"
+  example_product: "Here we have a product display tag"
+  example_reset: "And this is a tag you place on your password-reset page"
+  supported_table: "Below you will find the list of <meta> tags currently supported:"
+
+api: 
+  title: "REST API"
+  summary: "Once a customer makes a purchase you must send the order information to us through our REST API so we can analyze it. We perform a real-time analysis and return you a recommendation of what to do next and a score, a numeric confidence level about that order."
+  description: "While many of the parameters we accept are optional we highly recommend you send all you can, because every data point matters for the analysis. The billing address and credit card information are specially important, though we understand there are cases where you don't have that information."
+  endpoints: "API endpoint and resources"
+  request_example: "Request example"
+  response_example: "Response example"
+  working_example: "This is a working example! Paste this in your terminal to send a transaction to our sandbox environment."
+
+  getting_started: 
+    title: "Getting started with the API"
+    api_key: "You will need an API key to authenticate the requests. Luckly for you the examples below have been populated with a working key, so you can just copy and paste to see how it works."
+    authentication: "We use HTTP Basic Auth to authenticate merchants. The API key needs to be passed as your basic auth username and we don't require a password."
+    methods_available: "There are 3 operations you can execute with our API:"
+    method--post: "Send an order for analysis (POST)"
+    method--put: "Update the status of an order (PUT)"
+    method--get: "Retrieve the data for an order (GET)"
+    https: "Please note that all requests must be made over HTTPS. Requests received over plain HTTP will be dropped."
+
+  status_codes:
+    title: "Status codes & errors"
+    summary: "Our API uses HTTP response codes to indicate the result of a request. Successful requests will be replied with a 200 code while failed requests will contain other response codes. There is also a <code>status</code> parameter is the response body indicating whether a request was successful or not."
+    response_codes: "HTTP Response Codes"
+    example_success: "Successful response example"
+    example_fail: "Failed response example" 
+
+post:
+  title: "Send an order for analysis"
+  summary: "You can send new transactions using the POST method and passing a JSON in the request's body."
+  description: "The request consists of a root object containing information related to the order as well as a customer, billing and shipping objects and the payment and shopping_cart arrays."
+
+  root_obj:
+    title: "The Root Object"
+
+  customer_obj:
+    title: "The Customer Object"
+    summary: "This object should be used to send information about the person making the purchase, which most often is the one logged into your system."
+    description: "To pass information about the cardholder or the recipient please use the billing and shipping objects, respectively."
+
+  payment_arr:
+    title: "The Payment Array"
+    summary: "This array of objects should be used to send information about the payment method used to make the purchase. "
+    description: "You can send a transaction that contains multiple payment methods, such as purchases with two different credit cards. "
+    payment_methods: "Currently we only support credit card transactions, so you should check with support about using Konduto with other payment types."
+    sha1_disclaimer: "Our API does not accept plaintext credit card numbers. If you are not using one of our SDKs you must hash the customer's card number with SHA1 before submitting the order.<br><br>There's no need to hash the values if you are using our SDK, as it already does that. Please note that the bin and last4 fields must not be hashed."
+
+  billing_obj:
+    title: "This object should contain information from the cardholder. It's the same name and address their bank has on file."
+    description: ""
+
+  shipping_obj:
+    title: "This object should contain information from the recipient that will receive the goods. There's no need to send it if you are providing a service or a software download. "
+    description: ""
+
+  cart_arr:
+    title: "The Shopping Cart Array"
+    summary: "This cointains an array of objects which list the items that were purchased in this order. There are no limits to the number of objects this array receives."
+    description: ""
+      
+
+put:
+  title: "Update an order"
+  summary: "You can update the status of a transaction programatically through the PUT method and passing a JSON in the request's body."
+  description: "The request consists of simple object containing two parameters, status and comments."
+
+get:
+  title: "Query an order"
+  summary: "You can query an order using the GET method. The response will be a JSON with all the information we have about that order, including recommendation, score and current status."
+  description: ""
+
+
+extras:
+  currency--title: "Full currency list"
+  currency--text: "Here we list the most popular currencies used. You can find a full list of currency codes at Wikipedia."
+  categories--title: "What are categories?"
+  categories--text: "Product categories are important because they tell us what type of items the customer is buying (shoes, jewelry or a GPS). Getting a TV is very different from getting a book, so categories matter for us.<br><br>These are loosely based on Google's product taxonomy and they represent the main categories in which you can group items into.<br><br>If you think there's a category missing feel free to contact us at hi@konduto.com and let us know!"
+
+tables:
+  codes:
+    key1: "value1"
+    key2: "value2"
+
+  sandbox:
+    key1: "value1"
+    key2: "value2"
+
+  response:
+    key1: "value1"
+    key2: "value2"
+
+  root_obj:
+    key1: "value1"
+    key2: "value2"
+
+  customer_obj:
+    key1: "value1"
+    key2: "value2"
+
+  billing_obj:
+    key1: "value1"
+    key2: "value2"
+
+  shipping_obj:
+    key1: "value1"
+    key2: "value2"
+
+  payment_arr:
+    key1: "value1"
+    key2: "value2"
+
+  cart_arr:
+    key1: "value1"
+    key2: "value2"
+
+  changelog:
+    key1: "value1"
+    key2: "value2"
+
+  currency:
+    usd: "United States Dollar ($)"
+    brl: "Brazilian Real (R$)"
+    ars: "Argentinian Peso ($)"
+    aud: "Australian Dollar ($)"
+    cad: "Canadian Dollar ($)"
+    clp: "Chilean Peso ($)"
+    eur: "Euro (€)"
+    gbp: "British pound (£)"
+    jpy: "Japanese Yen (¥)"
+    mxp: "Mexican Peso ($)"
+
+  categories:
+    animals: "Animals & Pet Supplies"
+    clothing--title: "Clothing & Accessories"
+    clothing--main: "Clothing"
+    clothing--accessories: "Clothing Accessories"
+    clothing--costumes: "Costumes & Accessories"
+    clothing--handbag--accessories: "Wallet Accessories"
+    clothing--handbags: "Handbags, Wallets & Cases"
+    clothing--jewelry: "Jewelry"
+    clothing--shoe_accessories: "Shoe Accessories"
+    clothing--shoes: "Shoes"
+    clothing--others: "Others"
+    arts: "Arts & Entertainment"
+    baby: "Baby & Toddler"
+    business--title: "Business & Industrial"
+    business--advertising: "Advertising & Marketing"
+    business--agriculture: "Agriculture"
+    business--construction: "Construction"
+    business--film: "Film & Television"
+    business--finance: "Finance & Insurance"
+    business--food: "Food Service"
+    business--forestry: "Forestry & Logging"
+    business--machinery: "Heavy Machinery"
+    business--hotel: "Hotel & Hospitality"
+    business--storage: "Industrial Storage"
+    business--law: "Law Enforcement"
+    business--manufacturing: "Manufacturing"
+    business--handling: "Material Handling"
+    business--medical: "Medical"
+    business--mining: "Mining & Quarrying"
+    business--tattoo: "Piercing & Tattooing"
+    business--retail: "Retail"
+    business--science: "Science & Laboratory"
+    business--signage: "Signage"
+    business--safety: "Work Safety Protective Gear"
+    business--others: "Others"
+    cameras--title: "Cameras & Optics"
+    cameras--main: "Cameras & Optics"
+    cameras--accessories: "Camera & Optic Accessories"
+    cameras--photography: "Photography"
+    cameras--others: "Others"
+    electronics--title: "Electronics"
+    electronics--3d: "3D Printers"
+    electronics--audio: "Audio"
+    electronics--circuit: "Circuit Components"
+    electronics--comm: "Communications"
+    electronics--components: "Components"
+    electronics--computers: "Computers"
+    electronics--accessories: "Electronics Accessories"
+    electronics--gps: "GPS"
+    electronics--gps--accessories: "GPS Accessories"
+    electronics--networking: "Networking"
+    electronics--print: "Print, Copy, Scan & Fax"
+    electronics--print--accessories: "Print, Copy, Scan & Fax Accessories"
+    electronics--video: "Video"
+    electronics--consoles: "Video Game Consoles"
+    electronics--consoles--accessories: "Video Game Consoles Accessories"
+    electronics--others: "Others"
+    food: "Food, Beverages & Tobacco"
+    furniture: "Furniture"
+    hardware: "Hardware"
+    health: "Health & Beauty"
+    garden: "Home & Garden"
+    luggage: "Luggage & Bags"
+    adult: "Adult"
+    weapons: "Weapons"
+    office: "Office Supplies"
+    religious: "Religious & Ceremonial"
+    software--title: "Software"
+    software--computer: "Computer Software"
+    software--digital: "Digital Goods & Currency"
+    software--services: "Digital Services"
+    software--games: "Video Game Software"
+    software--others: "Others"
+    sport: "Sporting Goods"
+    toys: "Toys & Games"
+    vehicles: "Vehicles & Parts"
+    books: "Books"
+    dvds: "DVDs & Videos"
+    magazines: "Magazines & Newspapers"
+    music--title: "Music"
+    music--cds: "CDs & Vinil"
+    music--instruments: "Musical Instruments"
+    music--digital: "Digital Music"
+    music--others: "Others"
+    others: "Others"
