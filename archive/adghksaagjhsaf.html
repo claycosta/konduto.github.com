@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- <script type="text/javascript" src="[PATH]/jquery.js" /> // optional -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1-rc2/jquery.js"></script>
+    <script type="text/javascript" src="assets/i18next/i18next-1.7.3.js" /></script>
+    <script type="text/javascript">
+      i18n.init({ fallbackLng: 'en' });
+      i18n.init(function(t) {
+        // translate nav
+        $(".nav").i18n();
+
+        // programatical access
+        var appName = t("app.name");
+      });
+    </script>
+  </head>
+  <body>
+    <ul class="nav">
+      <li><a href="#" data-i18n="nav.home"></a></li>
+      <li><a href="#" data-i18n="nav.page1"></a></li>
+      <li><a href="#" data-i18n="nav.page2"></a></li>
+    </ul>
+  </body>
+</html>
