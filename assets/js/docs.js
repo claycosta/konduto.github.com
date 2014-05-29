@@ -1,9 +1,8 @@
 /* i18next */
 i18n.init({
   fallbackLng:'en',
-  useLocalStorage:true,
-  localStorageExpirationTime:43200000,
-  useCookie:true,
+  useLocalStorage:false,
+  useCookie:false,
   detectLngQS:'lang'
 }, function(t) {
   i18nlang = i18n.lng().substring(0,2);
