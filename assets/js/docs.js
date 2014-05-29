@@ -1,16 +1,13 @@
 /* i18next */
 i18n.init({
   fallbackLng:'en',
-  useLocalStorage:false,
-  useCookie:false,
-  debug:true,
+  useLocalStorage:true,
+  localStorageExpirationTime:43200000,
+  useCookie:true,
   detectLngQS:'lang'
 }, function(t) {
   i18nlang = i18n.lng().substring(0,2);
   $("body").i18n();
-  /*$(".navbar").i18n();
-  $("#content").i18n();
-  $(".container_footer").i18n();*/
   $('#flag--active--'+i18nlang).removeClass('hidden');
   $('li[id^="flag--"]').removeClass('is-active');
   $('#flag--'+i18nlang).addClass('is-active');
