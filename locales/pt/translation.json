@@ -1,0 +1,370 @@
+{
+  "nav": {
+    "about": "Sobre Nós",
+    "blog": "Blog",
+    "docs": "Docs",
+    "email_us": "Escreva",
+    "how-it-works": "Como funciona",
+    "pricing": "Preço",
+    "questions": "Perguntas?",
+    "terms": "Termos"
+  },
+  "intro": {
+    "title": "Introdução",
+    "welcome": "Olá! Este documento explica como integrar com o serviço de antifraude da <strong>Konduto</strong> para que você comece a detectar as fraudes no seu e-commerce.",
+    "goals": "Uma vez integrado nós poderemos ver como seus clientes usam o seu site (como navegam, o que eles vêem, quanto tempo ficam). Você então nos pergunta o que achamos de um pedido e você recebe um score e uma recomendação do que fazer a seguir.",
+    "requirements": "Nosso serviço usa o comportamento do visitante para analisar padrões de navegação e detectar fraudes. Você precisará adicionar um código <strong>JavaScript</strong> ao seu site e marcar suas páginas, para que possamos ver os seus visitantes, e deverá enviar pedidos para nossa <strong>API REST</strong>, para que nós possamos fazer a análise.",
+    "feedback": "Nós estamos melhorando constantemente este documento e agradecemos qualquer sugestão enviada. Você pode mandar uma mensagem para <a href='mailto:oi@konduto.com?subject=Documentação'>oi@konduto.com</a> com suas perguntas e sugestões de como melhora-lo."
+  },
+  "snippet": {
+    "title": "Código JavaScript",
+    "summary": "Nós capturamos o comportamento de compra do cliente para detectar atividades fraudulentas. Você deve colar um código JavaScript no final do seu site para que nós possamos receber os dados de navegação e analisa-los.",
+    "description": "Este código não afeta a performance do seu site e é invisível para o seu visitante. Entre outras ações ele cria um identificador único para cada visita, o qual você deve recuperar antes de enviar a transação para análise.",
+    "install": "Cole isto logo antes da tag de fechamento do <code>&lt;/body&gt;</code>:",
+    "recover": "Pegue o id do visitante com o método <code>getKondutoID()</code>:"
+  },
+  "tags": {
+    "title": "Marcação de páginas",
+    "summary": "A marcação de páginas (page tagging) nos permite ter um entendimento mais profundo do conteúdo mostrado em seu site. Isto nos ajuda a determinar o que o visitante está vendo e fazendo na sua página, e aumenta consideravelmente a precisão de nosso algoritmo. Portanto, <strong>recomendamos sempre</strong> marcar suas páginas quando possível.",
+    "description": "Para marcar uma página adicione nossas <code>&lt;meta&gt;</code> tags no seu header. Elas nos dirão que tipo de página você está servindo e, opcionalmente, qual produto ou categoria de produto estão sendo mostrados.",
+    "example_checkout": "Esta é uma tag do processo de checkout:",
+    "example_home": "Exemplo de uma tag colocada na sua página inicial:",
+    "example_product": "Aqui temos uma tag de detalhe de produto:",
+    "example_reset": "Abaixo é uma tag da página de 'Esqueci minha senha'",
+    "supported_table": "Abaixo temos a lista de todas as tags suportadas até o momento:"
+  },
+  "api": {
+    "title": "API REST",
+    "summary": "Quando o cliente faz a compra você deve nos enviar os dados do pedido para nossa API REST para que possamos analisa-la. Nós fazemos uma análise em tempo-real e devolvemos uma <strong>recomendação</strong> do que fazer com o pedido e um <strong>score</strong>, que é o grau de confiança que temos do pedido.",
+    "description": "Apesar de muitos dos parâmetros que aceitamos na API serem opcionais <strong>nós recomendamos</strong> que você envie o quanto puder, pois cada ponto de dado faz diferença na análise. O endereço de cobrança e as informações de cartão de crédito são especialmente importantes, mas entendemos que há casos onde você não tem esta informação em seu sistema.",
+    "endpoints": "Endereços e recursos da API",
+    "request_example": "Exemplo de chamada",
+    "response_example": "Exemplo de resposta",
+    "working_example": "Este exemplo funciona! Cole isto em seu terminal para enviar um pedido para o nosso ambiente de testes.",
+    "getting_started": {
+      "title": "Começando a usa a API",
+      "api_key": "Você vai precisar de uma chave de API para autenticar as requisições. Para facilitar, os exemplos abaixo já estão populados com uma chave que funciona, assim você só precisa copiar e colar para ver como funciona.",
+      "authentication": "Nós usamos <a href='https://en.wikipedia.org/wiki/Basic_access_authentication'>HTTP Basic Auth</a> para autenticar os lojistas. A chave de API precisa ser passada como seu nome de usuário (username), e nós não pedimos senha.",
+      "endpoints": "Recursos e URLs da API",
+      "set_key": "Configurando sua Chave de API",
+      "https": "Por favor observe que todas as requisições devem ser feitas usando <strong>HTTPS</strong>. Chamadas enviadas para nossos endereços através de HTTP simples serão ignoradas."
+    },
+    "status_codes": {
+      "title": "Códigos de status & erros",
+      "summary": "Nossa API usa <a href='https://pt.wikipedia.org/wiki/Anexo:Lista_de_c%C3%B3digos_de_status_HTTP'>códigos de resposta HTTP</a> para indicar o resultado de uma chamada. Uma requisição bem-sucedida retornará o status <code>200 OK</code>enquanto que requisições que falharam terão outros códigos de resposta.<br><br>Há também o parâmetro <code>status</code> no corpo da resposta indicando se uma requisição foi bem-sucedida ou não.",
+      "response_codes": "Códigos de Resposta HTTP"
+    },
+    "sandbox": {
+      "title": "Ambiente de Teste",
+      "summary": "Nosso ambiente de teste permite que você integre com a nossa API e obtenha respostas previsíveis utilizando os decimais do campo <code>total_amount</code>.",
+      "response_list": "Respostas previsíveis"
+    },
+    "response": {
+      "success--title": "Resposta bem sucedida",
+      "success--summary": "Abaixo temos os parâmetros de uma resposta bem sucedida",
+      "success--example": "Exemplo de resposta bem sucedida",
+      "fail--title": "Resposta com erro",
+      "fail--summary": "Abaixo temos os parâmetros de uma resposta com erro",
+      "fail--example": "Exemplo de resposta com erro"    
+    }
+  },
+  "post": {
+    "title": "Enviar um pedido para análise",
+    "summary": "Você pode mandar pedidos usando o método <strong>POST</strong> e passando um JSON no corpo da requisição.",
+    "description": "A chamada consiste em um objeto raiz que contém informações relacionadas ao pedido, bem como os objetos <code>customer</code>, <code>billing</code> e <code>shipping</code> e as listas <code>payment</code> e <code>shopping_cart</code>.",
+    "root_obj": {
+      "title": "O Objeto Raiz"
+    },
+    "customer_obj": {
+      "title": "O Objeto 'Customer'",
+      "summary": "Este objeto deve ser usado para enviar informações sobre a pessoa que está fazendo a compra, que na maioria dos casos é aquele que está logado em seu sistema.",
+      "description": "Para passar informações sobre o portador do cartão ou o destinatário do produto você deve usar o objeto billing e shipping, respectivamente."
+    },
+    "payment_arr": {
+      "title": "A Lista 'Payment'",
+      "summary": "Esta lista de objetos deve ser usado para enviar informações sobre os meios de pagamentos usados na compra.",
+      "description": "Você pode mandar um pedido que contém múltiplos meios de pagamento, como compras com dois cartões de crédito.",
+      "payment_methods": "Atualmente nós suportamos apenas compras com cartão de crédito. Consulte com o support a respeito de outros meios de pagamento para análise.",
+      "sha1_disclaimer": "Nossa API não aceita o envio de números de cartões abertos. Se você não estiver usando nossos SDKs você deve fazer um hash do número de cartão de crédito do cliente usando SHA1 antes de submeter a compra para nós.<br><br>Não é necessário fazer hash um se você estiver usando um dos nossos SDKs, pois eles já fazem isso. Por favor note que os campos bin e last4 não devem ser enviados em forma de hash."
+    },
+    "billing_obj": {
+      "title": "O Objeto 'Billing'",
+      "summary": "Este objeto deve conter informações do titular do cartão. É o mesmo nome e endereço que consta na fatura. ",
+      "description": ""
+    },
+    "shipping_obj": {
+      "title": "O Objeto 'Shipping'",
+      "summary": "Este objeto deve conter informações do destinatário que vai receber os produtos. Não há necessidade de enviá-lo caso você forneça um serviço ou download de software.",
+      "description": ""
+    },
+    "cart_arr": {
+      "title": "A Lista do Carrinho ('Shopping Cart')",
+      "summary": "Esta lista de objetos contém uma lista dos produtos que foram comprados neste pedido. Não existe limite para a quantidade de objetos que esta lista aceita. ",
+      "description": ""
+    }
+  },
+  "put": {
+    "title": "Atualizar o status de um pedido",
+    "summary": "Você pode atualizar o status de um pedido através do método <code>PUT</code> e passando um JSON no corpo da requisição.",
+    "description": "A chamada consiste em um objeto simples que contém dois campos, status e comments."
+  },
+  "get": {
+    "title": "Recuperar os dados de um pedido",
+    "summary": "Você pode buscar os dados de um pedido usando o método <code>GET</code>. A resposta será um JSON com todos os dados que temos sobre o pedido, incluindo recommendation, score e o status atual.",
+    "description": ""
+  },
+  "extras": {
+    "tables_title": "Tabelas de referência",
+    "tables_summary": "Abaixo você encontrará as tabelas de referência que contém informações adicionais sobre os parâmetros das chamadas, especificamente currency e o código da lista de category.",
+    "currency--table": "Moedas mais comuns",
+    "currency--title": "Lista completa de moedas",
+    "currency--text": "Aqui nós listamos apenas as moedas mais usadas. Você pode encontrar a lista completa de códigos de moeda <a href='https://pt.wikipedia.org/wiki/ISO_4217'>aqui</a>.",
+    "categories--table": "Categorias de Produtos",
+    "categories--title": "O que são as categorias?",
+    "categories--text": "Categorias de produto são importantes pois elas nos dizem o tipo de produto que o cliente está comprando (sapatos, joias ou um GPS). Comprar um TV é muito diferente de comprar um livro, então as categorias fazem diferença para nós.<br><br>Esta lista foi baseada na <a href='https://support.google.com/merchants/answer/160081'>taxonomia de produtos</a> do Google e elas representam os principais agrupamentos de produtos.<br><br>Se você acha que há alguma categoria faltando fique à vontade para nos contactar no <a href='mailto:oi@konduto.com?subject=Lista de categorias'>oi@konduto.com</a> e nos avisar!"
+  },
+  "optional": "opcional",
+  "required": "obrigatório",
+  "see_below": "Veja abaixo",
+  "parameter": "Parâmetro",
+  "description": "Descrição",
+  "others": "Outros",
+  "code": "Código",
+  "tag_content": "Conteúdo",
+  "tag_name": "Tag",
+  "request_example": "Exemplo de requisição",
+  "response_example": "Exemplo de resposta",
+  "see_below": "Veja abaixo",
+  "working_example": "<em><strong>Este exemplo funciona!</strong> Cole isto no seu terminal para enviar um pedido para nosso ambiente de testes.</em>",
+  "tables": {
+    "codes": {
+      "200": "Chamada é válida e temos uma resposta.",
+      "400": "Houve um problema com a requisição enviada. Por favor veja o corpo da resposta para mais informações.",
+      "401": "Não foi encontrada uma chave de API.",
+      "403": "Há algum problema com a sua conta. Por favor entre em contato com o nosso Suporte para mais informações.",
+      "404": "O recurso solicitado não foi encontrado.",
+      "405": "O método HTTP enviado não é permitido para este recurso.",
+      "5xx": "Houve algum erro no nosso lado. Por favor entre em contato com o Suporte para mais informações."
+    },
+    "sandbox": {
+      "response": "resposta",
+      "approve": "Aprovar<br><strong>Score entre 0 e 0.3.</strong>",
+      "review": "Revisar<br><strong>Score entre 0.31 e 0.6.</strong>",
+      "decline": "Negar<br><strong>Score entre 0.61 e 0.99.</strong>"
+    },
+    "success": {
+      "browser": "Navegador do cliente",
+      "city": "Cidade detectada",
+      "cookie": "Flag indicando se o cliente tem Cookies habilitados",
+      "country": "País  detectado",
+      "device": "Objeto contendo os dados coletados da máquina",
+      "fingerprint": "Identificação do navegador",
+      "flash": "Flag indicando se o cliente tem Flash habilitados",
+      "geolocation": "Objeto contendo os dados de geolocalização do cliente",
+      "id": "Identificador único enviado na chamada",
+      "ip": "Endereço de IP do cliente",
+      "javascript": "Flag indicando se o cliente tem JavaScript habilitados",
+      "language": "Idioma do navegador do cliente",
+      "platform": "Tipo de dispositivo pelo cliente",
+      "recommendation": "Ação recomendada para este pedido",
+      "score": "Score da transação entre <code>0</code> e <code>1</code>",
+      "state": "Estado  detectado",
+      "status": "Mensagem de status da chamada. Retorna <code>ok</code> quando bem sucedida e <code>error</code> quando falhou.",
+      "timestamp": "Hora da transação em Epoch do Unix",
+      "timezone": "Fuso horário do cliente em GMT",
+      "user_id": "Identificador único do visitante",
+      "visitor": "Identificador do visitante enviado na chamada"
+    },
+    "errors": {
+      "status": "Mensagem de status da chamada. Retorna <code>ok</code> quando bem sucedida e <code>error</code> quando falhou.",
+      "where": "Recurso onde o erro ocorreu.<br>Se for <code>/</code> então o erro está no objeto raiz.",
+      "why": "Objeto que contém a razão da falha da chamada.",
+      "expected": "Valor que espera-se receber nesta chamada.<br>Isto pode ser uma string ou uma lista de valores.",
+      "found": "Valor que foi recebido nesta chamada.",
+      "missing": "Parâmetro obrigatório que está faltando na chamada."
+    },
+    "tags": {
+      "page": {
+        "account": "Configurações ou opções de conta",
+        "account-creation": "Página de criação de nova conta",
+        "cart": "Visão geral do carrinho de compras",
+        "category": "Lista de produtos por categoria",
+        "checkout": "Página do processo de checkout",
+        "fail": "Página de compra com erro",
+        "home": "Página inicial do site",
+        "password-reset": "Página de 'Esqueci minha senha'",
+        "product": "Página de detalhes do produto",
+        "sale": "Lista de produtos em promoção",
+        "search": "Resultado de pesquisa de produto",
+        "success": "Página de confirmação de compra"
+      },
+      "product": "Página de descrição do produto com SKU e Nome",
+      "category": ""
+    },
+    "root_obj": {
+      "id": "Identificador único para cada pedido.<br><strong>Max. 100 chars, alpha-numérico.</strong>",
+      "visitor": "Identificador do visitante obtido do nosso JavaScript.<br><strong>Exatamente 32 chars, alpha-numérico.</strong>",
+      "total_amount": "Valor total do pedido.<br><strong>Max. 10 dígitos, número.</strong>",
+      "shipping_amount": "Valor do frete<br><strong>Max. 10 dígitos, número.</strong>",
+      "tax_amount": "Valor dos impostos.<br><strong>Max. 10 dígitos, número.</strong>",
+      "currency": "Código da moeda com 3 letras (<a href='https://pt.wikipedia.org/wiki/ISO_4217'>ISO-4712</a>).<br><strong>Exatamente 3 chars, string.</strong>",
+      "installments": "Número de parcelas do pagamento.<br><strong>Max. 3 dígitos, número.</strong>",
+      "ip": "Endereço IPv4 do cliente<br><strong>Max. 15 chars, string.</strong>",
+      "customer": "Objeto que contém os detalhes do cliente.",
+      "payment": "Lista que contém os meios de pagamento.",
+      "billing": "Objeto que contém o endereço de cobrança.",
+      "shipping": "Objeto que contém o endereço de entrega.",
+      "shopping_cart": "Lista que contém os itens comprados."
+    },
+    "customer_obj": {
+      "id": "Identificador único do cliente. Pode ser qualquer valor (sequencial, documento, e-mail) desde que seja consistente em pedidos futuros.<br><strong>Max. 100 chars, string.</strong>",
+      "name": "Nome completo do cliente.<br><strong>Max. 100 chars, string.</strong>",
+      "tax_id": "Número de documento fiscal do cliente (CPF, CNPJ, etc).<br><strong>Max. 100 chars, string.</strong>",
+      "phone1": "Número de telefone principal do cliente<br><strong>Max. 100 chars, string.</strong>",
+      "phone2": "Número de telefone secundário do cliente.<br><strong>Max. 100 chars, string.</strong>",
+      "email": "Endereço de e-mail do cliente.<br><strong>Max. 100 chars, string.</strong>",
+      "new": "Flag indicando se o cliente está usando uma conta recém-criada nesta compra.<br><strong>Boolean.</strong>",
+      "vip": "Flag indicando se este é um cliente VIP ou comprador frequente.<br><strong>Boolean.</strong>"
+    },
+    "payment_arr": {
+      "type": "Meio de pagamento usado pelo cliente. Atualmente suportamos apenas credit<br><strong>Max. 6 chars, string.</strong>",
+      "sha1": "Hash (<a href='https://en.wikipedia.org/wiki/SHA-1'>SHA1</a>) do cartão de crédito completo do cliente.<br><strong>Exatamente 40 chars, string.</strong>",
+      "bin": "Os primeiros seis números do cartão de crédito. É usado para identificar o tipo de cartão usado.<br><strong>Exatamente 6 chars, string.</strong>",
+      "last4": "Os últimos quatro dígitos do cartão de crédito.<br><strong>Exatamente 4 chars, string.</strong>",
+      "expiration": "Data de validade do cartão no formato MMAAAA<br><strong>Exatamente 6 chars, string.</strong>",
+      "status": "O status do pagamento retornado pela operadora de cartão.<br>Pode ser approved (aprovado), declined (negado) ou pending (pendente), caso o pagamento não tenha sido feito ainda.<br><strong>Max. 8 chars, string.</strong>"
+    },
+    "billing_obj": {
+      "name": "Nome do titular do cartão.<br><strong>Max. 100 chars, string.</strong>",
+      "address1": "Endereço da fatura do cliente com o banco.<br><strong>Max. 255 chars, string.</strong>",
+      "address2": "Complemento do endereço de fatura.<br><strong>Max. 255 chars, string.</strong>",
+      "city": "Cidade do titular.<br><strong>Max. 100 chars, string.</strong>",
+      "state": "Estado do titular<br><strong>Max. 100 chars, string.</strong>",
+      "zip": "CEP do titular.<br><strong>Max. 100 chars, string.</strong>",
+      "country": "Código do país do titular (<a href='https://pt.wikipedia.org/wiki/ISO_3166-2'>ISO 3166-2</a>)<br><strong>Exatamente 2 chars, string.</strong>"
+    },
+    "shipping_obj": {
+      "name": "Nome do destinatário do cartão.<br><strong>Max. 100 chars, string.</strong>",
+      "address1": "Endereço de entrega do destinatário.<br><strong>Max. 255 chars, string.</strong>",
+      "address2": "Complemento do endereço de fatura.<br><strong>Max. 255 chars, string.</strong>",
+      "city": "Cidade do destinatário.<br><strong>Max. 100 chars, string.</strong>",
+      "state": "Estado do destinatário<br><strong>Max. 100 chars, string.</strong>",
+      "zip": "CEP do destinatário.<br><strong>Max. 100 chars, string.</strong>",
+      "country": "Código do país do destinatário (<a href='https://pt.wikipedia.org/wiki/ISO_3166-2'>ISO 3166-2</a>)<br><strong>Exatamente 2 chars, string.</strong>"
+    },
+    "cart_arr": {
+      "sku": "<a href='https://pt.wikipedia.org/wiki/Stock_Keeping_Unit'>SKU</a> ou número de inventário do produto ou serviço.<br><strong>Max. 100 chars, string.</strong>",
+      "product_code": "Código de barras ou <a href='https://pt.wikipedia.org/wiki/C%C3%B3digo_de_barras'>UPC</a> do produto ou serviço.<br><strong>Max. 100 chars, string.</strong>",
+      "category": "Código da categoria do produto comprado.<br>Veja nossa <a href='#n-categories'>lista de categorias</a> para mais informações.<br><strong>Max. 4 dígitos, número.</strong>",
+      "name": "Nome do produto ou serviço.<br><strong>Max. 100 chars, string.</strong>",
+      "description": "Descrição de detalhada do produto ou serviço.<br><strong>Max. 100 chars, string.</strong>",
+      "unit_cost": "Custo unitário deste produto ou serviço.<br><strong>Max. 10 dígitos, número.</strong>",
+      "quantity": "Quantidade de unidades compradas.<br><strong>Max. 10 dígitos, número.</strong>",
+      "discount": "Valor de desconto do produto.<br><strong>Max. 10 dígitos, número.</strong>",
+      "image": "URL da imagem do produto.<br><strong>Max. 255 chars, string.</strong>"
+    },
+    "put": {
+      "status": "Novo status deste pedido. Pode ser <code>approved</code>, <code>declined</code> ou <code>fraud</code>, quando você identificar uma fraude ou chargeback.<br /><strong>Max. 8 chars, string</strong>.",
+      "comments": "Razão ou comentários sobre a atualização do pedido.<br /><strong>Max. 255 chars, string</strong>."
+    },
+    "currency": {
+      "usd": "Dólar Americano ($)",
+      "brl": "Real Brasileiro (R$)",
+      "ars": "Peso Argentino ($)",
+      "aud": "Dólar Australiano ($)",
+      "cad": "Dólar Canadense ($)",
+      "clp": "Peso Chileno ($)",
+      "eur": "Euro (€)",
+      "gbp": "Libra Esterlina (£)",
+      "jpy": "Iene Japonês (¥)",
+      "mxp": "Peso Mexicano ($)"
+    },
+    "categories": {
+      "animals": "Animais & Bichos de Estimação",
+      "clothing--title": "Roupas e Acessórios",
+      "clothing--main": "Roupas em Geral",
+      "clothing--accessories": "Accessórios em Geral",
+      "clothing--costumes": "Fantasias e Acessórios",
+      "clothing--handbag--accessories": "Acessórios para Bolsas e Carteiras",
+      "clothing--handbags": "Bolsas, Carteiras e Malas",
+      "clothing--jewelry": "Joias",
+      "clothing--shoe_accessories": "Acessórios para Sapatos",
+      "clothing--shoes": "Sapatos",
+      "clothing--others": "Outros",
+      "arts": "Arte e Entretenimento",
+      "baby": "Bebês e Recém-nascidos",
+      "business--title": "Negócios e Indústria",
+      "business--advertising": "Propaganda e Marketing",
+      "business--agriculture": "Agricultura",
+      "business--construction": "Construção",
+      "business--film": "Filme e Televisão",
+      "business--finance": "Finanças e Seguros",
+      "business--food": "Serviços de Alimentação",
+      "business--forestry": "Madeireiras",
+      "business--machinery": "Maquinário Pesado",
+      "business--hotel": "Hotel e Hospedagem",
+      "business--storage": "Armazém Industrial",
+      "business--law": "Equipamentos Militares",
+      "business--manufacturing": "Manufatura",
+      "business--handling": "Movimentação de Material",
+      "business--medical": "Medicina",
+      "business--mining": "Mineração",
+      "business--tattoo": "Piercing e tatuagem",
+      "business--retail": "Varejo",
+      "business--science": "Ciência e Laboratórios",
+      "business--signage": "Placas e Sinais",
+      "business--safety": "Equipamentos de Segurança do Trabalho",
+      "business--others": "Outros",
+      "cameras--title": "Câmeras e Óticas",
+      "cameras--main": "Câmeras",
+      "cameras--accessories": "Acessórios de câmeras",
+      "cameras--photography": "Fotografia",
+      "cameras--others": "Outros",
+      "electronics--title": "Eletrônicos",
+      "electronics--3d": "Impressoras 3D",
+      "electronics--audio": "Áudio",
+      "electronics--circuit": "Componentes de Circuito",
+      "electronics--comm": "Comunicação",
+      "electronics--components": "Componentes",
+      "electronics--computers": "Computadores",
+      "electronics--accessories": "Acessórios Eletrônicos",
+      "electronics--gps": "Aparelho GPS",
+      "electronics--gps--accessories": "Acessórios de GPS",
+      "electronics--networking": "Redes",
+      "electronics--print": "Impressão, Cópia, Scanner e Fax",
+      "electronics--print--accessories": "Acessórios de Impressão, Cópia, Scanner e Fax",
+      "electronics--video": "Vídeo",
+      "electronics--consoles": "Consoles de Vídeo Game",
+      "electronics--consoles--accessories": "Acessórios de Vídeo Game",
+      "electronics--others": "Outros",
+      "food": "Comidas, Bebicas e Cigarro",
+      "furniture": "Móveis",
+      "hardware": "Ferramentas",
+      "health": "Saúde e Beleza",
+      "garden": "Casa e Jardim",
+      "luggage": "Malas e Bagagens",
+      "adult": "Adulto",
+      "weapons": "Armas e Munição",
+      "office": "Materiais de Escritório",
+      "religious": "Religião e Cerimoniais",
+      "software--title": "Software",
+      "software--computer": "Software de Computador",
+      "software--digital": "Bens e Moedas Digitais",
+      "software--services": "Serviços Digitais",
+      "software--games": "Jogos de Vídeo Games",
+      "software--others": "Outros",
+      "sport": "Equipamento de Esporte",
+      "toys": "Brinquedos e Jogos",
+      "vehicles": "Veículos e Peças",
+      "books": "Livros",
+      "dvds": "DVDs e Vídeos",
+      "magazines": "Revistas e Jornais",
+      "music--title": "Música",
+      "music--cds": "CDs e Vinil",
+      "music--instruments": "Instrumentos Musicais",
+      "music--digital": "Música Digital",
+      "music--others": "Outros",
+      "others": "Outros"
+    }
+  }
+}

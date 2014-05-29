@@ -1,0 +1,364 @@
+{
+  "nav": {
+    "how-it-works": "How it works",
+    "pricing": "Pricing",
+    "docs": "Docs",
+    "about": "About Us",
+    "terms": "Terms",
+    "blog": "Blog",
+    "questions": "Questions?",
+    "email_us": "Email Us"
+  },
+  "intro": {
+    "title": "Introduction",
+    "welcome": "Welcome! This document will explain how to integrate with <strong>Konduto</strong>'s anti-fraud service so you can begin to spot fraud on your e-commerce website.",
+    "goals": "Once you are setup we will be able to see how customers use your site (how they browse, what they see, how long they were there). You can then ask us what we think about an order that was placed and you'll receive a recommendation of what to do and a score.",
+    "requirements": "Our service uses the visitor's behavior to analyze browsing patterns and detect fraud. You will need to add a <strong>JavaScript</strong> snippet to your website and tag your pages, so we can see your visitors, and call our <strong>REST API</strong> to send purchases, so we can analyze them.",
+    "feedback": "We are constantly improving this document and we appreciate any feedback you have. You can drop us a line at <a href='mailto:hi@konduto.com?subject=Documentation feedback'>hi@konduto.com</a> with questions and suggestions about how to improve it."
+  },
+  "snippet": {
+    "title": "JavaScript snippet",
+    "summary": "We capture the customer's buying behavior to spot fraudulent activities. You will need to paste a JavaScript snippet at the bottom of your website so we can receive this data and analyze it.",
+    "description": "This snippet does not affect the performance of your website and is invisible to your visitor. Among many things it creates a unique id for each visitor, which you'll need to recover before sending the purchase to us for analysis.",
+    "install": "Paste this just before your closing <code>&lt;/body&gt;</code> tag:",
+    "recover": "Get the visitor id with the <code>getKondutoID()</code> method:",
+    "public_key": "Set your public key so we know it's you",
+    "customer_id": "Optionally set the customer_id as well"
+  },
+  "tags": {
+    "title": "Page tags",
+    "summary": "Page tagging allows us to have a deeper understanding of the content you are displaying on your website. This will help us determine what a visitor is seeing and doing on your page and will greatly increase our algorithms precision. It's <strong>highly recommended</strong> you tag your pages if you can.",
+    "description": "To tag a page add our <code>&lt;meta&gt;</code> tags to your header. They will tell us what kind of page you are serving and, optionally, what product or category of products are displayed there.",
+    "example_home": "Example of a tag you place on your home page:",
+    "example_product": "Here we have a product display tag:",
+    "example_checkout": "This shows a checkout tag:",
+    "example_reset": "Below is a password-reset tag:",
+    "supported_table": "Below you will find the list of tags currently supported:"
+  },
+  "api": {
+    "title": "REST API",
+    "summary": "Once a customer makes a purchase you must send the order information to us through our REST API so we can analyze it. We perform a real-time analysis and return you a <strong>recommendation</strong> of what to do next and a <strong>score</strong>, a numeric confidence level about that order.",
+    "description": "While many of the parameters we accept are optional <strong>we recommend</strong> you send all you can, because every data point matters for the analysis. The billing address and credit card information are specially important, though we understand there are cases where you don't have that information.",
+    "endpoints": "API endpoint and resources",
+    "getting_started": {
+      "title": "Getting started with the API",
+      "api_key": "You will need an API key to authenticate the requests. Luckily for you the examples below have been populated with a working key, so you can just copy and paste to see how it works.",
+      "authentication": "We use <a href='https://en.wikipedia.org/wiki/Basic_access_authentication'>HTTP Basic Auth</a> to authenticate merchants. The API key needs to be passed as your basic auth username and we don't require a password.",
+      "endpoints": "API Endpoints and Resources",
+      "set_key": "Setting your API key",
+      "https": "Please note that all requests must be made over <strong>HTTPS</strong>. Requests received over plain HTTP will be dropped."
+    },
+    "status_codes": {
+      "title": "Status codes & errors",
+      "summary": "Our API uses <a href='https://en.wikipedia.org/wiki/List_of_HTTP_status_codes'>HTTP response codes</a> to indicate the result of a request. Successful requests will be replied with a <code>200 OK</code> code while failed requests will contain other response codes.<br><br>There is also a <code>status</code> parameter is the response body indicating whether a request was successful or not.",
+      "response_codes": "HTTP Response Codes"
+    },
+    "sandbox": {
+      "title": "Sandbox environment",
+      "summary": "Our Sandbox environment allows you to test your integration with our API and get predictable responses based on the decimals of <code>total_amount</code>.",
+      "response_list": "Predictable responses"
+    },
+    "response": {
+      "success--title": "Successful response",
+      "success--summary": "Below we have the response parameters of a successful request",
+      "success--example": "Successful response example",
+      "fail--title": "Failed response",
+      "fail--summary": "Below we have the response parameters of a failed request",
+      "fail--example": "Failed response example"
+    }
+  },
+  "post": {
+    "title": "Send an order for analysis",
+    "summary": "You can send new transactions using the <strong>POST</strong> method and passing a JSON in the request's body.",
+    "description": "The request consists of a root object containing information related to the order as well as a <code>customer</code>, <code>billing</code> and <code>shipping</code> objects and the <code>payment</code> and <code>shopping_cart</code> arrays.",
+    "root_obj": {
+      "title": "The Root Object"
+    },
+    "customer_obj": {
+      "title": "The Customer Object",
+      "summary": "This object should be used to send information about the person making the purchase, which most often is the one logged into your system.",
+      "description": "To pass information about the cardholder or the recipient please use the billing and shipping objects, respectively."
+    },
+    "payment_arr": {
+      "title": "The Payment Array",
+      "summary": "This array of objects should be used to send information about the payment method used to make the purchase. ",
+      "description": "You can send a transaction that contains multiple payment methods, such as purchases with two different credit cards. ",
+      "payment_methods": "Currently we only support credit card transactions, so you should check with support about using Konduto with other payment types.",
+      "sha1_disclaimer--title": "About credit card numbers",
+      "sha1_disclaimer": "Our API <strong>does not</strong> accept plain text credit card numbers. If you are not using one of our SDKs you must hash the customer's card number with SHA1 before submitting the order.<br><br>There's no need to hash the values if you are using our SDK, as it already does that. Please note that <code>bin</code> and <code>last4</code> must not be hashed."
+    },
+    "billing_obj": {
+      "title": "The Billing Object",
+      "summary": "This object should contain information from the cardholder. It's the same name and address their bank has on file.",
+      "description": ""
+    },
+    "shipping_obj": {
+      "title": "The Shipping Object",
+      "summary": "This object should contain information from the recipient that will receive the goods. There's no need to send it if you are providing a service or a software download. ",
+      "description": ""
+    },
+    "cart_arr": {
+      "title": "The Shopping Cart Array",
+      "summary": "This contains an array of objects which list the items that were purchased in this order. There are no limits to the number of objects this array receives.",
+      "description": ""
+    }
+  },
+  "put": {
+    "title": "Update an order",
+    "summary": "You can update the status of a transaction programmatically through the <code>PUT</code> method and passing a JSON in the request's body.",
+    "description": "The request consists of simple object containing two parameters, status and comments."
+  },
+  "get": {
+    "title": "Query an order",
+    "summary": "You can query an order using the <code>GET</code> method. The response will be a JSON with all the information we have about that order, including recommendation, score and current status.",
+    "description": ""
+  },
+  "extras": {
+    "tables_title": "Reference tables",
+    "tables_summary": "Below you will find reference tables that contain additional information about the request parameters, specifically currency and category code lists.",
+    "currency--table": "Popular Currencies",
+    "currency--title": "Full currency list",
+    "currency--text": "Here we list the most popular currencies used. You can find a full list of currency codes <a href='https://en.wikipedia.org/wiki/ISO_4217'>here</a>.",
+    "categories--table": "Product Categories",
+    "categories--title": "What are categories?",
+    "categories--text": "Product categories are important because they tell us what type of items the customer is buying (shoes, jewelry or a GPS). Getting a TV is very different from getting a book, so categories matter for us.<br><br>These are loosely based on Google's <a href='https://support.google.com/merchants/answer/160081'>product taxonomy</a> and they represent the main categories in which you can group items into.<br><br>If you think there's a category missing feel free to contact us at <a href='mailto:hi@konduto.com?subject=About product categories'>hi@konduto.com</a> and let us know!"
+  },
+  "optional": "optional",
+  "required": "required",
+  "see_below": "See below",
+  "parameter": "Parameter",
+  "description": "Description",
+  "others": "Others",
+  "code": "Code",
+  "tag_name": "Tag",
+  "tag_content": "Content",
+  "request_example": "Request example",
+  "response_example": "Response example",
+  "working_example": "<em><strong>This is a working example!</strong> Paste this in your terminal to send a transaction to our sandbox environment.</em>",
+  "tables": {
+    "codes": {
+      "200": "Request was valid and we have a response.",
+      "400": "Problem with the parameters sent. Please see our response for more information.",
+      "401": "No valid API key was received.",
+      "403": "Problem with your account. Please contact our Support team for more information.",
+      "404": "Resource requested was not found.",
+      "405": "Method sent is not allowed for this resource.",
+      "5xx": "Something went wrong on our end. Please contact our Support team for more information."
+    },
+    "sandbox": {
+      "response": "response",
+      "approve": "Approve<br><strong>Score between 0 and 0.3.</strong>",
+      "review": "Review<br><strong>Score between 0.31 and 0.6.</strong>",
+      "decline": "Decline<br><strong>Score between 0.61 and 0.99.</strong>"
+    },
+    "success": {
+      "status": "Request status message. Responds <code>ok</code> for successful or <code>error</code> for failed requests.",
+      "id": "Unique identifier sent in the request",
+      "visitor": "Visitor identifier sent in the request",
+      "timestamp": "Transaction time in Unix Epoch",
+      "score": "Transaction score between <code>0</code> and <code>1</code>",
+      "recommendation": "Recommended action to be taken on the order",
+      "device": "Object containing the device information collected",
+      "user_id": "Unique user id for this visitor",
+      "fingerprint": "Browser fingerprint",
+      "platform": "Customer's device type",
+      "browser": "Customer's browser",
+      "language": "Customer's browser language",
+      "timezone": "Customer's time zone in GMT",
+      "cookie": "Flag indicating if customer has Cookies enabled",
+      "javascript": "Flag indicating if customer has JavaScript enabled",
+      "flash": "Flag indicating if customer has Java enabled",
+      "geolocation": "Object containing the customer's geolocation data",
+      "city": "Detected city",
+      "state": "Detected state",
+      "country": "Detected country",
+      "ip": "Customer's IP address"
+    },
+    "errors": {
+      "status": "Request status message. Responds <code>ok</code> for successful or <code>error</code> for failed requests.",
+      "where": "Resource where the error occurred.<br>If <code>/</code> then the error is in the root object.",
+      "why": "Object containing the reason for the failed request.",
+      "expected": "Expected value to be received in this request.<br>This can be a string or an array of values.",
+      "found": "Actual value we received in this request.",
+      "missing": "Required parameter missing from the request."
+    },
+    "tags": {
+      "page": {
+        "home": "Website home page",
+        "product": "Product page description",
+        "search": "Product search result",
+        "account": "Account settings or profile",
+        "password-reset": "Password reset page",
+        "account-creation": "Account creation page",
+        "category": "Product list by a certain category",
+        "sale": "List of products on sale",
+        "cart": "Shopping cart overall view",
+        "checkout": "Checkout process page",
+        "success": "Successful purchase confirmation page",
+        "fail": "Failed purchase page"
+      },        
+      "product": "Product description with SKU and name",
+      "category": ""
+    },
+    "root_obj": {
+      "id": "Unique identifier for each order.<br><strong>Max. 100 chars, alphanumeric.</strong>",
+      "visitor": "Visitor identifier obtained from our JavaScript snippet.<br><strong>Exactly 32 chars, alphanumeric.</strong>",
+      "total_amount": "Total order amount.<br><strong>Max. 10 digits, number.</strong>",
+      "shipping_amount": "Shipping and handling amount.<br><strong>Max. 10 digits, number.</strong>",
+      "tax_amount": "Taxes amount.<br><strong>Max. 10 digits, number.</strong>",
+      "currency": "Currency code with 3 letters (<a href='http://en.wikipedia.org/wiki/ISO_4217'>ISO-4712</a>).<br><strong>Exactly 3 chars, string.</strong>",
+      "installments": "Number of installments in the payment plan.<br><strong>Max. 3 digits, number.</strong>",
+      "ip": "Customer's IPv4 address.<br><strong>Max. 15 chars, string.</strong>",
+      "customer": "Object containing the customer details.",
+      "payment": "Array containing the payment methods.",
+      "billing": "Object containing the billing information.",
+      "shipping": "Object containing the shipping information.",
+      "shopping_cart": "Array containing the items purchased."
+    },
+    "customer_obj": {
+      "id": "<strong>Unique</strong> identifier for each customer. Can be anything you like (counter, id, e-mail address) as long as it's consistent in future orders.<br><strong>Max. 100 chars, string.</strong>",
+      "name": "Customer's full name.<br><strong>Max. 100 chars, string.</strong>",
+      "tax_id": "Customer's tax id.<br><strong>Max. 100 chars, string.</strong>",
+      "phone1": "Customer's primary phone number<br><strong>Max. 100 chars, string.</strong>",
+      "phone2": "Customer's secondary phone number<br><strong>Max. 100 chars, string.</strong>",
+      "email": "Customer's e-mail address<br><strong>Max. 100 chars, string.</strong>",
+      "new": "Flag indicating if the customer is using a newly created account for this purchase.<br><strong>Boolean.</strong>",
+      "vip": "Flag indicating if the customer is a VIP or frequent buyer.<br><strong>Boolean.</strong>"
+    },
+    "payment_arr": {
+      "type": "Payment type used by the customer. Currently only <code>credit</code> is supported.<br><strong>Max. 6 chars, string.</strong>",
+      "sha1": "Hash (<a href='https://en.wikipedia.org/wiki/SHA-1'>SHA1</a>) of the customer's full credit card number.<br><strong>Exactly 40 chars, string.</strong>",
+      "bin": "First six digits of the customer's credit card. Used to identify the type of card being sent.<br><strong>Exactly 6 chars, string.</strong>",
+      "last4": "Four last digits of the customer's credit card number.<br><strong>Exactly 4 chars, string.</strong>",
+      "expiration": "Card's expiration date under MMYYYY format.<br><strong>Exactly 6 chars, string.</strong>",
+      "status": "The status of the transaction returned by the payment processor. Accepts <code>approved</code>, <code>declined</code> or <code>pending</code> if the payment wasn't been processed yet.<br><strong>Max. 8 chars, string.</strong>"
+    },
+    "billing_obj": {
+      "name": "Cardholder's full name.<br><strong>Max. 100 chars, string.</strong>",
+      "address1": "Cardholder's billing address on file with the bank.<br><strong>Max. 255 chars, string.</strong>",
+      "address2": "Additional cardholder address information.<br><strong>Max. 255 chars, string.</strong>",
+      "city": "Cardholder's city.<br><strong>Max. 100 chars, string.</strong>",
+      "state": "Cardholder's state.<br><strong>Max. 100 chars, string.</strong>",
+      "zip": "Cardholder's ZIP code.<br><strong>Max. 100 chars, string.</strong>",
+      "country": "Cardholder's country code (<a href='https://en.wikipedia.org/wiki/ISO_3166-2'>ISO 3166-2</a>)<br><strong>Exactly 2 chars, string.</strong>"
+    },
+    "shipping_obj": {
+      "name": "Recipient's full name.<br><strong>Max. 100 chars, string.</strong>",
+      "address1": "Recipient's shipping address.<br><strong>Max. 255 chars, string.</strong>",
+      "address2": "Additional recipient address information.<br><strong>Max. 255 chars, string.</strong>",
+      "city": "Recipient's city.<br><strong>Max. 100 chars, string.</strong>",
+      "state": "Recipient's state.<br><strong>Max. 100 chars, string.</strong>",
+      "zip": "Recipient's ZIP code.<br><strong>Max. 100 chars, string.</strong>",
+      "country": "Recipient's country code (<a href='https://en.wikipedia.org/wiki/ISO_3166-2'>ISO 3166-2</a>)<br><strong>Exactly 2 chars, string.</strong>"
+    },
+    "cart_arr": {
+      "sku": "Product or service's <a href='https://en.wikipedia.org/wiki/Stock-keeping_unit'>SKU</a> or inventory id.<br><strong>Max. 100 chars, string.</strong>",
+      "product_code": "Product or service's <a href='https://en.wikipedia.org/wiki/Universal_Product_Code'>UPC</a>, barcode or secondary id.<br><strong>Max. 100 chars, string.</strong>",
+      "category": "Category code for the item purchased.<br>See our <a href='#n-categories'>category codes</a> for more information.<br><strong>Max. 4 digits, number.</strong>",
+      "name": "Name of the product or service.<br><strong>Max. 100 chars, string.</strong>",
+      "description": "Detailed description of the item.<br><strong>Max. 100 chars, string.</strong>",
+      "unit_cost": "Cost of a single unit of this item.<br><strong>Max. 10 digits, number.</strong>",
+      "quantity": "Number of units purchased.<br><strong>Max. 10 digits, number.</strong>",
+      "discount": "Discounted amount for this item.<br><strong>Max. 10 digits, number.</strong>",
+      "image": "URL of this item's image.<br><strong>Max. 255 chars, string.</strong>"
+    },
+    "put": {
+      "status": "New status for this transaction. Either <code>approved</code>, <code>declined</code> or <code>fraud</code>, when you have identified a fraud or chargeback.<br /><strong>Max. 8 chars, string</strong>.",
+      "comments": "Reason or comments about the status update.<br /><strong>Max. 255 chars, string</strong>."
+    },
+    "currency": {
+      "currency": "Currency",
+      "usd": "United States Dollar ($)",
+      "brl": "Brazilian Real (R$)",
+      "ars": "Argentine Peso ($)",
+      "aud": "Australian Dollar ($)",
+      "cad": "Canadian Dollar ($)",
+      "clp": "Chilean Peso ($)",
+      "eur": "Euro (€)",
+      "gbp": "British pound (£)",
+      "jpy": "Japanese Yen (¥)",
+      "mxp": "Mexican Peso ($)"
+    },
+    "categories": {
+      "animals": "Animals & Pet Supplies",
+      "clothing--title": "Clothing & Accessories",
+      "clothing--main": "Clothing",
+      "clothing--accessories": "Clothing Accessories",
+      "clothing--costumes": "Costumes & Accessories",
+      "clothing--handbag--accessories": "Wallet Accessories",
+      "clothing--handbags": "Handbags, Wallets & Cases",
+      "clothing--jewelry": "Jewelry",
+      "clothing--shoe_accessories": "Shoe Accessories",
+      "clothing--shoes": "Shoes",
+      "arts": "Arts & Entertainment",
+      "baby": "Baby & Toddler",
+      "business--title": "Business & Industrial",
+      "business--advertising": "Advertising & Marketing",
+      "business--agriculture": "Agriculture",
+      "business--construction": "Construction",
+      "business--film": "Film & Television",
+      "business--finance": "Finance & Insurance",
+      "business--food": "Food Service",
+      "business--forestry": "Forestry & Logging",
+      "business--machinery": "Heavy Machinery",
+      "business--hotel": "Hotel & Hospitality",
+      "business--storage": "Industrial Storage",
+      "business--law": "Law Enforcement",
+      "business--manufacturing": "Manufacturing",
+      "business--handling": "Material Handling",
+      "business--medical": "Medical",
+      "business--mining": "Mining & Quarrying",
+      "business--tattoo": "Piercing & Tattooing",
+      "business--retail": "Retail",
+      "business--science": "Science & Laboratory",
+      "business--signage": "Signage",
+      "business--safety": "Work Safety Protective Gear",
+      "cameras--title": "Cameras & Optics",
+      "cameras--main": "Cameras & Optics",
+      "cameras--accessories": "Camera & Optic Accessories",
+      "cameras--photography": "Photography",
+      "electronics--title": "Electronics",
+      "electronics--3d": "3D Printers",
+      "electronics--audio": "Audio",
+      "electronics--circuit": "Circuit Components",
+      "electronics--comm": "Communications",
+      "electronics--components": "Components",
+      "electronics--computers": "Computers",
+      "electronics--accessories": "Electronics Accessories",
+      "electronics--gps": "GPS",
+      "electronics--gps--accessories": "GPS Accessories",
+      "electronics--networking": "Networking",
+      "electronics--print": "Print, Copy, Scan & Fax",
+      "electronics--print--accessories": "Print, Copy, Scan & Fax Accessories",
+      "electronics--video": "Video",
+      "electronics--consoles": "Video Game Consoles",
+      "electronics--consoles--accessories": "Video Game Consoles Accessories",
+      "food": "Food, Beverages & Tobacco",
+      "furniture": "Furniture",
+      "hardware": "Hardware",
+      "health": "Health & Beauty",
+      "garden": "Home & Garden",
+      "luggage": "Luggage & Bags",
+      "adult": "Adult",
+      "weapons": "Weapons",
+      "office": "Office Supplies",
+      "religious": "Religious & Ceremonial",
+      "software--title": "Software",
+      "software--computer": "Computer Software",
+      "software--digital": "Digital Goods & Currency",
+      "software--services": "Digital Services",
+      "software--games": "Video Game Software",
+      "sport": "Sporting Goods",
+      "toys": "Toys & Games",
+      "vehicles": "Vehicles & Parts",
+      "books": "Books",
+      "dvds": "DVDs & Videos",
+      "magazines": "Magazines & Newspapers",
+      "music--title": "Music",
+      "music--cds": "CDs & Vynil",
+      "music--instruments": "Musical Instruments",
+      "music--digital": "Digital Music",
+      "others": "Others"
+    }
+  }
+}

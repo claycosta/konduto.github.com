@@ -1,0 +1,1939 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class='lt-ie9 lt-ie8 lt-ie7'><![endif]--><!--[if IE 7]><html class='lt-ie9 lt-ie8'><![endif]--><!--[if IE 8]><html class='lt-ie9'><![endif]--><!--[if IE 9]><html class='ie ie9'><![endif]--><!--[if (gte IE 9)|!(IE)]<!-->
+<html>
+<!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <title>Konduto | Docs</title>
+    <meta content="Konduto is an online fraud detection service that helps e-commerce merchants spot fraud with our Buying Behavior technology" name="description">
+    <meta content="api,docs,fraud,fraud prevention,stop fraud,e-commerce,buying behavior,chargeback" name="keywords">
+    <meta content="initial-scale=1, user-scalable=yes, width=device-width" name="viewport">
+    <link href="https://d2utunj9b046ue.cloudfront.net/assets/favicon-7f2ba2ee096dfbd382bfddd7b0b3e70c.png" rel="shortcut icon" type="image/x-icon" />
+    <script src="https://d2utunj9b046ue.cloudfront.net/assets/vendor-4ce53c67837ba9380cb0eae431321bb9.js"></script>
+    <script src="https://d2utunj9b046ue.cloudfront.net/assets/application-22b5dfa50d06382d6fa3dafcdd98c6a8.js"></script>
+    <script type="text/javascript" src="assets/i18next/i18next-1.7.3.js"></script>
+    <script type="text/javascript" src="assets/js/docs.js"></script>
+    <script type="text/javascript" src="assets/js/prism.js"></script>
+    <link href="https://d2utunj9b046ue.cloudfront.net/assets/application-2eb53b13b9c1d00b13591f889c3bc93a.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">    
+    <link rel="stylesheet" type="text/css" href="assets/css/docs.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/prism.css">
+    <script type="text/javascript">WebFontConfig = {
+      google: { families: [ 'Ubuntu:300,400,500,700:latin' ] }
+      };
+      (function() {
+      var wf = document.createElement('script');
+      wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+      wf.type = 'text/javascript';
+      wf.async = 'true';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(wf, s);
+      })();
+    </script>
+    <!--[if lt IE 9]><script src="https://d2utunj9b046ue.cloudfront.net/javascripts/html5shiv/dist/html5shiv-printshiv.js"></script><![endif]-->
+  </head>
+  <body>
+    <header class="header--primary" role="banner">
+      <div class="content_1">
+        <div class="header-brand">
+          <h1><a href="/">Konduto</a></h1>
+        </div>
+        <button class="navbar-toggle js-navbar-toggle" type="button">&#9776; Menu</button>
+        <nav class="navbar js-navbar" role="navigation">
+          <ul class="navbar-nav--primary">
+            <li><a href="https://www.konduto.com/how-it-works"><span data-i18n="[html]nav.how-it-works"></span></a></li>
+            <li><a href="https://www.konduto.com/pricing"><span data-i18n="[html]nav.pricing"></span></a></li>
+            <li class="is-active"><a href="http://konduto.github.io"><span data-i18n="[html]nav.docs"></span></a></li>
+            <li><a href="https://www.konduto.com/about"><span data-i18n="[html]nav.about"></span></a></li>
+          </ul>
+          <ul class="navbar-nav--secondary">
+            <li><a class="btn btn--signin js-popup-toggle" href="#signin">Sign in</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hero"></section>
+
+
+    <!-- START CONTENT -->
+    <section><div id="content">
+
+      <!-- INTRO -->
+      <div class="row" id="n-intro">
+        <div class="col-sm-7">
+          <h3>1. <span data-i18n="[html]intro.title"></span></h3>
+          <span data-i18n="[html]intro.welcome"></span>
+          <br /><br />
+          <span data-i18n="[html]intro.goals"></span>
+          <br /><br />
+          <span data-i18n="[html]intro.requirements"></span>
+          <br /><br />
+          <span data-i18n="[html]intro.feedback"></span>
+        </div>
+        <div class="col-sm-5 lightgrey">
+          <h4>Contents</h4>
+          <ol>
+            <li><a href="#n-intro" class="index"><span data-i18n="[html]intro.title"></span></a></li>
+            <li><a href="#n-snippet" class="index"><span data-i18n="[html]snippet.title"></span></a></li>
+            <li><a href="#n-tags" class="index"><span data-i18n="[html]tags.title"></span></a></li>
+            <li><a href="#n-api" class="index"><span data-i18n="[html]api.title"></span></a></li>
+            <li><a href="#n-post" class="index"><span data-i18n="[html]post.title"></span></a></li>
+            <li><a href="#n-put" class="index"><span data-i18n="[html]put.title"></span></a></li>
+            <li><a href="#n-get" class="index"><span data-i18n="[html]get.title"></span></a></li>
+            <li><a href="#n-tables" class="index"><span data-i18n="[html]extras.tables_title"></span></a></li>
+          </ol>
+        </div>
+      </div>
+      <!-- END INTRO -->
+
+      <!-- SNIPPET -->
+      <div class="row" id="n-snippet">
+        <div class="col-sm-7">
+          <h3>2. <span data-i18n="[html]snippet.title"></span></h3>
+          <span data-i18n="[html]snippet.summary"></span>
+          <br /><br />
+          <span data-i18n="[html]snippet.description"></span>
+        </div>
+        <div class="col-sm-5 lightgrey">
+          <h5><span data-i18n="[html]snippet.install"></span></h5>
+          <pre class="language-javascript"><code>&lt;script type="text/javascript">
+  var __kdt = __kdt || [];
+  </code><span class="comment">// <span data-i18n="[html]snippet.public_key"></span></span><code>
+  __kdt.push({"public_key": "TEE973BEC88"});
+  </code><span class="comment">// <span data-i18n="[html]snippet.customer_id"></span></span><code>
+  __kdt.push({"customer_id": "278393793"});
+  (function() {
+  var kdt = document.createElement('script');
+  kdt.id = 'kdtjs'; kdt.type = 'text/javascript';
+  kdt.async = true; 
+  kdt.src = 'https://d46w1m9rlmw15.cloudfront.net/k.js';
+  var s = document.getElementsByTagName('body')[0];
+  s.parentNode.insertBefore(kdt, s);
+  })();
+&lt;/script></code></pre>
+          <br />
+          <h5><span data-i18n="[html]snippet.recover"></span></h5>
+          <pre class="language-javascript"><code>&lt;script type="text/javascript">
+  var visitor_id = getKondutoID();
+&lt;/script></code></pre>
+        </div>
+      </div>
+      <!-- END SNIPPET -->
+
+      <!-- TAGS -->
+      <div class="row" id="n-tags">
+        <div class="col-sm-7">
+          <h3>3. <span data-i18n="[html]tags.title"></span></h3>
+          <span data-i18n="[html]tags.summary"></span>
+          <br /><br />
+          <span data-i18n="[html]tags.description"></span>
+          <br /><br />
+          <span data-i18n="[html]tags.supported_table"></span>
+          <br /><br />
+          <table class="table table-condensed table-striped">
+            <thead>
+              <tr>
+                <th class="center-bold"><span data-i18n="[html]tag_name"></span></th>
+                <th ><span data-i18n="[html]tag_content"></span></th>
+                <th><span data-i18n="[html]description"></span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td rowspan="12" style="vertical-align:middle"><strong>kdt:page</strong></td>
+                <td>home</td>
+                <td><span data-i18n="[html]tables.tags.page.home"></span></td>
+              </tr>
+              <tr>
+                <td>product</td>
+                <td><span data-i18n="[html]tables.tags.page.product"></span></td>
+              </tr>
+              <tr>
+                <td>search</td>
+                <td><span data-i18n="[html]tables.tags.page.search"></span></td>
+              </tr>
+              <tr>
+                <td>account</td>
+                <td><span data-i18n="[html]tables.tags.page.account"></span></td>
+              </tr>
+              <tr>
+                <td>password-reset</td>
+                <td><span data-i18n="[html]tables.tags.page.password-reset"></span></td>
+              </tr>
+              <tr>
+                <td>account-creation</td>
+                <td><span data-i18n="[html]tables.tags.page.account-creation"></span></td>
+              </tr>
+              <tr>
+                <td>category</td>
+                <td><span data-i18n="[html]tables.tags.page.category"></span></td>
+              </tr>
+              <tr>
+                <td>sale</td>
+                <td><span data-i18n="[html]tables.tags.page.sale"></span></td>
+              </tr>
+              <tr>
+                <td>cart</td>
+                <td><span data-i18n="[html]tables.tags.page.cart"></span></td>
+              </tr>
+              <tr>
+                <td>checkout</td>
+                <td><span data-i18n="[html]tables.tags.page.checkout"></span></td>
+              </tr>
+              <tr>
+                <td>success</td>
+                <td><span data-i18n="[html]tables.tags.page.success"></span></td>
+              </tr>
+              <tr>
+                <td>fail</td>
+                <td><span data-i18n="[html]tables.tags.page.fail"></span></td>
+              </tr>
+              <tr>
+                <td style="vertical-align:middle"><strong>kdt:product</strong></td>
+                <td>
+                  id=&lt;<em>sku</em>&gt;,<br />
+                  name=&lt;<em>name</em>&gt;,<br />
+                </td>
+                <td style="vertical-align:middle"><span data-i18n="[html]tables.tags.product"></span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-sm-5 lightgrey">
+          <br />
+          <h5><span data-i18n="[html]tags.example_home"></span></h5>
+          <pre class="language-javascript"><code>&lt;meta name="kdt:page" content="home"></code></pre>
+          <br />
+          <h5><span data-i18n="[html]tags.example_reset"></span></h5>
+          <pre class="language-javascript"><code>&lt;meta name="kdt:page" content="password-reset"></code></pre>
+          <br />
+          <h5><span data-i18n="[html]tags.example_checkout"></span></h5>
+          <pre class="language-javascript"><code>&lt;meta name="kdt:page" content="checkout"></code></pre>
+          <br />
+          <h5><span data-i18n="[html]tags.example_product"></span></h5>
+          <pre class="language-javascript"><code>&lt;meta name="kdt:page" content="product">
+&lt;meta name="kdt:product" content="id=123, name=Nirvana CD"></code></pre>
+        </div>
+      </div>
+      <!-- END TAGS -->
+
+      <!-- REST API -->
+      <div class="row" id="n-api">
+        <div class="col-sm-7">
+          <h3>4. <span data-i18n="[html]api.title"></span></h3>
+          <span data-i18n="[html]api.summary"></span>
+          <br /><br />
+          <span data-i18n="[html]api.description"></span>
+          <br /><br />
+        </div>
+        <div class="col-sm-5 lightgrey hidden-xs"></div>
+      </div>
+      <!-- END REST API -->
+
+      <!-- GETTING STARTED -->
+      <div class="row" id="n-getting-started">
+        <div class="col-sm-7">
+          <h4>4.1 <span data-i18n="[html]api.getting_started.title"></span></h4>
+          <span data-i18n="[html]api.getting_started.api_key"></span>
+          <br /><br />
+          <span data-i18n="[html]api.getting_started.authentication"></span>
+          <br /><br />
+          <span data-i18n="[html]api.getting_started.https"></span>
+        </div>
+        <div class="col-sm-5 lightgrey">
+          <h4><span data-i18n="[html]api.getting_started.endpoints"></span></h4>
+          <pre class="language-http"><strong>POST</strong> https://api.konduto.com/v1/orders
+<strong>PUT </strong> https://api.konduto.com/v1/orders/{order_id}
+<strong>GET </strong> https://api.konduto.com/v1/orders/{order_id}</pre>
+          <h4><span data-i18n="[html]api.getting_started.set_key"></span></h4>
+          <div id="example-curl-set_key" class="visible">
+            <pre class="language-javascript"><code>$ curl -u <strong>T738D516F09CAB3A2C1EE:</strong> -X POST \
+-H 'Content-Type: application/json; charset=UTF-8' \
+-d '{}' https://api.konduto.com/v1/orders</code></pre>
+          </div>
+          <br />
+        </div>
+      </div>
+      <!-- GETTING ENDED (get it?) -->
+
+      <!-- STATUS CODES -->
+      <div class="row" id="n-codes">
+        <div class="col-sm-7">
+          <h4>4.2 <span data-i18n="[html]api.status_codes.title"></span></h4>
+          <span data-i18n="[html]api.status_codes.summary"></span>
+        </div>
+        <div class="col-sm-5 lightgrey">
+          <h4><span data-i18n="[html]api.status_codes.response_codes"></span></h4>
+          <strong>200 OK</strong> - <span data-i18n="[html]tables.codes.200"></span><br /><br />
+          <strong>400 Bad Request</strong> - <span data-i18n="[html]tables.codes.400"></span><br /><br />
+          <strong>401 Unauthorized</strong> - <span data-i18n="[html]tables.codes.401"></span><br /><br />
+          <strong>403 Forbidden</strong> - <span data-i18n="[html]tables.codes.403"></span><br /><br />
+          <strong>404 Not Found</strong> - <span data-i18n="[html]tables.codes.404"></span><br /><br />
+          <strong>405 Method Not Allowed</strong> - <span data-i18n="[html]tables.codes.405"></span><br /><br />
+          <strong>5xx Server Error</strong> - <span data-i18n="[html]tables.codes.5xx"></span>
+          <br /><br />
+        </div>
+      </div>
+      <!-- END STATUS CODES -->
+
+      <!-- SANDBOX RESPONSES -->
+      <div class="row" id="n-codes">
+        <div class="col-sm-7">
+          <h4>4.3 <span data-i18n="[html]api.sandbox.title"></span></h4>
+          <span data-i18n="[html]api.sandbox.summary"></span>
+        </div>
+        <div class="col-sm-5 lightgrey">
+          <h4><span data-i18n="[html]api.sandbox.response_list"></span></h4>
+          <table class="table table-condensed">
+            <thead>
+              <tr>
+                <th class="text-center">total_amount</th>
+                <th><span data-i18n="[html]tables.sandbox.response"></span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-center">*.00</td>
+                <td><span data-i18n="[html]tables.sandbox.approve"></span></td>
+              </tr>
+              <tr>
+                <td class="text-center">*.01 to *.50</td>
+                <td><span data-i18n="[html]tables.sandbox.review"></span></td>
+              </tr>
+              <tr>
+                <td class="text-center">*.51 to *.99</td>
+                <td><span data-i18n="[html]tables.sandbox.decline"></span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!-- END SANDBOX RESPONSES -->
+
+      <!-- SUCCESSFUL -->
+      <div class="row" id="n-success">
+        <div class="col-sm-7">
+          <h4>4.4 <span data-i18n="[html]api.response.success--title"></span></h4>
+          <span data-i18n="[html]api.response.success--summary"></span>
+          <br /><br />
+          <!-- START SUCCESS RESPONSE TABLE -->
+          <table class="table table-condensed table-striped">
+            <thead>
+              <tr>
+                <th class="center-bold"><span data-i18n="[html]parameter"></span></th>
+                <th><span data-i18n="[html]description"></span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="center-bold">status</td>
+                <td><em>(<span data-i18n="[html]required"></span>)</em><br />
+                  <span data-i18n="[html]tables.success.status"></span></td>
+              </tr>
+              <tr>
+                <td class="center-bold">id</td>
+                <td><em>(<span data-i18n="[html]required"></span>)</em><br />
+                  <span data-i18n="[html]tables.success.id"></span></td>
+              </tr>
+              <tr>
+                <td class="center-bold">visitor</td>
+                <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
+                  <span data-i18n="[html]tables.success.visitor"></span></td>
+              </tr>
+              <tr>
+                <td class="center-bold">timestamp</td>
+                <td><em>(<span data-i18n="[html]required"></span>)</em><br />
+                  <span data-i18n="[html]tables.success.timestamp"></span></td>
+              </tr>
+              <tr>
+                <td class="center-bold">score</td>
+                <td><em>(<span data-i18n="[html]required"></span>)</em><br />
+                  <span data-i18n="[html]tables.success.score"></span></td>
+              </tr>
+              <tr>
+                <td class="center-bold">recommendation</td>
+                <td><em>(<span data-i18n="[html]required"></span>)</em><br />
+                  <span data-i18n="[html]tables.success.recommendation"></span></td>
+              </tr>
+              <tr>
+                <td class="center-bold">device</td>
+                <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
+                  <span data-i18n="[html]tables.success.device"></span></td>
+              </tr>
+              <tr>
+                <td class="center-bold">user_id</td>
+                <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
+                  <span data-i18n="[html]tables.success.user_id"></span></td>
+              </tr>
+              <tr>
+                <td class="center-bold">fingerprint</td>
+                <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
+                  <span data-i18n="[html]tables.success.fingerprint"></span></td>
+              </tr>
+              <tr>
+                <td class="center-bold">platform</td>
+                <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
+                  <span data-i18n="[html]tables.success.platform"></span></td>
+              </tr>
+              <tr>
+                <td class="center-bold">browser</td>
+                <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
+                  <span data-i18n="[html]tables.success.browser"></span></td>
+              </tr>
+              <tr>
+                <td class="center-bold">language</td>
+                <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
+                  <span data-i18n="[html]tables.success.language"></span></td>
+              </tr>
+              <tr>
+                <td class="center-bold">timezone</td>
+                <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
+                  <span data-i18n="[html]tables.success.timezone"></span></td>
+              </tr>
+              <tr>
+                <td class="center-bold">cookie</td>
+                <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
+                  <span data-i18n="[html]tables.success.cookie"></span></td>
+              </tr>
+              <tr>
+                <td class="center-bold">javascript</td>
+                <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
+                  <span data-i18n="[html]tables.success.javascript"></span></td>
+              </tr>
+              <tr>
+                <td class="center-bold">flash</td>
+                <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
+                  <span data-i18n="[html]tables.success.flash"></span></td>
+              </tr>
+              <tr>
+                <td class="center-bold">ip</td>
+                <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
+                  <span data-i18n="[html]tables.success.ip"></span></td>
+              </tr>
+              <tr>
+                <td class="center-bold">geolocation</td>
+                <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
+                  <span data-i18n="[html]tables.success.geolocation"></span></td>
+              </tr>
+              <tr>
+                <td class="center-bold">city</td>
+                <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
+                  <span data-i18n="[html]tables.success.city"></span></td>
+              </tr>
+              <tr>
+                <td class="center-bold">state</td>
+                <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
+                  <span data-i18n="[html]tables.success.state"></span></td>
+              </tr>
+              <tr>
+                <td class="center-bold">country</td>
+                <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
+                  <span data-i18n="[html]tables.success.country"></span></td>
+              </tr>
+            </tbody>
+          </table>
+          <!-- END SUCCESS RESPONSE TABLE -->
+        </div>
+        <div class="col-sm-5 lightgrey">
+          <h4><span data-i18n="[html]api.response.success--example"></span></h4>
+          <pre class="language-javascript"><code><strong>HTTP Status Code: 200 OK</strong>
+
+{
+  "status": "ok",
+  "id": <span id="order_id_8"></span>
+  "visitor": "f10e2821bbbe2313bc059445190d7ab4",
+  "timestamp": 1389047680,
+  "score": 0.75,
+  "recommendation": "review",
+  "device": {
+    "user_id": "405961fab293600daeed93ae561",
+    "fingerprint": "e4f2c690951038a8f77aa583847",
+    "platform": "MacIntel",
+    "browser": "Chrome",
+    "language": "en_US",
+    "timezone": "GMT -3",
+    "cookie": true,
+    "javascript":  true,
+    "flash": true,
+    "ip": "189.68.156.200"
+    "geolocation": {
+      "city": "SAO PAULO",
+      "state": "SP",
+      "country": "BR"
+    }
+  }
+}</code></pre>
+        </div>
+      </div>
+      <!-- END SUCCESSFUL -->
+
+      <!-- FAIL -->
+      <div class="row" id="n-fail">
+        <div class="col-sm-7">
+          <h4>4.5 <span data-i18n="[html]api.response.fail--title"></span></h4>
+          <span data-i18n="[html]api.response.fail--summary"></span>
+          <br /><br />
+          <table class="table table-condensed table-striped">
+            <thead>
+              <tr>
+                <th class="center-bold"><span data-i18n="[html]parameter"></span></th>
+                <th><span data-i18n="[html]description"></span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="center-bold">status</td>
+                <td><em>(<span data-i18n="[html]required"></span>)</em><br />
+                  <span data-i18n="[html]tables.errors.status"></span></td>
+              </tr>
+              <tr>
+                <td class="center-bold">where</td>
+                <td><em>(<span data-i18n="[html]required"></span>)</em><br />
+                  <span data-i18n="[html]tables.errors.where"></span></td>
+              </tr>
+              <tr>
+                <td class="center-bold">why</td>
+                <td><em>(<span data-i18n="[html]required"></span>)</em><br />
+                  <span data-i18n="[html]tables.errors.why"></span></td>
+              </tr>
+              <tr>
+                <td class="text-center">why.<strong>expected</strong></td>
+                <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
+                  <span data-i18n="[html]tables.errors.expected"></span>
+                </td>
+              </tr>
+              <tr>
+                <td class="text-center">why.<strong>found</strong></td>
+                <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
+                  <span data-i18n="[html]tables.errors.found"></span>
+                </td>
+              </tr>
+              <tr>
+                <td class="text-center">why.<strong>missing</strong></td>
+                <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
+                  <span data-i18n="[html]tables.errors.missing"></span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-sm-5 lightgrey">
+          <h4><span data-i18n="[html]api.response.fail--example"></span></h4>
+          <pre class="language-javascript"><code><strong>HTTP Status Code: 400 Bad Request</strong>
+
+{
+  "status": "error",
+  "where": "/total_amount",
+  "why": {
+    "expected": ["integer","number"],
+    "found": "string"
+  }
+}</code></pre>
+        </div>
+      </div>
+      <!-- END FAIL -->
+
+      <!-- POST -->
+      <div class="row" id="n-post">
+        <div class="col-sm-7">
+          <h3>5. <span data-i18n="[html]post.title"></span></h3>
+          <span data-i18n="[html]post.summary"></span>
+          <br /><br />
+          <span data-i18n="[html]post.description"></span>
+        </div>
+        <div class="col-sm-5 lightgrey hidden-xs"></div>
+      </div>
+      <!-- END POST -->
+
+      <!-- ROOT OBJ -->
+      <div class="row">
+        <div class="col-sm-7">
+          <h4>5.1 <span data-i18n="[html]post.root_obj.title"></span></h4>
+          <table class="table table-condensed table-striped">
+            <thead>
+              <tr>
+                <th class="center-bold"><span data-i18n="[html]parameter"></span></th>
+                <th><span data-i18n="[html]description"></span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="center-bold">id<br /></td>
+                <td><em>(<span data-i18n="[html]required"></span>)</em><br />
+                  <span data-i18n="[html]tables.root_obj.id"></span></td>
+              </tr>
+              <tr>
+                <td class="center-bold">visitor<br /></td>
+                <td><em>(<span data-i18n="[html]required"></span>)</em><br />
+                  <span data-i18n="[html]tables.root_obj.visitor"></span></td>
+              </tr>
+              <tr>
+                <td class="center-bold">total_amount<br /></td>
+                <td><em>(<span data-i18n="[html]required"></span>)</em><br />
+                  <span data-i18n="[html]tables.root_obj.total_amount"></span></td>
+              </tr>
+              <tr>
+                <td class="center-bold">shipping_amount<br /></td>
+                <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
+                  <span data-i18n="[html]tables.root_obj.shipping_amount"></span></td>
+              </tr>
+              <tr>
+                <td class="center-bold">tax_amount<br /></td>
+                <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
+                  <span data-i18n="[html]tables.root_obj.tax_amount"></span>
+                </td>
+              </tr>
+              <tr>
+                <td class="center-bold">currency<br /></td>
+                <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
+                  <span data-i18n="[html]tables.root_obj.currency"></span>
+                </td>
+              </tr>
+              <tr>
+                <td class="center-bold">installments<br /></td>
+                <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
+                  <span data-i18n="[html]tables.root_obj.installments"></span>
+                </td>
+              </tr>
+              <tr>
+                <td class="center-bold">ip</td>
+                <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
+                  <span data-i18n="[html]tables.root_obj.ip"></span>
+                </td>
+              </tr>
+              <tr>
+                <td class="center-bold">customer<br /></td>
+                <td><em>(<span data-i18n="[html]required"></span>)</em><br />
+                  <span data-i18n="[html]tables.root_obj.customer"></span><br />
+                  <a href="#customer"><span data-i18n="[html]see_below"></span></a>.
+                </td>
+              </tr>
+              <tr>
+                <td class="center-bold">payment<br /></td>
+                <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
+                  <span data-i18n="[html]tables.root_obj.payment"></span><br />
+                  <a href="#payment"><span data-i18n="[html]see_below"></span></a>.
+                </td>
+              </tr>
+              <tr>
+                <td class="center-bold">billing<br /></td>
+                <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
+                  <span data-i18n="[html]tables.root_obj.billing"></span><br />
+                  <a href="#billing"><span data-i18n="[html]see_below"></span></a>.
+                </td>
+              </tr>
+              <tr>
+                <td class="center-bold">shipping<br /></td>
+                <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
+                  <span data-i18n="[html]tables.root_obj.shipping"></span><br />
+                  <a href="#shipping"><span data-i18n="[html]see_below"></span></a>.
+                </td>
+              </tr>
+              <tr>
+                <td class="center-bold">shopping_cart<br /></td>
+                <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
+                  <span data-i18n="[html]tables.root_obj.shopping_cart"></span><br />
+                  <a href="#cart"><span data-i18n="[html]see_below"></span></a>.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-sm-5 lightgrey">
+          <h4><span data-i18n="[html]request_example"></span></h4>
+          <div id="example-curl-root" class="visible">
+            <pre class="language-javascript"><code>$ curl -u T738D516F09CAB3A2C1EE: -X POST \
+-H 'Content-Type: application/json; charset=UTF-8' \
+-d '{"id": <span id="order_id_0"></span>
+     "visitor": "f10e2821bbbe2313bc059445190d7ab4",
+     "total_amount": 100.00,
+     "shipping_amount": 20.00,
+     "tax_amount": 3.45,
+     "currency": "BRL",
+     "installments": 2,
+     "ip": "187.10.182.200",
+     "customer": {..},
+     "payment": [..],
+     "billing": {..},
+     "shipping": {..},
+     "shopping_cart": [..],
+    }' \
+https://api.konduto.com/v1/orders</code></pre>
+          </div>
+        </div>
+      </div>
+      <!-- END ROOT OBJ -->
+
+      <!-- CUSTOMER OBJ -->
+      <div class="row" id="customer">
+        <div class="col-sm-7">
+          <h4>5.2 <span data-i18n="[html]post.customer_obj.title"></span></h4>
+          <span data-i18n="[html]post.customer_obj.summary"></span>
+          <br /><br />
+          <span data-i18n="[html]post.customer_obj.description"></span>
+          <br /><br />
+          <table class="table table-condensed table-striped">
+            <thead>
+              <tr>
+                <th class="center-bold"><span data-i18n="[html]parameter"></span></th>
+                <th><span data-i18n="[html]description"></span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="center-bold">id</td>
+                <td><em>(<span data-i18n="[html]required"></span>)</em><br />
+                  <span data-i18n="[html]tables.customer_obj.id"></span></td>
+              </tr>
+              <tr>
+                <td class="center-bold">name</td>
+                <td><em>(<span data-i18n="[html]required"></span>)</em><br />
+                  <span data-i18n="[html]tables.customer_obj.name"></span></td>
+              </tr>
+              <tr>
+                <td class="center-bold">tax_id</td>
+                <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
+                  <span data-i18n="[html]tables.customer_obj.tax_id"></span>
+                </td>
+              </tr>
+              <tr>
+                <td class="center-bold">phone1</td>
+                <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
+                  <span data-i18n="[html]tables.customer_obj.phone1"></span>
+                </td>
+              </tr>
+              <tr>
+                <td class="center-bold">phone2</td>
+                <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
+                  <span data-i18n="[html]tables.customer_obj.phone2"></span>
+                </td>
+              </tr>
+              <tr>
+                <td class="center-bold">email</td>
+                <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
+                  <span data-i18n="[html]tables.customer_obj.email"></span>
+                </td>
+              </tr>
+              <tr>
+                <td class="center-bold">new</td>
+                <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
+                  <span data-i18n="[html]tables.customer_obj.new"></span>
+                </td>
+              </tr>
+              <tr>
+                <td class="center-bold">vip</td>
+                <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
+                 <span data-i18n="[html]tables.customer_obj.vip"></span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-sm-5 lightgrey">
+          <h4><span data-i18n="[html]request_example"></span></h4>
+          <div id="example-curl-customer" class="visible">
+            <pre class="language-javascript"><code>$ curl -u T738D516F09CAB3A2C1EE: -X POST \
+-H 'Content-Type: application/json; charset=UTF-8' \
+-d '{"id": <span id="order_id_1"></span>
+     "visitor": "f10e2821bbbe2313bc059445190d7ab4",
+     "total_amount": 100.00,
+     "shipping_amount": 20.00,
+     "tax_amount": 3.45,
+     "currency": "BRL",
+     "installments": 2,
+     "ip": "187.10.182.200",
+     "customer": {
+       "id": "28372",
+       "name": "Fulano de Tal",
+       "tax_id": "613.815.776-10",
+       "phone1": "+559912345678",
+       "phone2": "(11)1234-5678",
+       "email": "fulano@detal.com",
+       "new": false,
+       "vip": false
+     }
+    }' \
+https://api.konduto.com/v1/orders</code></pre>
+            <span data-i18n="[html]working_example"></span>
+          </div>
+        </div>
+      </div>
+      <!-- END CUSTOMER OBJ -->
+
+      <div class="row" id="payment">&nbsp;
+        <div class="col-sm-7"></div>
+        <div class="col-sm-5 lightgrey hidden-xs"></div>
+      </div>
+
+      <!-- PAYMENT ARR -->
+      <div class="row">
+        <div class="col-sm-7">
+          <h4>5.3 <span data-i18n="[html]post.payment_arr.title"></span></h4>
+          <span data-i18n="[html]post.payment_arr.summary"></span>
+          <br /><br />
+          <span data-i18n="[html]post.payment_arr.description"></span>
+          <br /><br />
+          <span data-i18n="[html]post.payment_arr.payment_methods"></span>
+          <br /><br />
+          <h5><strong><span data-i18n="[html]post.payment_arr.sha1_disclaimer--title"></span></strong></h5>
+          <span data-i18n="[html]post.payment_arr.sha1_disclaimer"></span>
+          <br /><br />
+          <table class="table table-condensed table-striped">
+            <thead>
+              <tr>
+                <th class="text-center"><span data-i18n="[html]parameter"></span></th>
+                <th><span data-i18n="[html]description"></span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="center-bold">type</td>
+                <td><em>(<span data-i18n="[html]required"></span>)</em><br />
+                  <span data-i18n="[html]tables.payment_arr.type"></span></td>
+              </tr>
+              <tr>
+                <td class="center-bold">status</td>
+                <td><em>(<span data-i18n="[html]required"></span>)</em><br />
+                  <span data-i18n="[html]tables.payment_arr.status"></span>
+                </td>
+              </tr>
+              <tr>
+                <td class="center-bold">sha1</td>
+                <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
+                  <span data-i18n="[html]tables.payment_arr.sha1"></span></td>
+              </tr>
+              <tr>
+                <td class="center-bold">bin</td>
+                <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
+                  <span data-i18n="[html]tables.payment_arr.bin"></span></td>
+              </tr>
+              <tr>
+                <td class="center-bold">last4</td>
+                <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
+                  <span data-i18n="[html]tables.payment_arr.last4"></span></td>
+              </tr>
+              <tr>
+                <td class="center-bold">expiration_date</td>
+                <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
+                  <span data-i18n="[html]tables.payment_arr.expiration"></span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-sm-5 lightgrey">
+          <h4><span data-i18n="[html]request_example"></span></h4>
+          <div id="example-curl-payment" class="visible">
+            <pre class="language-javascript"><code>$ curl -u T738D516F09CAB3A2C1EE: -X POST \
+-H 'Content-Type: application/json; charset=UTF-8' \
+-d '{"id": <span id="order_id_2"></span>
+   "visitor": "f10e2821bbbe2313bc059445190d7ab4",
+   "total_amount": 100.00,
+   "shipping_amount": 20.00,
+   "tax_amount": 3.45,
+   "currency": "BRL",
+   "installments": 2,
+   "ip": "187.10.182.200",
+   "customer": {
+     "id": "28372",
+     "name": "Fulano de Tal",
+     "email": "fulano@detal.com"
+   },
+   "payment": [
+    {
+     "type": "credit",
+     "sha1": "68bfb396f35af3876fc509665b3dc23a0930aab1",
+     "bin": "490172",
+     "last4": "0012",
+     "expiration_date": "072015",
+     "status": "approved"
+    },
+    {
+     "type": "credit",
+     "sha1": "4ef746d590bb85932caf8665e1d87637593e979d",
+     "bin": "514800",
+     "last4": "3752",
+     "expiration_date": "082016",
+     "status": "approved"
+    }
+   ] 
+   }' \
+https://api.konduto.com/v1/orders</code></pre>
+            <span data-i18n="[html]working_example"></span>
+          </div>
+        </div>
+      </div>
+      <!-- END PAYMENT ARR -->
+
+      <div class="row" id="billing">&nbsp;
+        <div class="col-sm-7"></div>
+        <div class="col-sm-5 lightgrey hidden-xs"></div>
+      </div>
+
+      <!-- BILLING OBJ -->
+      <div class="row">
+        <div class="col-sm-7">
+          <h4>5.4 <span data-i18n="[html]post.billing_obj.title"></span></h4>
+          <span data-i18n="[html]post.billing_obj.summary"></span>
+          <br /><br />
+          <table class="table table-condensed table-striped">
+            <thead>
+              <tr>
+                <th class="text-center"><span data-i18n="[html]parameter"></span></th>
+                <th><span data-i18n="[html]description"></span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="center-bold">name</td>
+                <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
+                  <span data-i18n="[html]tables.billing_obj.name"></span>
+                </td>
+              </tr>
+              <tr>
+                <td class="center-bold">address1</td>
+                <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
+                  <span data-i18n="[html]tables.billing_obj.address1"></span>
+                </td>
+              </tr>
+              <tr>
+                <td class="center-bold">address2</td>
+                <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
+                  <span data-i18n="[html]tables.billing_obj.address2"></span>
+                </td>
+              </tr>
+              <tr>
+                <td class="center-bold">city</td>
+                <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
+                  <span data-i18n="[html]tables.billing_obj.city"></span>
+                </td>
+              </tr>
+              <tr>
+                <td class="center-bold">state</td>
+                <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
+                  <span data-i18n="[html]tables.billing_obj.state"></span>
+                </td>
+              </tr>
+              <tr>
+                <td class="center-bold">zip</td>
+                <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
+                  <span data-i18n="[html]tables.billing_obj.zip"></span>
+                </td>
+              </tr>
+              <tr>
+                <td class="center-bold">country</td>
+                <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
+                  <span data-i18n="[html]tables.billing_obj.country"></span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-sm-5 lightgrey">
+          <h4><span data-i18n="[html]request_example"></span></h4>
+          <div id="example-curl-billing" class="visible">
+            <pre class="language-javascript"><code>$ curl -u T738D516F09CAB3A2C1EE: -X POST \
+-H 'Content-Type: application/json; charset=UTF-8' \
+-d '{"id": <span id="order_id_3"></span>
+     "visitor": "f10e2821bbbe2313bc059445190d7ab4",
+     "total_amount": 100.00,
+     "shipping_amount": 20.00,
+     "tax_amount": 3.45,
+     "currency": "BRL",
+     "installments": 2,
+     "ip": "187.10.182.200",
+     "customer": {
+       "id": "28372",
+       "name": "Fulano de Tal",
+       "email": "fulano@detal.com"
+     },
+     "billing": {
+       "name": "Fulano de Tal",
+       "address1": "Avenida Paulista, 123",
+       "address2": "4o Andar",
+       "city": "São Paulo",
+       "state": "SP",
+       "zip": "012345-000",
+       "country": "BR"
+     }
+    }' \
+https://api.konduto.com/v1/orders</code></pre>
+            <span data-i18n="[html]working_example"></span>
+          </div>
+        </div>
+      </div>
+      <!-- END BILLING OBJ -->
+
+      <div class="row" id="shipping">&nbsp;
+        <div class="col-sm-7"></div>
+        <div class="col-sm-5 lightgrey hidden-xs"></div>
+      </div>
+
+      <!-- SHIPPING OBJ -->
+      <div class="row">
+        <div class="col-sm-7">
+          <h4>5.5 <span data-i18n="[html]post.shipping_obj.title"></span></h4>
+          <span data-i18n="[html]post.shipping_obj.summary"></span>
+          <br /><br />
+          <table class="table table-condensed table-striped">
+            <thead>
+              <tr>
+                <th class="text-center"><span data-i18n="[html]parameter"></span></th>
+                <th><span data-i18n="[html]description"></span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="center-bold">name</td>
+                <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
+                  <span data-i18n="[html]tables.shipping_obj.name"></span>
+                </td>
+              </tr>
+              <tr>
+                <td class="center-bold">address1</td>
+                <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
+                  <span data-i18n="[html]tables.shipping_obj.address1"></span>
+                </td>
+              </tr>
+              <tr>
+                <td class="center-bold">address2</td>
+                <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
+                  <span data-i18n="[html]tables.shipping_obj.address2"></span>
+                </td>
+              </tr>
+              <tr>
+                <td class="center-bold">city</td>
+                <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
+                  <span data-i18n="[html]tables.shipping_obj.city"></span>
+                </td>
+              </tr>
+              <tr>
+                <td class="center-bold">state</td>
+                <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
+                  <span data-i18n="[html]tables.shipping_obj.state"></span>
+                </td>
+              </tr>
+              <tr>
+                <td class="center-bold">zip</td>
+                <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
+                  <span data-i18n="[html]tables.shipping_obj.zip"></span>
+                </td>
+              </tr>
+              <tr>
+                <td class="center-bold">country</td>
+                <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
+                  <span data-i18n="[html]tables.shipping_obj.country"></span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-sm-5 lightgrey">
+          <h4><span data-i18n="[html]request_example"></span></h4>
+          <div id="sample-curl-shipping" class="visible">
+            <pre class="language-javascript"><code>$ curl -u T738D516F09CAB3A2C1EE: -X POST \
+-H 'Content-Type: application/json; charset=UTF-8' \
+-d '{"id": <span id="order_id_4"></span>
+     "visitor": "f10e2821bbbe2313bc059445190d7ab4",
+     "total_amount": 100.00,
+     "shipping_amount": 20.00,
+     "tax_amount": 3.45,
+     "currency": "BRL",
+     "installments": 2,
+     "ip": "187.10.182.200",
+     "customer": {
+       "id": "28372",
+       "name": "Fulano de Tal",
+       "email": "fulano@detal.com"
+     },
+     "shipping": {
+       "name": "Fulano de Tal",
+       "address1": "Avenida Paulista, 123",
+       "address2": "4o Andar",
+       "city": "São Paulo",
+       "state": "SP",
+       "zip": "012345-000",
+       "country": "BR"
+     }
+    }' \
+https://api.konduto.com/v1/orders</code></pre>
+            <span data-i18n="[html]working_example"></span>
+          </div>
+        </div>
+      </div>
+      <!-- END SHIPPING OBJ -->
+
+      <div class="row" id="cart">&nbsp;
+        <div class="col-sm-7"></div>
+        <div class="col-sm-5 lightgrey hidden-xs"></div>
+      </div>
+
+      <!-- CART ARR -->
+      <div class="row">
+        <div class="col-sm-7">
+          <h4>5.6 <span data-i18n="[html]post.cart_arr.title"></span></h4>
+          <span data-i18n="[html]post.cart_arr.summary"></span>
+          <br /><br />
+          <table class="table table-condensed table-striped">
+            <thead>
+              <tr>
+                <th class="text-center"><span data-i18n="[html]parameter"></span></th>
+                <th><span data-i18n="[html]description"></span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="center-bold">sku</td>
+                <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
+                  <span data-i18n="[html]tables.cart_arr.sku"></span>
+                </td>
+              </tr>
+              <tr>
+                <td class="center-bold">product_code</td>
+                <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
+                  <span data-i18n="[html]tables.cart_arr.product_code"></span>
+                </td>
+              </tr>
+              <tr>
+                <td class="center-bold">category</td>
+                <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
+                  <span data-i18n="[html]tables.cart_arr.category"></span>
+                </td>
+              </tr>
+              <tr>
+                <td class="center-bold">name</td>
+                <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
+                  <span data-i18n="[html]tables.cart_arr.name"></span>
+                </td>
+              </tr>
+              <tr>
+                <td class="center-bold">description</td>
+                <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
+                  <span data-i18n="[html]tables.cart_arr.description"></span>
+                </td>
+              </tr>
+              <tr>
+                <td class="center-bold">unit_cost</td>
+                <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
+                  <span data-i18n="[html]tables.cart_arr.unit_cost"></span>
+                </td>
+              </tr>
+              <tr>
+                <td class="center-bold">quantity</td>
+                <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
+                  <span data-i18n="[html]tables.cart_arr.quantity"></span>
+                </td>
+              </tr>
+              <tr>
+                <td class="center-bold">discount</td>
+                <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
+                  <span data-i18n="[html]tables.cart_arr.discount"></span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-sm-5 lightgrey">
+          <h4><span data-i18n="[html]request_example"></span></h4>
+          <div id="sample-curl-cart" class="visible">
+            <pre class="language-javascript"><code>$ curl -u T738D516F09CAB3A2C1EE: -X POST \
+-H 'Content-Type: application/json; charset=UTF-8' \
+-d '{"id": <span id="order_id_5"></span>
+     "visitor": "f10e2821bbbe2313bc059445190d7ab4",
+     "total_amount": 100.00,
+     "shipping_amount": 20.00,
+     "tax_amount": 3.45,
+     "currency": "BRL",
+     "installments": 2,
+     "ip": "187.10.182.200",
+     "customer": {
+       "id": "28372",
+       "name": "Fulano de Tal",
+       "email": "fulano@detal.com"
+     },
+     "shopping_cart": [
+      {
+        "sku": "9919023",
+        "product_code": "123456789999",
+        "category": 01,
+        "name": "Xbox One",
+        "description": "Xbox One Promoção",
+        "unit_cost": 1999.99,
+        "quantity": 1,
+        "discount": 0.00,
+        "image": "http://goo.gl/v8VnWa"
+      },
+      {
+        "sku": "0017273",
+        "category": 02,
+        "name": "CD Nirvana Nevermind",
+        "description": "CD Nirvana Nevermind",
+        "unit_cost": 29.90,
+        "quantity": 2,
+        "discount": 5.00,
+        "image": "http://goo.gl/WexU5a"
+      }
+     ]
+    }' \
+https://api.konduto.com/v1/orders</code></pre>
+            <span data-i18n="[html]working_example"></span>
+          </div>
+        </div>
+      </div>
+      <!-- END CART ARR -->
+
+      <!-- PUT -->
+      <div class="row" id="n-put">
+        <div class="col-sm-7">
+          <h3>6. <span data-i18n="[html]put.title"></span></h3>
+          <span data-i18n="[html]put.summary"></span>
+          <br /><br />
+          <span data-i18n="[html]put.description"></span>
+          <br /><br />
+          <table class="table table-condensed table-striped">
+            <thead>
+              <tr>
+                <th class="text-center"><span data-i18n="[html]parameter"></span></th>
+                <th><span data-i18n="[html]description"></span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-center">status<br /></td>
+                <td><em>(<span data-i18n="[html]required"></span>)</em><br />
+                  <span data-i18n="[html]tables.put.status"></span></td>
+              </tr>
+              <tr>
+                <td class="text-center">comments<br /></td>
+                <td><em>(<span data-i18n="[html]required"></span>)</em><br />
+                  <span data-i18n="[html]tables.put.comments"></span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-sm-5 lightgrey">
+          <h4><span data-i18n="[html]request_example"></span></h4>
+          <div id="sample-curl-update" class="visible">
+            <pre class="language-javascript"><code>$ curl -u T738D516F09CAB3A2C1EE: -X PUT \
+ -H 'Content-Type: application/json; charset=UTF-8' \
+ -d '{"status": "approve",
+      "comments": "Talked to the customer and confirmed 
+      their billing address."
+      }' \
+https://api.konduto.com/v1/orders/<strong>{order_id}</strong></code></pre>
+            <h4>Response example</h4>
+            <pre class="language-javascript"><code><strong>HTTP Status Code: 200 OK</strong>
+
+{
+  "old_status": "review",
+  "new_satus": "approve"
+}</code></pre>
+          </div>
+        </div>
+      </div>
+      <!-- END PUT -->
+
+      <!-- GET -->
+      <div class="row" id="n-get">
+        <div class="col-sm-7">
+          <h3>7. <span data-i18n="[html]get.title"></span></h3>
+          <span data-i18n="[html]get.summary"></span>
+        </div>
+        <div class="col-sm-5 lightgrey">
+          <h4><span data-i18n="[html]request_example"></span></h4>
+          <div id="sample-get" class="visible">
+            <pre class="language-javascript">$ curl -u T738D516F09CAB3A2C1EE: -X GET \
+  https://api.konduto.com/v1/orders/<strong>{order_id}</strong></pre>
+          </div>
+          <h4><span data-i18n="[html]response_example"></span></h4>
+          <pre class="language-javascript"><code><strong>HTTP Status Code: 200 OK</strong>
+
+{
+  "id": "ORD1837213-3",
+  "visitor": "f10e2821bbbea527ea02200352313bc059445190",
+  "timestamp": 1389047680,
+  "score": 0.75,
+  "recommendation": "review",
+  "status": "declined",
+  "device": {
+    "user_id": "405961fab293600daeed93ae561",
+    "fingerprint": "e4f2c690951038a8f77aa583847",
+    "platform": "MacIntel",
+    "browser": "Chrome",
+    "language": "en_US",
+    "timezone": "-3",
+    "cookie": true,
+    "javascript":  true,
+    "flash": true,
+    "ip": "187.10.182.200",
+    "geolocation": {
+      "city": "SAO PAULO",
+      "state": "SP",
+      "country": "BR"
+    }
+  },
+  "total_amount": 100.00,
+  "shipping_amount": 20.00,
+  "tax_amount": 3.45,
+  "currency": "BRL",
+  "installments": 2,
+  "payment": [
+    {
+      "type": "credit",
+      "sha1": "68bfb396f35af3876fc509665b3dc23a0930aab1",
+      "bin": 490172,
+      "last4": 1234,
+      "expiration_date": 102015,
+      "status": "approved"
+    }
+  ],
+  "customer": {
+    "id": "28372",
+    "name": "Fulano de Tal",
+    "tax_id": "613.815.776-10",
+    "phone1": "+559912345678",
+    "phone2": "(11)1234-5678",
+    "email": "fulano@detal.com",
+    "ip": "123.123.123.123",
+    "new": false,
+    "vip": false
+  },
+  "billing": {
+    "name": "Fulano de Tal",
+    "address1": "Avenida Paulista, 123",
+    "address2": "4o Andar",
+    "city": "São Paulo",
+    "state": "SP",
+    "zip": "012345-000",
+    "country": "BR"
+  },
+  "shipping": {
+    "name": "Ciclano de Tal",
+    "address1": "Av. Paulista, 123",
+    "address2": "Quarto Andar",
+    "city": "São Paulo",
+    "state": "SP",
+    "zip": "12345000",
+    "country": "BR"
+  },
+  "shopping_cart": [
+    {
+      "sku": "9919023",
+      "product_code": "123456789999",
+      "category": 01,
+      "name": "Xbox One",
+      "description": "Xbox One Promoção",
+      "unit_cost": 1999.99,
+      "quantity": 1,
+      "discount": 0.00,
+      "image": "http://goo.gl/v8VnWa"
+    },
+    {
+      "sku": "0017273",
+      "category": 02,
+      "name": "CD Nirvana Nevermind",
+      "description": "CD Nirvana Nevermind",
+      "unit_cost": 29.90,
+      "quantity": 2,
+      "discount": 5.00,
+      "image": "http://goo.gl/WexU5a"
+    }
+  ]
+}</code></pre>
+        </div>
+      </div>
+      <!-- END GET -->
+
+      <!-- TABLES INTRO -->
+      <div class="row" id="n-tables">
+        <div class="col-sm-7">
+          <h3>8. <span data-i18n="[html]extras.tables_title"></span></h3>
+          <span data-i18n="[html]extras.tables_summary"></span>
+        </div>
+        <div class="col-sm-5 lightgrey hidden-xs"></div>
+      </div>
+      <!-- END TABLES INTRO -->
+
+      <!-- CURRENCIES -->
+      <div class="row">
+        <div class="col-sm-7">
+          <h4>8.1 <span data-i18n="[html]extras.currency--table"></span></h4>
+          <table class="table table-condensed table-striped">
+            <thead>
+              <tr>
+                <th class="text-center"><span data-i18n="[html]code"></span></th>
+                <th><span data-i18n="[html]tables.currency.currency"></span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="center-bold">USD</td>
+                <td><span data-i18n="[html]tables.currency.usd"></span></td>
+              </tr>
+              <tr>
+                <td class="center-bold">BRL</td>
+                <td><span data-i18n="[html]tables.currency.brl"></span></td>
+              </tr>
+              <tr>
+                <td class="center-bold">ARS</td>
+                <td><span data-i18n="[html]tables.currency.ars"></span></td>
+              </tr>
+              <tr>
+                <td class="center-bold">AUD</td>
+                <td><span data-i18n="[html]tables.currency.aud"></span></td>
+              </tr>
+              <tr>
+                <td class="center-bold">CAD</td>
+                <td><span data-i18n="[html]tables.currency.cad"></span></td>
+              </tr>
+              <tr>
+                <td class="center-bold">CLP</td>
+                <td><span data-i18n="[html]tables.currency.clp"></span></td>
+              </tr>
+              <tr>
+                <td class="center-bold">EUR</td>
+                <td><span data-i18n="[html]tables.currency.eur"></span></td>
+              </tr>
+              <tr>
+                <td class="center-bold">GBP</td>
+                <td><span data-i18n="[html]tables.currency.gbp"></span></td>
+              </tr>
+              <tr>
+                <td class="center-bold">JPY</td>
+                <td><span data-i18n="[html]tables.currency.jpy"></span></td>
+              </tr>
+              <tr>
+                <td class="center-bold">MXP</td>
+                <td><span data-i18n="[html]tables.currency.mxp"></span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-sm-5 lightgrey">
+          <h4><span data-i18n="[html]extras.currency--title"></span></h4>
+          <span data-i18n="[html]extras.currency--text"></span>
+        </div>
+      </div>
+      <!-- END CURRENCIES -->
+
+      <!-- CATEGORIES -->
+      <div class="row" id="n-categories">
+        <div class="col-sm-7">
+          <h4>8.2 <span data-i18n="[html]extras.categories--table"></span></h4>
+          <table class="table table-condensed">
+            <thead>
+              <tr>
+                <th><span data-i18n="[html]description"></span></th>
+                <th class="text-center"><span data-i18n="[html]code"></span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="warning">
+                <td><strong><span data-i18n="[html]tables.categories.animals"></span></strong></td>
+                <td class="text-center">100</td>
+              </tr>
+              <tr class="warning">
+                <td colspan="2"><strong><span data-i18n="[html]tables.categories.clothing--title"></span></strong></td>
+              </tr>
+              <tr>
+                <td><span data-i18n="[html]tables.categories.clothing--main"></span></td>
+                <td class="text-center">201</td>
+              </tr>
+              <tr>
+                <td><span data-i18n="[html]tables.categories.clothing--accessories"></span></td>
+                <td class="text-center">202</td>
+              </tr>
+              <tr>
+                <td><span data-i18n="[html]tables.categories.clothing--costumes"></span></td>
+                <td class="text-center">203</td>
+              </tr>
+              <tr>
+                <td><span data-i18n="[html]tables.categories.clothing--handbag--accessories"></span></td>
+                <td class="text-center">204</td>
+              </tr>
+              <tr>
+                <td><span data-i18n="[html]tables.categories.clothing--handbags"></span></td>
+                <td class="text-center">205</td>
+              </tr>
+              <tr>
+                <td><span data-i18n="[html]tables.categories.clothing--jewelry"></span></td>
+                <td class="text-center">206</td>
+              </tr>
+              <tr>
+                <td><span data-i18n="[html]tables.categories.clothing--shoe_accessories"></span></td>
+                <td class="text-center">207</td>
+              </tr>
+              <tr>
+                <td><span data-i18n="[html]tables.categories.clothing--shoes"></span></td>
+                <td class="text-center">208</td>
+              </tr>
+              <tr>
+                <td><span data-i18n="[html]tables.categories.others"></span></td>
+                <td class="text-center">299</td>
+              </tr>
+              <tr class="warning">
+                <td><strong><span data-i18n="[html]tables.categories.arts"></span></strong></td>
+                <td class="text-center">300</td>
+              </tr>
+              <tr class="warning">
+                <td><strong><span data-i18n="[html]tables.categories.baby"></span></strong></td>
+                <td class="text-center">400</td>
+              </tr>
+              <tr class="warning">
+                <td colspan="2"><strong><span data-i18n="[html]tables.categories.business--title"></span></strong></td>
+              </tr>
+              <tr>
+                <td><span data-i18n="[html]tables.categories.business--advertising"></span></td>
+                <td class="text-center">501</td>
+              </tr>
+              <tr>
+                <td><span data-i18n="[html]tables.categories.business--agriculture"></span></td>
+                <td class="text-center">502</td>
+              </tr>
+              <tr>
+                <td><span data-i18n="[html]tables.categories.business--construction"></span></td>
+                <td class="text-center">503</td>
+              </tr>
+              <tr>
+                <td><span data-i18n="[html]tables.categories.business--film"></span></td>
+                <td class="text-center">504</td>
+              </tr>
+              <tr>
+                <td><span data-i18n="[html]tables.categories.business--finance"></span></td>
+                <td class="text-center">505</td>
+              </tr>
+              <tr>
+                <td><span data-i18n="[html]tables.categories.business--food"></span></td>
+                <td class="text-center">506</td>
+              </tr>
+              <tr>
+                <td><span data-i18n="[html]tables.categories.business--forestry"></span></td>
+                <td class="text-center">507</td>
+              </tr>
+              <tr>
+                <td><span data-i18n="[html]tables.categories.business--machinery"></span></td>
+                <td class="text-center">508</td>
+              </tr>
+              <tr>
+                <td><span data-i18n="[html]tables.categories.business--hotel"></span></td>
+                <td class="text-center">509</td>
+              </tr>
+              <tr>
+                <td><span data-i18n="[html]tables.categories.business--storage"></span></td>
+                <td class="text-center">510</td>
+              </tr>
+              <tr>
+                <td><span data-i18n="[html]tables.categories.business--law"></span></td>
+                <td class="text-center">511</td>
+              </tr>
+              <tr>
+                <td><span data-i18n="[html]tables.categories.business--manufacturing"></span></td>
+                <td class="text-center">512</td>
+              </tr>
+              <tr>
+                <td><span data-i18n="[html]tables.categories.business--handling"></span></td>
+                <td class="text-center">513</td>
+              </tr>
+              <tr>
+                <td><span data-i18n="[html]tables.categories.business--medical"></span></td>
+                <td class="text-center">514</td>
+              </tr>
+              <tr>
+                <td><span data-i18n="[html]tables.categories.business--mining"></span></td>
+                <td class="text-center">515</td>
+              </tr>
+              <tr>
+                <td><span data-i18n="[html]tables.categories.business--tattoo"></span></td>
+                <td class="text-center">516</td>
+              </tr>
+              <tr>
+                <td><span data-i18n="[html]tables.categories.business--retail"></span></td>
+                <td class="text-center">517</td>
+              </tr>
+              <tr>
+                <td><span data-i18n="[html]tables.categories.business--science"></span></td>
+                <td class="text-center">518</td>
+              </tr>
+              <tr>
+                <td><span data-i18n="[html]tables.categories.business--signage"></span></td>
+                <td class="text-center">519</td>
+              </tr>
+              <tr>
+                <td><span data-i18n="[html]tables.categories.business--safety"></span></td>
+                <td class="text-center">520</td>
+              </tr>
+              <tr>
+                <td><span data-i18n="[html]others"></span></td>
+                <td class="text-center">599</td>
+              </tr>
+              <tr class="warning">
+                <td colspan="2"><strong><span data-i18n="[html]tables.categories.cameras--title"></span></strong></td>
+              </tr>
+              <tr>
+                <td><span data-i18n="[html]tables.categories.cameras--main"></span></td>
+                <td class="text-center">601</td>
+              </tr>
+              <tr>
+                <td><span data-i18n="[html]tables.categories.cameras--accessories"></span></td>
+                <td class="text-center">602</td>
+              </tr>
+              <tr>
+                <td><span data-i18n="[html]tables.categories.cameras--photography"></span></td>
+                <td class="text-center">603</td>
+              </tr>
+              <tr>
+                <td><span data-i18n="[html]others"></span></td>
+                <td class="text-center">699</td>
+              </tr>
+              <tr class="warning">
+                <td colspan="2"><strong><span data-i18n="[html]tables.categories.electronics--title"></span></strong></td>
+              </tr>
+              <tr>
+                <td><span data-i18n="[html]tables.categories.electronics--3d"></span></td>
+                <td class="text-center">701</td>
+              </tr>
+              <tr>
+                <td><span data-i18n="[html]tables.categories.electronics--audio"></span></td>
+                <td class="text-center">702</td>
+              </tr>
+              <tr>
+                <td><span data-i18n="[html]tables.categories.electronics--circuit"></span></td>
+                <td class="text-center">703</td>
+              </tr>
+              <tr>
+                <td><span data-i18n="[html]tables.categories.electronics--comm"></span></td>
+                <td class="text-center">704</td>
+              </tr>
+              <tr>
+                <td><span data-i18n="[html]tables.categories.electronics--components"></span></td>
+                <td class="text-center">705</td>
+              </tr>
+              <tr>
+                <td><span data-i18n="[html]tables.categories.electronics--computers"></span></td>
+                <td class="text-center">706</td>
+              </tr>
+              <tr>
+                <td><span data-i18n="[html]tables.categories.electronics--accessories"></span></td>
+                <td class="text-center">707</td>
+              </tr>
+              <tr>
+                <td><span data-i18n="[html]tables.categories.electronics--gps"></span></td>
+                <td class="text-center">708</td>
+              </tr>
+              <tr>
+                <td><span data-i18n="[html]tables.categories.electronics--gps--accessories"></span></td>
+                <td class="text-center">709</td>
+              </tr>
+              <tr>
+                <td><span data-i18n="[html]tables.categories.electronics--networking"></span></td>
+                <td class="text-center">711</td>
+              </tr>
+              <tr>
+                <td><span data-i18n="[html]tables.categories.electronics--print"></span></td>
+                <td class="text-center">712</td>
+              </tr>
+              <tr>
+                <td><span data-i18n="[html]tables.categories.electronics--print--accessories"></span></td>
+                <td class="text-center">713</td>
+              </tr>
+              <!-- <tr>
+                <td>Toll Collection Devices</td>
+                <td class="text-center">714</td>
+              </tr> -->
+              <tr>
+                <td><span data-i18n="[html]tables.categories.electronics--video"></span></td>
+                <td class="text-center">715</td>
+              </tr>
+              <tr>
+                <td><span data-i18n="[html]tables.categories.electronics--consoles"></span></td>
+                <td class="text-center">716</td>
+              </tr>
+              <tr>
+                <td><span data-i18n="[html]tables.categories.electronics--consoles--accessories"></span></td>
+                <td class="text-center">717</td>
+              </tr>
+              <tr>
+                <td><span data-i18n="[html]others"></span></td>
+                <td class="text-center">799</td>
+              </tr>
+              <tr class="warning">
+                <td><strong><span data-i18n="[html]tables.categories.food"></span></strong></td>
+                <td class="text-center">800</td>
+              </tr>
+              <tr class="warning">
+                <td><strong><span data-i18n="[html]tables.categories.furniture"></span></strong></td>
+                <td class="text-center">900</td>
+              </tr>
+              <tr class="warning">
+                <td><strong><span data-i18n="[html]tables.categories.hardware"></span></strong></td>
+                <td class="text-center">1000</td>
+              </tr>
+              <tr class="warning">
+                <td><strong><span data-i18n="[html]tables.categories.health"></span></strong></td>
+                <td class="text-center">1100</td>
+              </tr>
+              <tr class="warning">
+                <td><strong><span data-i18n="[html]tables.categories.garden"></span></strong></td>
+                <td class="text-center">1200</td>
+              </tr>
+              <tr class="warning">
+                <td><strong><span data-i18n="[html]tables.categories.luggage"></span></strong></td>
+                <td class="text-center">1300</td>
+              </tr>
+              <tr class="warning">
+                <td><strong><span data-i18n="[html]tables.categories.adult"></span></strong></td>
+                <td class="text-center">1400</td>
+              </tr>
+              <tr class="warning">
+                <td><strong><span data-i18n="[html]tables.categories.weapons"></span></strong></td>
+                <td class="text-center">1500</td>
+              </tr>
+              <tr class="warning">
+                <td><strong><span data-i18n="[html]tables.categories.office"></span></strong></td>
+                <td class="text-center">1600</td>
+              </tr>
+              <tr class="warning">
+                <td><strong><span data-i18n="[html]tables.categories.religious"></span></strong></td>
+                <td class="text-center">1700</td>
+              </tr>
+              <tr class="warning">
+                <td colspan="2"><strong><span data-i18n="[html]tables.categories.software--title"></span></strong></td>
+              </tr>
+              <tr>
+                <td><span data-i18n="[html]tables.categories.software--computer"></span></td>
+                <td class="text-center">1801</td>
+              </tr>
+              <tr>
+                <td><span data-i18n="[html]tables.categories.software--digital"></span></td>
+                <td class="text-center">1802</td>
+              </tr>
+              <tr>
+                <td><span data-i18n="[html]tables.categories.software--services"></span></td>
+                <td class="text-center">1803</td>
+              </tr>
+              <tr>
+                <td><span data-i18n="[html]tables.categories.software--games"></span></td>
+                <td class="text-center">1804</td>
+              </tr>
+              <tr>
+                <td><span data-i18n="[html]others"></span></td>
+                <td class="text-center">1899</td>
+              </tr>
+              <tr class="warning">
+                <td><strong><span data-i18n="[html]tables.categories.sport"></span></strong></td>
+                <td class="text-center">1900</td>
+              </tr>
+              <tr class="warning">
+                <td><strong><span data-i18n="[html]tables.categories.toys"></span></strong></td>
+                <td class="text-center">2000</td>
+              </tr>
+              <tr class="warning">
+                <td><strong><span data-i18n="[html]tables.categories.vehicles"></span></strong></td>
+                <td class="text-center">2100</td>
+              </tr>
+              <!-- <tr class="warning">
+                <td><strong>Sporting Goods</strong></td>
+                <td class="text-center">2200</td>
+              </tr> -->
+              <tr class="warning">
+                <td><strong><span data-i18n="[html]tables.categories.books"></span></strong></td>
+                <td class="text-center">2300</td>
+              </tr>
+              <tr class="warning">
+                <td><strong><span data-i18n="[html]tables.categories.dvds"></span></strong></td>
+                <td class="text-center">2400</td>
+              </tr>
+              <tr class="warning">
+                <td><strong><span data-i18n="[html]tables.categories.magazines"></span></strong></td>
+                <td class="text-center">2500</td>
+              </tr>
+              <tr class="warning">
+                <td colspan="2"><strong><span data-i18n="[html]tables.categories.music--title"></span></strong></td>
+              </tr>
+              <tr>
+                <td><span data-i18n="[html]tables.categories.music--cds"></span></td>
+                <td class="text-center">2601</td>
+              </tr>
+              <tr>
+                <td><span data-i18n="[html]tables.categories.music--instruments"></span></td>
+                <td class="text-center">2602</td>
+              </tr>
+              <tr>
+                <td><span data-i18n="[html]tables.categories.music--digital"></span></td>
+                <td class="text-center">2603</td>
+              </tr>
+              <tr>
+                <td><span data-i18n="[html]others"></span></td>
+                <td class="text-center">2699</td>
+              </tr>
+              <tr class="warning">
+                <td><strong><span data-i18n="[html]others"></span></strong></td>
+                <td class="text-center">9999</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-sm-5 lightgrey">
+          <h4><span data-i18n="[html]extras.categories--title"></span></h4>
+          <span data-i18n="[html]extras.categories--text"></span>
+        </div>
+      </div>
+      <!-- END CATEGORIES -->
+    </div></section>
+    <!-- END CONTENT -->
+    
+
+   <!--
+   <section class="section-pageAction" role="complementary"><div class="container"><div class="section-body"></div></div></section>
+   -->
+
+    <footer class="footer footer--page" role="contentinfo">
+      <div class="container_footer">
+        <div class="footer-nav">
+          <ul class="footer-nav__country">
+            <li>
+              <a class="select flag flag--us hidden" id="flag--active--en" data-target-id="country-popover" data-toggle="popover" href="#">English</a>
+              <a class="select flag flag--pt hidden" id="flag--active--pt"data-target-id="country-popover" data-toggle="popover" href="#">Português</a>
+              <div class="popover" id="country-popover">
+                <div class="popover__body">
+                  <ul>
+                    <!-- <li class="flag flag-/-us is-active"><a href="#">English</a></li> -->
+                    <li class="flag flag--us" id="flag--en"><a href="?lang=en">English</a></li>
+                    <li class="flag flag--pt" id="flag--pt"><a href="?lang=pt">Português</a></li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+          </ul>
+          <ul class="footer-nav__site">
+            <li><a href="https://www.konduto.com/how-it-works"><span data-i18n="[html]nav.how-it-works"></span></a></li>
+            <li><a href="https://www.konduto.com/pricing"><span data-i18n="[html]nav.pricing"></span></a></li>
+            <li><a href="http://konduto.github.io"><span data-i18n="[html]nav.docs"></span></a></li>
+            <li class="is-active"><a href="https://www.konduto.com/about"><span data-i18n="[html]nav.about"></span></a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <ul>
+            <li><span data-i18n="[html]nav.questions"></span>&nbsp;</li>
+            <li><a class="btn btn--small" encode="javascript" href="mailto:hi@konduto.com?subject=Contact" replace_at="_at_" replace_dot="_dot_"><span data-i18n="[html]nav.email_us"></span></a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <!-- POPUPS -->
+    <div class="popup mfp-with-anim mfp-hide" id="signin">
+      <div class="popup-body">
+        <section class="session session--login">
+          <div class="section-heading">
+            <img alt="Logo konduto 2" src="https://d2utunj9b046ue.cloudfront.net/assets/logo-konduto-2-224e4fed2011b69fea15d765f02adb38.png" />
+            <h1 class="section-title">Sign in to Konduto</h1>
+            <p>Don't have an account? <a class="js-popup-toggle" href="#signup">Sign Up</a></p>
+          </div>
+          <div class="section-body">
+            <form action="#" class="form" method="post" role="form">
+              <fieldset>
+                <div class="form-row">
+                  <hr>
+                  <div class="form-field"><input autocapitalize="off" autocorrect="off" class="form-input" id="form-id--email" name="form-id--email" placeholder="Email" spellcheck="false" tabindex="1" type="email" value=""></div>
+                </div>
+                <div class="form-row">
+                  <div class="form-field"><input class="form-input" id="form-id--password" name="form-id--password" placeholder="Password" type="password" value=""></div>
+                </div>
+                <div class="form-row">
+                  <div class="form-field"><button class="btn btn--primary btn--block" type="submit">Sign in</button></div>
+                </div>
+                <div class="form-note"><a class="js-popup-toggle" href="#forgot">I forgot my password</a></div>
+              </fieldset>
+            </form>
+          </div>
+        </section>
+      </div>
+    </div>
+    <div class="popup mfp-with-anim mfp-hide" id="signup">
+      <div class="popup-body">
+        <section class="session session--signup">
+          <div class="section-heading">
+            <h1 class="section-title">We are in Beta<br><b>but you can get early access!</b></h1>
+            <p>Subscribe today to get early access to Konduto.</p>
+          </div>
+          <div class="section-body">
+            <form action="#" class="form" id="theformen" method="post" role="form">
+              <fieldset>
+                <div class="form-row">
+                  <hr>
+                  <div class="form-field"><input class="form-input" id="form-id--name" name="form-id--name" placeholder="First Name" tabindex="1" type="text" value=""></div>
+                  <div class="form-field"><input class="form-input" id="form-id--email" name="form-id--surname" placeholder="Last Name" tabindex="2" type="text" value=""></div>
+                </div>
+                <div class="form-row">
+                  <div class="form-field"><input class="form-input" id="form-id--password" name="form-id--company" placeholder="Company" tabindex="3" value=""></div>
+                </div>
+                <div class="form-row">
+                  <div class="form-field"><input class="form-input" id="form-id--password" name="form-id--email" placeholder="Email" tabindex="4" type="email" value=""></div>
+                </div>
+                <div class="form-row">
+                  <div class="form-field"><button class="btn btn--primary btn--block" id="signup-btn" type="submit">Subscribe!</button></div>
+                </div>
+                <div class="form-row">
+                  <div class="form-field">
+                    <div id="thankyou"></div>
+                  </div>
+                </div>
+              </fieldset>
+            </form>
+          </div>
+        </section>
+      </div>
+    </div>
+    <div class="popup mfp-with-anim mfp-hide" id="forgot">
+      <div class="popup-body">
+        <section class="session session--login">
+          <div class="section-heading">
+            <h1 class="section-title">Forgot Password?</h1>
+            <p>No problem, We'll send you a link to reset your password. Be sure to use your personal email.</p>
+          </div>
+          <div class="section-body">
+            <form action="#" class="form" method="post" role="form">
+              <fieldset>
+                <div class="form-row">
+                  <hr>
+                  <div class="form-field"><input autocapitalize="off" autocorrect="off" class="form-input" id="form-id--email" name="form-id--email" placeholder="Email" spellcheck="false" tabindex="1" type="email" value=""></div>
+                </div>
+                <div class="form-row">
+                  <div class="form-field"><button class="btn btn--primary btn--block" type="submit">Reset Password</button></div>
+                </div>
+                <div class="form-note">Remember your password? <a class="js-popup-toggle" href="#signin">Signin here</a></div>
+              </fieldset>
+            </form>
+          </div>
+        </section>
+      </div>
+    </div>
+    <div class="popup mfp-with-anim mfp-hide" id="thanks">
+      <div class="popup-body">
+        <section class="session session--thanks">
+          <div class="section-heading">
+            <img alt="Logo konduto 2" src="https://d2utunj9b046ue.cloudfront.net/assets/logo-konduto-2-224e4fed2011b69fea15d765f02adb38.png" />
+            <h1 class="section-title">Thanks for letting us know!</h1>
+          </div>
+          <div class="section-body">
+            <form action="#" class="form" method="post" role="form">
+              <fieldset>
+                <div class="form-row"></div>
+                <hr>
+                <div class="form-field">
+                  <p>We'll be in contact soon about your Beta.</p>
+                </div>
+              </fieldset>
+            </form>
+          </div>
+        </section>
+      </div>
+    </div>
+    <!--[if (gte IE 6)&(lte IE 8)]>
+    <script src="http://s3.amazonaws.com/nwapi/nwmatcher/nwmatcher-1.2.5-min.js"></script><script src="https://d2utunj9b046ue.cloudfront.net/javascripts/selectivizr/selectivizr.js"></script><![endif]-->
+  </body>
+</html>
