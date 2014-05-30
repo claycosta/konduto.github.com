@@ -1,15 +1,17 @@
 /* i18next */
-i18n.init({
-  fallbackLng:'en',
-  useLocalStorage:false,
-  useCookie:false,
-  detectLngQS:'lang'
-}, function(t) {
-  i18nlang = i18n.lng().substring(0,2);
-  $("body").i18n();
-  $('#flag--active--'+i18nlang).removeClass('hidden');
-  $('li[id^="flag--"]').removeClass('is-active');
-  $('#flag--'+i18nlang).addClass('is-active');
+$(document).ready(function() {
+  i18n.init({
+//    lng: navigator.language,
+    fallbackLng:'en',
+    useCookie:true,
+    detectLngQS:'lang'
+  }, function(t) {
+    $("body").i18n();
+    i18nlang = i18n.lng().substring(0,2);
+    $('#flag--active--'+i18nlang).removeClass('hidden');
+    $('li[id^="flag--"]').removeClass('is-active');
+    $('#flag--'+i18nlang).addClass('is-active');
+  });
 });
 
 /* Generate pseudo-random order id number for code examples */
