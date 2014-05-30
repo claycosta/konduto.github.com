@@ -2,12 +2,13 @@
   "nav": {
     "about": "Sobre Nós",
     "blog": "Blog",
-    "docs": "Docs",
+    "docs": "Documentação",
     "email_us": "Escreva",
     "how-it-works": "Como funciona",
     "pricing": "Preço",
     "questions": "Perguntas?",
-    "terms": "Termos"
+    "terms": "Termos",
+    "signin": "Login"
   },
   "intro": {
     "title": "Introdução",

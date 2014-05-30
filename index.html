@@ -9,47 +9,36 @@
     <meta content="Konduto is an online fraud detection service that helps e-commerce merchants spot fraud with our Buying Behavior technology" name="description">
     <meta content="api,docs,fraud,fraud prevention,stop fraud,e-commerce,buying behavior,chargeback" name="keywords">
     <meta content="initial-scale=1, user-scalable=yes, width=device-width" name="viewport">
-    <link href="https://d2utunj9b046ue.cloudfront.net/assets/favicon-7f2ba2ee096dfbd382bfddd7b0b3e70c.png" rel="shortcut icon" type="image/x-icon" />
-    <script src="https://d2utunj9b046ue.cloudfront.net/assets/vendor-4ce53c67837ba9380cb0eae431321bb9.js"></script>
-    <script src="https://d2utunj9b046ue.cloudfront.net/assets/application-22b5dfa50d06382d6fa3dafcdd98c6a8.js"></script>
-    <script type="text/javascript" src="assets/i18next/i18next-1.7.3.js"></script>
-    <script type="text/javascript" src="assets/js/docs.js"></script>
-    <script type="text/javascript" src="assets/js/prism.js"></script>
-    <link href="https://d2utunj9b046ue.cloudfront.net/assets/application-2eb53b13b9c1d00b13591f889c3bc93a.css" rel="stylesheet" />
+    <!-- CSS -->
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,700" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">    
     <link rel="stylesheet" type="text/css" href="assets/css/docs.css">
     <link rel="stylesheet" type="text/css" href="assets/css/prism.css">
-    <script type="text/javascript">WebFontConfig = {
-      google: { families: [ 'Ubuntu:300,400,500,700:latin' ] }
-      };
-      (function() {
-      var wf = document.createElement('script');
-      wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
-      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
-      wf.type = 'text/javascript';
-      wf.async = 'true';
-      var s = document.getElementsByTagName('script')[0];
-      s.parentNode.insertBefore(wf, s);
-      })();
-    </script>
-    <!--[if lt IE 9]><script src="https://d2utunj9b046ue.cloudfront.net/javascripts/html5shiv/dist/html5shiv-printshiv.js"></script><![endif]-->
+    <link href="//d2utunj9b046ue.cloudfront.net/assets/favicon-7f2ba2ee096dfbd382bfddd7b0b3e70c.png" rel="shortcut icon" type="image/x-icon" />
+    <link href="//d2utunj9b046ue.cloudfront.net/assets/application-2eb53b13b9c1d00b13591f889c3bc93a.css" rel="stylesheet" />
+    <!-- SCRIPTS -->
+    <script src="//d2utunj9b046ue.cloudfront.net/assets/vendor-4ce53c67837ba9380cb0eae431321bb9.js"></script>
+    <script src="//d2utunj9b046ue.cloudfront.net/assets/application-22b5dfa50d06382d6fa3dafcdd98c6a8.js"></script>
+    <script src="assets/i18next/i18next-1.7.3.min.js"></script>
+    <script src="assets/js/docs.js"></script>
+    <script src="assets/js/prism.js"></script>
   </head>
   <body>
     <header class="header--primary" role="banner">
-      <div class="content_1">
+      <div class="header-container">
         <div class="header-brand">
-          <h1><a href="/">Konduto</a></h1>
+          <h1><a href="https://www.konduto.com">Konduto</a></h1>
         </div>
         <button class="navbar-toggle js-navbar-toggle" type="button">&#9776; Menu</button>
         <nav class="navbar js-navbar" role="navigation">
           <ul class="navbar-nav--primary">
             <li><a href="https://www.konduto.com/how-it-works"><span data-i18n="[html]nav.how-it-works"></span></a></li>
             <li><a href="https://www.konduto.com/pricing"><span data-i18n="[html]nav.pricing"></span></a></li>
-            <li class="is-active"><a href="http://konduto.github.io"><span data-i18n="[html]nav.docs"></span></a></li>
+            <li class="is-active"><a href="/"><span data-i18n="[html]nav.docs"></span></a></li>
             <li><a href="https://www.konduto.com/about"><span data-i18n="[html]nav.about"></span></a></li>
           </ul>
           <ul class="navbar-nav--secondary">
-            <li><a class="btn btn--signin js-popup-toggle" href="#signin">Sign in</a></li>
+            <li><a class="btn btn--signin js-popup-toggle" href="#signin"><span data-i18n="[html]nav.signin"></span></a></li>
           </ul>
         </nav>
       </div>
@@ -59,7 +48,7 @@
 
 
     <!-- START CONTENT -->
-    <section><div id="content">
+    <section><div class="container-fluid" id="content">
 
       <!-- INTRO -->
       <div class="row" id="n-intro">
@@ -73,7 +62,7 @@
           <br /><br />
           <span data-i18n="[html]intro.feedback"></span>
         </div>
-        <div class="col-sm-5 lightgrey">
+        <div class="col-sm-5 lightgrey" id="index">
           <h4>Contents</h4>
           <ol>
             <li><a href="#n-intro" class="index"><span data-i18n="[html]intro.title"></span></a></li>
@@ -143,7 +132,7 @@
             </thead>
             <tbody>
               <tr>
-                <td rowspan="12" style="vertical-align:middle"><strong>kdt:page</strong></td>
+                <td rowspan="9" style="vertical-align:middle"><strong>kdt:page</strong></td>
                 <td>home</td>
                 <td><span data-i18n="[html]tables.tags.page.home"></span></td>
               </tr>
@@ -1923,5 +1912,6 @@ https://api.konduto.com/v1/orders/<strong>{order_id}</strong></code></pre>
     </div>
     <!--[if (gte IE 6)&(lte IE 8)]>
     <script src="http://s3.amazonaws.com/nwapi/nwmatcher/nwmatcher-1.2.5-min.js"></script><script src="https://d2utunj9b046ue.cloudfront.net/javascripts/selectivizr/selectivizr.js"></script><![endif]-->
+    <!--[if lt IE 9]><script src="https://d2utunj9b046ue.cloudfront.net/javascripts/html5shiv/dist/html5shiv-printshiv.js"></script><![endif]-->
   </body>
 </html>
