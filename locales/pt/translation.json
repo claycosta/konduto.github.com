@@ -154,6 +154,7 @@
       "decline": "Negar<br><strong>Score entre 0.61 e 0.99.</strong>"
     },
     "success": {
+      "order": "Objeto contendo a resposta da análise.",
       "browser": "Navegador do cliente",
       "city": "Cidade detectada",
       "cookie": "Flag indicando se o cliente tem Cookies habilitados",
@@ -177,6 +178,7 @@
       "visitor": "Identificador do visitante enviado na chamada"
     },
     "errors": {
+      "message": "Objeto contendo o erro.",
       "status": "Mensagem de status da chamada. Retorna <code>ok</code> quando bem sucedida e <code>error</code> quando falhou.",
       "where": "Recurso onde o erro ocorreu.<br>Se for <code>/</code> então o erro está no objeto raiz.",
       "why": "Objeto que contém a razão da falha da chamada.",

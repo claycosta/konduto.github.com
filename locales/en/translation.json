@@ -153,6 +153,7 @@
       "decline": "Decline<br><strong>Score between 0.61 and 0.99.</strong>"
     },
     "success": {
+      "order": "Object containing the analysis respose.",
       "status": "Request status message. Responds <code>ok</code> for successful or <code>error</code> for failed requests.",
       "id": "Unique identifier sent in the request",
       "visitor": "Visitor identifier sent in the request",
@@ -176,6 +177,7 @@
       "ip": "Customer's IP address"
     },
     "errors": {
+      "message": "Object containing the error.",
       "status": "Request status message. Responds <code>ok</code> for successful or <code>error</code> for failed requests.",
       "where": "Resource where the error occurred.<br>If <code>/</code> then the error is in the root object.",
       "why": "Object containing the reason for the failed request.",
