@@ -206,7 +206,7 @@
     },
     "root_obj": {
       "id": "Identificador único para cada pedido.<br><strong>Max. 100 chars, alpha-numérico.</strong>",
-      "visitor": "Identificador do visitante obtido do nosso JavaScript.<br><strong>Exatamente 32 chars, alpha-numérico.</strong>",
+      "visitor": "Identificador do visitante obtido do nosso JavaScript.<br><strong>Exatamente 40 chars, alpha-numérico.</strong>",
       "total_amount": "Valor total do pedido.<br><strong>Max. 10 dígitos, número.</strong>",
       "shipping_amount": "Valor do frete<br><strong>Max. 10 dígitos, número.</strong>",
       "tax_amount": "Valor dos impostos.<br><strong>Max. 10 dígitos, número.</strong>",
@@ -269,6 +269,27 @@
     "put": {
       "status": "Novo status deste pedido. Pode ser <code>approved</code>, <code>declined</code> ou <code>fraud</code>, quando você identificar uma fraude ou chargeback.<br /><strong>Max. 8 chars, string</strong>.",
       "comments": "Razão ou comentários sobre a atualização do pedido.<br /><strong>Max. 255 chars, string</strong>."
+    },
+    "examples": {
+      "name": "&quot;Júlia da Silva&quot;",
+      "tax_id": "&quot;12345678909&quot;",
+      "address1": "&quot;Rua Primeiro de Abril, 123&quot;",
+      "address2": "&quot;Apto. 45&quot;",
+      "phone1": "&quot;11-1234-5678&quot;",
+      "phone2": "&quot;21-2143-6578&quot;",
+      "email": "&quot;jsilva@exemplo.com.br&quot;",
+      "city": "&quot;São Paulo&quot;",
+      "state": "&quot;SP&quot;",
+      "country": "&quot;BR&quot;",
+      "zip": "&quot; 01001-001&quot;",
+      "ip": "&quot;189.68.156.100&quot;",
+      "product1": "&quot;Camiseta Verde&quot;",
+      "description1": "&quot;Camiseta masculina verde tamanho M&quot;",
+      "product2": "&quot;Par de meias amarelas&quot;",
+      "description2": "&quot;Par de meias amarelas tamanho único&quot;",
+      "gmt": "&quot;GMT -3&quot;",
+      "lang": "&quot;pt_BR&quot;",
+      "currency": "&quot;BRL&quot;"
     },
     "currency": {
       "usd": "Dólar Americano ($)",
