@@ -346,52 +346,52 @@
                   <span data-i18n="[html]tables.success.device"></span></td>
               </tr>
               <tr>
-                <td class="text-center">order.<strong>user_id</strong></td>
+                <td class="text-center">device.<strong>user_id</strong></td>
                 <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
                   <span data-i18n="[html]tables.success.user_id"></span></td>
               </tr>
               <tr>
-                <td class="text-center">order.<strong>fingerprint</strong></td>
+                <td class="text-center">device.<strong>fingerprint</strong></td>
                 <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
                   <span data-i18n="[html]tables.success.fingerprint"></span></td>
               </tr>
               <tr>
-                <td class="text-center">order.<strong>platform</strong></td>
+                <td class="text-center">device.<strong>platform</strong></td>
                 <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
                   <span data-i18n="[html]tables.success.platform"></span></td>
               </tr>
               <tr>
-                <td class="text-center">order.<strong>browser</strong></td>
+                <td class="text-center">device.<strong>browser</strong></td>
                 <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
                   <span data-i18n="[html]tables.success.browser"></span></td>
               </tr>
               <tr>
-                <td class="text-center">order.<strong>language</strong></td>
+                <td class="text-center">device.<strong>language</strong></td>
                 <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
                   <span data-i18n="[html]tables.success.language"></span></td>
               </tr>
               <tr>
-                <td class="text-center">order.<strong>timezone</strong></td>
+                <td class="text-center">device.<strong>timezone</strong></td>
                 <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
                   <span data-i18n="[html]tables.success.timezone"></span></td>
               </tr>
               <tr>
-                <td class="text-center">order.<strong>cookie</strong></td>
+                <td class="text-center">device.<strong>cookie</strong></td>
                 <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
                   <span data-i18n="[html]tables.success.cookie"></span></td>
               </tr>
               <tr>
-                <td class="text-center">order.<strong>javascript</strong></td>
+                <td class="text-center">device.<strong>javascript</strong></td>
                 <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
                   <span data-i18n="[html]tables.success.javascript"></span></td>
               </tr>
               <tr>
-                <td class="text-center">order.<strong>flash</strong></td>
+                <td class="text-center">device.<strong>flash</strong></td>
                 <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
                   <span data-i18n="[html]tables.success.flash"></span></td>
               </tr>
               <tr>
-                <td class="text-center">order.<strong>ip</strong></td>
+                <td class="text-center">device.<strong>ip</strong></td>
                 <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
                   <span data-i18n="[html]tables.success.ip"></span></td>
               </tr>
@@ -401,17 +401,17 @@
                   <span data-i18n="[html]tables.success.geolocation"></span></td>
               </tr>
               <tr>
-                <td class="text-center">order.<strong>city</strong></td>
+                <td class="text-center">geolocation.<strong>city</strong></td>
                 <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
                   <span data-i18n="[html]tables.success.city"></span></td>
               </tr>
               <tr>
-                <td class="text-center">order.<strong>state</strong></td>
+                <td class="text-center">geolocation.<strong>state</strong></td>
                 <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
                   <span data-i18n="[html]tables.success.state"></span></td>
               </tr>
               <tr>
-                <td class="text-center">order.<strong>country</strong></td>
+                <td class="text-center">geolocation.<strong>country</strong></td>
                 <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
                   <span data-i18n="[html]tables.success.country"></span></td>
               </tr>
@@ -442,11 +442,11 @@
       "javascript":  true,
       "flash": true,
       "ip": "</code><span class='token string' data-i18n='[html]tables.examples.ip'></span><code>"
-      "geolocation": {
-        "city": </code><span class='token string' data-i18n='[html]tables.examples.city'></span><code>,
-        "state": </code><span class='token string' data-i18n='[html]tables.examples.state'></span><code>,
-        "country": </code><span class='token string' data-i18n='[html]tables.examples.country'></span><code>
-      }
+    },
+    "geolocation": {
+      "city": </code><span class='token string' data-i18n='[html]tables.examples.city'></span><code>,
+      "state": </code><span class='token string' data-i18n='[html]tables.examples.state'></span><code>,
+      "country": </code><span class='token string' data-i18n='[html]tables.examples.country'></span><code>
     }
   }
 }</code></pre>
@@ -1256,12 +1256,12 @@ https://api.konduto.com/v1/orders/<strong>{order_id}</strong></code></pre>
     "cookie": true,
     "javascript":  true,
     "flash": true,
-    "ip": </code><span class='token string' data-i18n='[html]tables.examples.ip'></span><code>,
-    "geolocation": {
-      "city": </code><span class='token string' data-i18n='[html]tables.examples.city'></span><code>,
-      "state": </code><span class='token string' data-i18n='[html]tables.examples.state'></span><code>,
-      "country": </code><span class='token string' data-i18n='[html]tables.examples.country'></span><code>
-    }
+    "ip": </code><span class='token string' data-i18n='[html]tables.examples.ip'></span><code>
+  },
+  "geolocation": {
+    "city": </code><span class='token string' data-i18n='[html]tables.examples.city'></span><code>,
+    "state": </code><span class='token string' data-i18n='[html]tables.examples.state'></span><code>,
+    "country": </code><span class='token string' data-i18n='[html]tables.examples.country'></span><code>
   },
   "total_amount": 100.00,
   "shipping_amount": 20.00,
