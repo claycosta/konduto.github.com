@@ -192,7 +192,7 @@
           <br />
           <h5><span data-i18n="[html]tags.example_product"></span></h5>
           <pre class="language-javascript"><code>&lt;meta name="kdt:page" content="product">
-&lt;meta name="kdt:product" content="id=123, name=Nirvana CD"></code></pre>
+&lt;meta name="kdt:product" content=</code><span class='token string'>"sku=123, name=<span data-i18n='[html]tables.examples.product1'></span></span>></pre>
         </div>
       </div>
       <!-- END TAGS -->
@@ -427,7 +427,7 @@
   "status": "ok",
   "order": {
     "id": <span id="order_id_8"></span>
-    "visitor": "f10e2821bbbe2313bc059445190d7ab4",
+    "visitor": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
     "timestamp": 1389047680,
     "score": 0.75,
     "recommendation": "review",
@@ -436,16 +436,16 @@
       "fingerprint": "e4f2c690951038a8f77aa583847",
       "platform": "MacIntel",
       "browser": "Chrome",
-      "language": "en_US",
-      "timezone": "GMT -3",
+      "language": </code><span class='token string' data-i18n='[html]tables.examples.lang'></span><code>,
+      "timezone": </code><span class='token string' data-i18n='[html]tables.examples.gmt'></span><code>,
       "cookie": true,
       "javascript":  true,
       "flash": true,
-      "ip": "189.68.156.200"
+      "ip": "</code><span class='token string' data-i18n='[html]tables.examples.ip'></span><code>"
       "geolocation": {
-        "city": "SAO PAULO",
-        "state": "SP",
-        "country": "BR"
+        "city": </code><span class='token string' data-i18n='[html]tables.examples.city'></span><code>,
+        "state": </code><span class='token string' data-i18n='[html]tables.examples.state'></span><code>,
+        "country": </code><span class='token string' data-i18n='[html]tables.examples.country'></span><code>
       }
     }
   }
@@ -639,13 +639,13 @@
             <pre class="language-javascript"><code>$ curl -u T738D516F09CAB3A2C1EE: -X POST \
 -H 'Content-Type: application/json; charset=UTF-8' \
 -d '{"id": <span id="order_id_0"></span>
-     "visitor": "f10e2821bbbe2313bc059445190d7ab4",
+     "visitor": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
      "total_amount": 100.00,
      "shipping_amount": 20.00,
      "tax_amount": 3.45,
-     "currency": "BRL",
+     "currency": </code><span class='token string' data-i18n='[html]tables.examples.currency'></span><code>,
      "installments": 2,
-     "ip": "187.10.182.200",
+     "ip": </code><span class='token string' data-i18n='[html]tables.examples.ip'></span><code>,
      "customer": {..},
      "payment": [..],
      "billing": {..},
@@ -729,20 +729,20 @@ https://api.konduto.com/v1/orders</code></pre>
             <pre class="language-javascript"><code>$ curl -u T738D516F09CAB3A2C1EE: -X POST \
 -H 'Content-Type: application/json; charset=UTF-8' \
 -d '{"id": <span id="order_id_1"></span>
-     "visitor": "f10e2821bbbe2313bc059445190d7ab4",
+     "visitor": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
      "total_amount": 100.00,
      "shipping_amount": 20.00,
      "tax_amount": 3.45,
-     "currency": "BRL",
+     "currency": </code><span class='token string' data-i18n='[html]tables.examples.currency'></span><code>,
      "installments": 2,
-     "ip": "187.10.182.200",
+     "ip": </code><span class='token string' data-i18n='[html]tables.examples.ip'></span><code>,
      "customer": {
        "id": "28372",
-       "name": "Fulano de Tal",
-       "tax_id": "613.815.776-10",
-       "phone1": "+559912345678",
-       "phone2": "(11)1234-5678",
-       "email": "fulano@detal.com",
+       "name": </code><span class='token string' data-i18n='[html]tables.examples.name'></span><code>,
+       "tax_id": </code><span class='token string' data-i18n='[html]tables.examples.tax_id'></span><code>,
+       "phone1": </code><span class='token string' data-i18n='[html]tables.examples.phone1'></span><code>,
+       "phone2": </code><span class='token string' data-i18n='[html]tables.examples.phone2'></span><code>,
+       "email": </code><span class='token string' data-i18n='[html]tables.examples.email'></span><code>,
        "new": false,
        "vip": false
      }
@@ -821,17 +821,17 @@ https://api.konduto.com/v1/orders</code></pre>
             <pre class="language-javascript"><code>$ curl -u T738D516F09CAB3A2C1EE: -X POST \
 -H 'Content-Type: application/json; charset=UTF-8' \
 -d '{"id": <span id="order_id_2"></span>
-   "visitor": "f10e2821bbbe2313bc059445190d7ab4",
+   "visitor": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
    "total_amount": 100.00,
    "shipping_amount": 20.00,
    "tax_amount": 3.45,
-   "currency": "BRL",
+   "currency": </code><span class='token string' data-i18n='[html]tables.examples.currency'></span><code>,
    "installments": 2,
-   "ip": "187.10.182.200",
+   "ip": </code><span class='token string' data-i18n='[html]tables.examples.ip'></span><code>,
    "customer": {
      "id": "28372",
-     "name": "Fulano de Tal",
-     "email": "fulano@detal.com"
+     "name": </code><span class='token string' data-i18n='[html]tables.examples.name'></span><code>,
+     "email": </code><span class='token string' data-i18n='[html]tables.examples.email'></span><code>
    },
    "payment": [
     {
@@ -929,26 +929,26 @@ https://api.konduto.com/v1/orders</code></pre>
             <pre class="language-javascript"><code>$ curl -u T738D516F09CAB3A2C1EE: -X POST \
 -H 'Content-Type: application/json; charset=UTF-8' \
 -d '{"id": <span id="order_id_3"></span>
-     "visitor": "f10e2821bbbe2313bc059445190d7ab4",
+     "visitor": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
      "total_amount": 100.00,
      "shipping_amount": 20.00,
      "tax_amount": 3.45,
-     "currency": "BRL",
+     "currency": </code><span class='token string' data-i18n='[html]tables.examples.currency'></span><code>,
      "installments": 2,
-     "ip": "187.10.182.200",
+     "ip": </code><span class='token string' data-i18n='[html]tables.examples.ip'></span><code>,
      "customer": {
        "id": "28372",
-       "name": "Fulano de Tal",
-       "email": "fulano@detal.com"
+       "name": </code><span class='token string' data-i18n='[html]tables.examples.name'></span><code>,
+       "email": </code><span class='token string' data-i18n='[html]tables.examples.email'></span><code>
      },
      "billing": {
-       "name": "Fulano de Tal",
-       "address1": "Avenida Paulista, 123",
-       "address2": "4o Andar",
-       "city": "São Paulo",
-       "state": "SP",
-       "zip": "012345-000",
-       "country": "BR"
+       "name": </code><span class='token string' data-i18n='[html]tables.examples.name'></span><code>,
+       "address1": </code><span class='token string' data-i18n='[html]tables.examples.address1'></span><code>,
+       "address2": </code><span class='token string' data-i18n='[html]tables.examples.address2'></span><code>,
+       "city": </code><span class='token string' data-i18n='[html]tables.examples.city'></span><code>,
+       "state": </code><span class='token string' data-i18n='[html]tables.examples.state'></span><code>,
+       "zip": </code><span class='token string' data-i18n='[html]tables.examples.zip'></span><code>,
+       "country": </code><span class='token string' data-i18n='[html]tables.examples.country'></span><code>
      }
     }' \
 https://api.konduto.com/v1/orders</code></pre>
@@ -1028,7 +1028,7 @@ https://api.konduto.com/v1/orders</code></pre>
             <pre class="language-javascript"><code>$ curl -u T738D516F09CAB3A2C1EE: -X POST \
 -H 'Content-Type: application/json; charset=UTF-8' \
 -d '{"id": <span id="order_id_4"></span>
-     "visitor": "f10e2821bbbe2313bc059445190d7ab4",
+     "visitor": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
      "total_amount": 100.00,
      "shipping_amount": 20.00,
      "tax_amount": 3.45,
@@ -1037,17 +1037,17 @@ https://api.konduto.com/v1/orders</code></pre>
      "ip": "187.10.182.200",
      "customer": {
        "id": "28372",
-       "name": "Fulano de Tal",
-       "email": "fulano@detal.com"
+       "name": </code><span class='token string' data-i18n='[html]tables.examples.name'></span><code>,
+       "email": </code><span class='token string' data-i18n='[html]tables.examples.email'></span><code>
      },
      "shipping": {
-       "name": "Fulano de Tal",
-       "address1": "Avenida Paulista, 123",
-       "address2": "4o Andar",
-       "city": "São Paulo",
-       "state": "SP",
-       "zip": "012345-000",
-       "country": "BR"
+       "name": </code><span class='token string' data-i18n='[html]tables.examples.name'></span><code>,
+       "address1": </code><span class='token string' data-i18n='[html]tables.examples.address1'></span><code>,
+       "address2": </code><span class='token string' data-i18n='[html]tables.examples.address2'></span><code>,
+       "city": </code><span class='token string' data-i18n='[html]tables.examples.city'></span><code>,
+       "state": </code><span class='token string' data-i18n='[html]tables.examples.state'></span><code>,
+       "zip": </code><span class='token string' data-i18n='[html]tables.examples.zip'></span><code>,
+       "country": </code><span class='token string' data-i18n='[html]tables.examples.country'></span><code>
      }
     }' \
 https://api.konduto.com/v1/orders</code></pre>
@@ -1133,39 +1133,36 @@ https://api.konduto.com/v1/orders</code></pre>
             <pre class="language-javascript"><code>$ curl -u T738D516F09CAB3A2C1EE: -X POST \
 -H 'Content-Type: application/json; charset=UTF-8' \
 -d '{"id": <span id="order_id_5"></span>
-     "visitor": "f10e2821bbbe2313bc059445190d7ab4",
+     "visitor": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
      "total_amount": 100.00,
      "shipping_amount": 20.00,
      "tax_amount": 3.45,
-     "currency": "BRL",
+     "currency": </code><span class='token string' data-i18n='[html]tables.examples.currency'></span><code>,
      "installments": 2,
-     "ip": "187.10.182.200",
+     "ip": </code><span class='token string' data-i18n='[html]tables.examples.ip'></span><code>,
      "customer": {
        "id": "28372",
-       "name": "Fulano de Tal",
-       "email": "fulano@detal.com"
+       "name": </code><span class='token string' data-i18n='[html]tables.examples.name'></span><code>,
+       "email": </code><span class='token string' data-i18n='[html]tables.examples.email'></span><code>
      },
      "shopping_cart": [
       {
         "sku": "9919023",
         "product_code": "123456789999",
-        "category": 01,
-        "name": "Xbox One",
-        "description": "Xbox One Promoção",
+        "category": 201,
+        "name": </code><span class='token string' data-i18n='[html]tables.examples.product1'></span><code>,
+        "description": </code><span class='token string' data-i18n='[html]tables.examples.description1'></span><code>,
         "unit_cost": 1999.99,
-        "quantity": 1,
-        "discount": 0.00,
-        "image": "http://goo.gl/v8VnWa"
+        "quantity": 1
       },
       {
         "sku": "0017273",
-        "category": 02,
-        "name": "CD Nirvana Nevermind",
-        "description": "CD Nirvana Nevermind",
+        "category": 202,
+        "name": </code><span class='token string' data-i18n='[html]tables.examples.product2'></span><code>,
+        "description": </code><span class='token string' data-i18n='[html]tables.examples.description2'></span><code>,
         "unit_cost": 29.90,
         "quantity": 2,
-        "discount": 5.00,
-        "image": "http://goo.gl/WexU5a"
+        "discount": 5.00
       }
      ]
     }' \
@@ -1254,22 +1251,22 @@ https://api.konduto.com/v1/orders/<strong>{order_id}</strong></code></pre>
     "fingerprint": "e4f2c690951038a8f77aa583847",
     "platform": "MacIntel",
     "browser": "Chrome",
-    "language": "en_US",
-    "timezone": "-3",
+    "language": </code><span class='token string' data-i18n='[html]tables.examples.lang'></span><code>,
+    "timezone": </code><span class='token string' data-i18n='[html]tables.examples.gmt'></span><code>,
     "cookie": true,
     "javascript":  true,
     "flash": true,
-    "ip": "187.10.182.200",
+    "ip": </code><span class='token string' data-i18n='[html]tables.examples.ip'></span><code>,
     "geolocation": {
-      "city": "SAO PAULO",
-      "state": "SP",
-      "country": "BR"
+      "city": </code><span class='token string' data-i18n='[html]tables.examples.city'></span><code>,
+      "state": </code><span class='token string' data-i18n='[html]tables.examples.state'></span><code>,
+      "country": </code><span class='token string' data-i18n='[html]tables.examples.country'></span><code>
     }
   },
   "total_amount": 100.00,
   "shipping_amount": 20.00,
   "tax_amount": 3.45,
-  "currency": "BRL",
+  "currency": </code><span class='token string' data-i18n='[html]tables.examples.currency'></span><code>,
   "installments": 2,
   "payment": [
     {
@@ -1283,54 +1280,50 @@ https://api.konduto.com/v1/orders/<strong>{order_id}</strong></code></pre>
   ],
   "customer": {
     "id": "28372",
-    "name": "Fulano de Tal",
-    "tax_id": "613.815.776-10",
-    "phone1": "+559912345678",
-    "phone2": "(11)1234-5678",
-    "email": "fulano@detal.com",
-    "ip": "123.123.123.123",
+    "name": </code><span class='token string' data-i18n='[html]tables.examples.name'></span><code>,
+    "tax_id": </code><span class='token string' data-i18n='[html]tables.examples.tax_id'></span><code>,
+    "phone1": </code><span class='token string' data-i18n='[html]tables.examples.phone1'></span><code>,
+    "phone2": </code><span class='token string' data-i18n='[html]tables.examples.phone2'></span><code>,
+    "email": </code><span class='token string' data-i18n='[html]tables.examples.email'></span><code>,
+    "ip": </code><span class='token string' data-i18n='[html]tables.examples.ip'></span><code>,
     "new": false,
     "vip": false
   },
   "billing": {
-    "name": "Fulano de Tal",
-    "address1": "Avenida Paulista, 123",
-    "address2": "4o Andar",
-    "city": "São Paulo",
-    "state": "SP",
-    "zip": "012345-000",
-    "country": "BR"
+    "name": </code><span class='token string' data-i18n='[html]tables.examples.name'></span><code>,
+    "address1": </code><span class='token string' data-i18n='[html]tables.examples.address1'></span><code>,
+    "address2": </code><span class='token string' data-i18n='[html]tables.examples.address2'></span><code>,
+    "city": </code><span class='token string' data-i18n='[html]tables.examples.city'></span><code>,
+    "state": </code><span class='token string' data-i18n='[html]tables.examples.state'></span><code>,
+    "zip": </code><span class='token string' data-i18n='[html]tables.examples.zip'></span><code>,
+    "country": </code><span class='token string' data-i18n='[html]tables.examples.country'></span><code>
   },
   "shipping": {
-    "name": "Ciclano de Tal",
-    "address1": "Av. Paulista, 123",
-    "address2": "Quarto Andar",
-    "city": "São Paulo",
-    "state": "SP",
-    "zip": "12345000",
-    "country": "BR"
+    "name": </code><span class='token string' data-i18n='[html]tables.examples.name'></span><code>,
+    "address1": </code><span class='token string' data-i18n='[html]tables.examples.address1'></span><code>,
+    "city": </code><span class='token string' data-i18n='[html]tables.examples.city'></span><code>,
+    "state": </code><span class='token string' data-i18n='[html]tables.examples.state'></span><code>,
+    "zip": </code><span class='token string' data-i18n='[html]tables.examples.zip'></span><code>,
+    "country": </code><span class='token string' data-i18n='[html]tables.examples.country'></span><code>
   },
   "shopping_cart": [
     {
       "sku": "9919023",
       "product_code": "123456789999",
-      "category": 01,
-      "name": "Xbox One",
-      "description": "Xbox One Promoção",
+      "category": 201,
+      "name": </code><span class='token string' data-i18n='[html]tables.examples.product1'></span><code>,
+      "description": </code><span class='token string' data-i18n='[html]tables.examples.description1'></span><code>,
       "unit_cost": 1999.99,
-      "quantity": 1,
-      "discount": 0.00,
-      "image": "http://goo.gl/v8VnWa"
+      "quantity": 1
     },
     {
       "sku": "0017273",
-      "category": 02,
-      "name": "CD Nirvana Nevermind",
-      "description": "CD Nirvana Nevermind",
+      "category": 202,
+      "name": </code><span class='token string' data-i18n='[html]tables.examples.product2'></span><code>,
+      "description": </code><span class='token string' data-i18n='[html]tables.examples.description2'></span><code>,
       "unit_cost": 29.90,
       "quantity": 2,
       "discount": 5.00,
-      "image": "http://goo.gl/WexU5a"
     }
   ]
 }</code></pre>

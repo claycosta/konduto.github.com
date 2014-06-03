@@ -205,7 +205,7 @@
     },
     "root_obj": {
       "id": "Unique identifier for each order.<br><strong>Max. 100 chars, alphanumeric.</strong>",
-      "visitor": "Visitor identifier obtained from our JavaScript snippet.<br><strong>Exactly 32 chars, alphanumeric.</strong>",
+      "visitor": "Visitor identifier obtained from our JavaScript snippet.<br><strong>Exactly 40 chars, alphanumeric.</strong>",
       "total_amount": "Total order amount.<br><strong>Max. 10 digits, number.</strong>",
       "shipping_amount": "Shipping and handling amount.<br><strong>Max. 10 digits, number.</strong>",
       "tax_amount": "Taxes amount.<br><strong>Max. 10 digits, number.</strong>",
@@ -268,6 +268,27 @@
     "put": {
       "status": "New status for this transaction. Either <code>approved</code>, <code>declined</code> or <code>fraud</code>, when you have identified a fraud or chargeback.<br /><strong>Max. 8 chars, string</strong>.",
       "comments": "Reason or comments about the status update.<br /><strong>Max. 255 chars, string</strong>."
+    },
+    "examples": {
+      "name": "&quot;Mary Jane&quot;",
+      "tax_id": "&quot;6253407&quot;",
+      "address1": "&quot;123 Main St.&quot;",
+      "address2": "&quot;Apartment 4&quot;",
+      "phone1": "&quot;212-555-1234&quot;",
+      "phone2": "&quot;202-555-6789&quot;",
+      "email": "&quot;mary.jane@example.com&quot;",
+      "city": "&quot;New York City&quot;",
+      "state": "&quot;NY&quot;",
+      "country": "&quot;US&quot;",
+      "zip": "&quot;10460&quot;",
+      "ip": "&quot;170.149.100.10&quot;",
+      "product1": "&quot;Green T-Shirt&quot;",
+      "description1": "&quot;Male Green T-Shirt V Neck&quot;",
+      "product2": "&quot;Yellow Socks&quot;",
+      "description2": "&quot;Pair of Yellow Socks&quot;",
+      "gmt": "&quot;GMT -1&quot;",
+      "lang": "&quot;en_US&quot;",
+      "currency": "&quot;USD&quot;"
     },
     "currency": {
       "currency": "Currency",
