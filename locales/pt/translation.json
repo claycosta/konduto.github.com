@@ -86,6 +86,7 @@
       "summary": "Esta lista de objetos deve ser usado para enviar informações sobre os meios de pagamentos usados na compra.",
       "description": "Você pode mandar um pedido que contém múltiplos meios de pagamento, como compras com dois cartões de crédito.",
       "payment_methods": "Atualmente nós suportamos apenas compras com cartão de crédito. Consulte com o support a respeito de outros meios de pagamento para análise.",
+      "sha1_disclaimer--title": "Sobre os números de cartão",
       "sha1_disclaimer": "Nossa API não aceita o envio de números de cartões abertos. Se você não estiver usando nossos SDKs você deve fazer um hash do número de cartão de crédito do cliente usando SHA1 antes de submeter a compra para nós.<br><br>Não é necessário fazer hash um se você estiver usando um dos nossos SDKs, pois eles já fazem isso. Por favor note que os campos bin e last4 não devem ser enviados em forma de hash."
     },
     "billing_obj": {
