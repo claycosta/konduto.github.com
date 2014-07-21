@@ -176,7 +176,23 @@
       "timestamp": "Hora da transação em Epoch do Unix",
       "timezone": "Fuso horário do cliente em GMT",
       "user_id": "Identificador único do visitante",
-      "visitor": "Identificador do visitante enviado na chamada"
+      "visitor": "Identificador do visitante enviado na chamada",
+
+      "time_site_1d": "Time user spent on the website in the past day (in minutes)",
+      "new_accounts_1d": "Accounts created by the user in the past day",
+      "password_resets_1d": "Password resets in the past day",
+      "sales_declined_1d": "Orders declined linked to the user in the past day",
+      "sessions_1d": "User visits (sessions) by the user in the past day",
+      "session_time": "Time of last session (in minutes)",
+      "time_since_last_sale": "Time since the last successul order (in minutes)",
+      "time_site_7d": "Time user spent on the website in the past week (in minutes)",
+      "time_per_page_7d": "Avg. time per page in the past week (in minutes)",
+      "new_accounts_7d": "Accounts created by the user in the past week",
+      "password_resets_7d": "Password resets in the past week",
+      "checkout_count_7d": "Shopping cart views in the past week",
+      "sales_declined_7d": "Orders declined linked to the user in the past week",
+      "sessions_7d": "User visits (sessions) by the user in the past week",
+      "referrer": "Source of the visit"
     },
     "errors": {
       "message": "Objeto contendo o erro.",
