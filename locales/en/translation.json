@@ -148,9 +148,9 @@
     },
     "sandbox": {
       "response": "response",
-      "approve": "Approve<br><strong>Score between 0 and 0.3.</strong>",
-      "review": "Review<br><strong>Score between 0.31 and 0.6.</strong>",
-      "decline": "Decline<br><strong>Score between 0.61 and 0.99.</strong>"
+      "approve": "Approve<br><strong>Score will be the decimals (*.00 to 0.29).</strong>",
+      "review": "Review<br><strong>Score will be the decimals (0.30 to 0.60).</strong>",
+      "decline": "Decline<br><strong>Score will be the decimals (0.61 and 0.99).</strong>"
     },
     "success": {
       "order": "Object containing the analysis respose.",

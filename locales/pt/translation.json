@@ -150,9 +150,9 @@
     },
     "sandbox": {
       "response": "resposta",
-      "approve": "Aprovar<br><strong>Score entre 0 e 0.3.</strong>",
-      "review": "Revisar<br><strong>Score entre 0.31 e 0.6.</strong>",
-      "decline": "Negar<br><strong>Score entre 0.61 e 0.99.</strong>"
+      "approve": "Aprovar<br><strong>Score será os decimais (*.00 - *.29)</strong>",
+      "review": "Revisar<br><strong>Score será os decimais  (0.30 e 0.60).</strong>",
+      "decline": "Negar<br><strong>Score será os decimais  (0.61 e 0.99).</strong>"
     },
     "success": {
       "order": "Objeto contendo a resposta da análise.",
