@@ -126,6 +126,7 @@
   },
   "optional": "optional",
   "required": "required",
+  "recommended": "highly recommended",
   "see_below": "See below",
   "parameter": "Parameter",
   "description": "Description",

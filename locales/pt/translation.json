@@ -127,6 +127,7 @@
   },
   "optional": "opcional",
   "required": "obrigatório",
+  "recommended": "altamente recomendado",
   "see_below": "Veja abaixo",
   "parameter": "Parâmetro",
   "description": "Descrição",
