@@ -147,6 +147,7 @@
       "403": "Há algum problema com a sua conta. Por favor entre em contato com o nosso Suporte para mais informações.",
       "404": "O recurso solicitado não foi encontrado.",
       "405": "O método HTTP enviado não é permitido para este recurso.",
+      "429": "Você chegou ao limite de transações do atual ciclo de cobrança",
       "5xx": "Houve algum erro no nosso lado. Por favor entre em contato com o Suporte para mais informações."
     },
     "sandbox": {

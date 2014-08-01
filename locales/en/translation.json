@@ -145,6 +145,7 @@
       "403": "Problem with your account. Please contact our Support team for more information.",
       "404": "Resource requested was not found.",
       "405": "Method sent is not allowed for this resource.",
+      "429": "You've reached your quota of transactions for the current billing cycle",
       "5xx": "Something went wrong on our end. Please contact our Support team for more information."
     },
     "sandbox": {
