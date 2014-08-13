@@ -213,7 +213,7 @@
         "account-creation": "Account creation page",
         "category": "Product list by a certain category",
         "sale": "List of products on sale",
-        "cart": "Shopping cart overall view",
+        "basket": "Shopping cart overall view",
         "checkout": "Checkout process page",
         "success": "Successful purchase confirmation page",
         "fail": "Failed purchase page"
