@@ -1,11 +1,11 @@
 {
   "nav": {
-    "about": "Sobre Nós",
+    "about": "Sobre",
     "blog": "Blog",
-    "docs": "Documentação",
+    "docs": "API",
     "email_us": "Escreva",
     "how-it-works": "Como funciona",
-    "pricing": "Preço",
+    "pricing": "Preços",
     "questions": "Perguntas?",
     "terms": "Termos",
     "signin": "Login"

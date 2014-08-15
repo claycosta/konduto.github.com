@@ -1310,8 +1310,11 @@ https://api.konduto.com/v1/orders/<strong>{order_id}</strong></code></pre>
             <pre class="language-javascript"><code><strong>HTTP Status Code: 200 OK</strong>
 
 {
-  "old_status": "review",
-  "new_status": "approved"
+  "status": "ok",
+  "order": {
+    "old_status": "review",
+    "new_status": "approved"
+  }
 }</code></pre>
           </div>
         </div>
@@ -1334,108 +1337,111 @@ https://api.konduto.com/v1/orders/<strong>{order_id}</strong></code></pre>
           <pre class="language-javascript"><code><strong>HTTP Status Code: 200 OK</strong>
 
 {
-  "id": "ORD1837213-3",
-  "visitor": "f10e2821bbbea527ea02200352313bc059445190",
-  "timestamp": 1389047680,
-  "score": 0.75,
-  "recommendation": "review",
-  "status": "declined",
-  "ip": </code><span class='token string' data-i18n='[html]tables.examples.ip'></span><code>,
-  "total_amount":100.00,
-  "tax_amount":3.45,
-  "shipping_amount":20.00,
-  "installments":2,
-  "currency":"USD",
-  "device": {
-    "user_id": "405961fab293600daeed93ae561",
-    "fingerprint": "e4f2c690951038a8f77aa583847",
-    "platform": "MacIntel",
-    "browser": "Chrome",
-    "language": </code><span class='token string' data-i18n='[html]tables.examples.lang'></span><code>,
-    "timezone": </code><span class='token string' data-i18n='[html]tables.examples.gmt'></span><code>,
-    "cookie": true,
-    "javascript":  true,
-    "flash": true
-  },
-  "geolocation": {
-    "city": </code><span class='token string' data-i18n='[html]tables.examples.city'></span><code>,
-    "state": </code><span class='token string' data-i18n='[html]tables.examples.state'></span><code>,
-    "country": </code><span class='token string' data-i18n='[html]tables.examples.country'></span><code>
-  },
-  "navigation": {
-    "session_time": 12,
-    "referrer": "http://www.google.com?q=buy+shirt",
-    "time_site_1d": 26,
-    "new_accounts_1d": 2,
-    "password_resets_1d": 0,
-    "sales_declined_1d": 1,
-    "sessions_1d": 4,
-    "time_site_7d": 58,
-    "time_per_page_7d": 7,
-    "new_accounts_7d": 9,
-    "password_resets_7d": 3,
-    "checkout_count_7d": 4,
-    "sales_declined_7d": 5,
-    "sessions_7d": 12,
-    "time_since_last_sale": 4
-  },
-  "payment": [
-    {
-      "type": "credit",
-      "bin": "490172",
-      "last4": "1234",
-      "expiration_date": "102015",
-      "status": "approved"
-    }
-  ],
-  "customer": {
-    "id": "28372",
-    "name": </code><span class='token string' data-i18n='[html]tables.examples.name'></span><code>,
-    "tax_id": </code><span class='token string' data-i18n='[html]tables.examples.tax_id'></span><code>,
-    "phone1": </code><span class='token string' data-i18n='[html]tables.examples.phone1'></span><code>,
-    "phone2": </code><span class='token string' data-i18n='[html]tables.examples.phone2'></span><code>,
-    "email": </code><span class='token string' data-i18n='[html]tables.examples.email'></span><code>,
+  "status": "ok",
+  "order": {
+    "id": "ORD1837213-3",
+    "visitor": "f10e2821bbbea527ea02200352313bc059445190",
+    "timestamp": 1389047680,
+    "score": 0.75,
+    "recommendation": "review",
+    "status": "declined",
     "ip": </code><span class='token string' data-i18n='[html]tables.examples.ip'></span><code>,
-    "new": false,
-    "vip": false
-  },
-  "billing": {
-    "name": </code><span class='token string' data-i18n='[html]tables.examples.name'></span><code>,
-    "address1": </code><span class='token string' data-i18n='[html]tables.examples.address1'></span><code>,
-    "address2": </code><span class='token string' data-i18n='[html]tables.examples.address2'></span><code>,
-    "city": </code><span class='token string' data-i18n='[html]tables.examples.city'></span><code>,
-    "state": </code><span class='token string' data-i18n='[html]tables.examples.state'></span><code>,
-    "zip": </code><span class='token string' data-i18n='[html]tables.examples.zip'></span><code>,
-    "country": </code><span class='token string' data-i18n='[html]tables.examples.country'></span><code>
-  },
-  "shipping": {
-    "name": </code><span class='token string' data-i18n='[html]tables.examples.name'></span><code>,
-    "address1": </code><span class='token string' data-i18n='[html]tables.examples.address1'></span><code>,
-    "city": </code><span class='token string' data-i18n='[html]tables.examples.city'></span><code>,
-    "state": </code><span class='token string' data-i18n='[html]tables.examples.state'></span><code>,
-    "zip": </code><span class='token string' data-i18n='[html]tables.examples.zip'></span><code>,
-    "country": </code><span class='token string' data-i18n='[html]tables.examples.country'></span><code>
-  },
-  "shopping_cart": [
-    {
-      "sku": "9919023",
-      "product_code": "123456789999",
-      "category": 201,
-      "name": </code><span class='token string' data-i18n='[html]tables.examples.product1'></span><code>,
-      "description": </code><span class='token string' data-i18n='[html]tables.examples.description1'></span><code>,
-      "unit_cost": 1999.99,
-      "quantity": 1
+    "total_amount":100.00,
+    "tax_amount":3.45,
+    "shipping_amount":20.00,
+    "installments":2,
+    "currency":"USD",
+    "device": {
+      "user_id": "405961fab293600daeed93ae561",
+      "fingerprint": "e4f2c690951038a8f77aa583847",
+      "platform": "MacIntel",
+      "browser": "Chrome",
+      "language": </code><span class='token string' data-i18n='[html]tables.examples.lang'></span><code>,
+      "timezone": </code><span class='token string' data-i18n='[html]tables.examples.gmt'></span><code>,
+      "cookie": true,
+      "javascript":  true,
+      "flash": true
     },
-    {
-      "sku": "0017273",
-      "category": 202,
-      "name": </code><span class='token string' data-i18n='[html]tables.examples.product2'></span><code>,
-      "description": </code><span class='token string' data-i18n='[html]tables.examples.description2'></span><code>,
-      "unit_cost": 29.90,
-      "quantity": 2,
-      "discount": 5.00
-    }
-  ]
+    "geolocation": {
+      "city": </code><span class='token string' data-i18n='[html]tables.examples.city'></span><code>,
+      "state": </code><span class='token string' data-i18n='[html]tables.examples.state'></span><code>,
+      "country": </code><span class='token string' data-i18n='[html]tables.examples.country'></span><code>
+    },
+    "navigation": {
+      "session_time": 12,
+      "referrer": "http://www.google.com?q=buy+shirt",
+      "time_site_1d": 26,
+      "new_accounts_1d": 2,
+      "password_resets_1d": 0,
+      "sales_declined_1d": 1,
+      "sessions_1d": 4,
+      "time_site_7d": 58,
+      "time_per_page_7d": 7,
+      "new_accounts_7d": 9,
+      "password_resets_7d": 3,
+      "checkout_count_7d": 4,
+      "sales_declined_7d": 5,
+      "sessions_7d": 12,
+      "time_since_last_sale": 4
+    },
+    "payment": [
+      {
+        "type": "credit",
+        "bin": "490172",
+        "last4": "1234",
+        "expiration_date": "102015",
+        "status": "approved"
+      }
+    ],
+    "customer": {
+      "id": "28372",
+      "name": </code><span class='token string' data-i18n='[html]tables.examples.name'></span><code>,
+      "tax_id": </code><span class='token string' data-i18n='[html]tables.examples.tax_id'></span><code>,
+      "phone1": </code><span class='token string' data-i18n='[html]tables.examples.phone1'></span><code>,
+      "phone2": </code><span class='token string' data-i18n='[html]tables.examples.phone2'></span><code>,
+      "email": </code><span class='token string' data-i18n='[html]tables.examples.email'></span><code>,
+      "ip": </code><span class='token string' data-i18n='[html]tables.examples.ip'></span><code>,
+      "new": false,
+      "vip": false
+    },
+    "billing": {
+      "name": </code><span class='token string' data-i18n='[html]tables.examples.name'></span><code>,
+      "address1": </code><span class='token string' data-i18n='[html]tables.examples.address1'></span><code>,
+      "address2": </code><span class='token string' data-i18n='[html]tables.examples.address2'></span><code>,
+      "city": </code><span class='token string' data-i18n='[html]tables.examples.city'></span><code>,
+      "state": </code><span class='token string' data-i18n='[html]tables.examples.state'></span><code>,
+      "zip": </code><span class='token string' data-i18n='[html]tables.examples.zip'></span><code>,
+      "country": </code><span class='token string' data-i18n='[html]tables.examples.country'></span><code>
+    },
+    "shipping": {
+      "name": </code><span class='token string' data-i18n='[html]tables.examples.name'></span><code>,
+      "address1": </code><span class='token string' data-i18n='[html]tables.examples.address1'></span><code>,
+      "city": </code><span class='token string' data-i18n='[html]tables.examples.city'></span><code>,
+      "state": </code><span class='token string' data-i18n='[html]tables.examples.state'></span><code>,
+      "zip": </code><span class='token string' data-i18n='[html]tables.examples.zip'></span><code>,
+      "country": </code><span class='token string' data-i18n='[html]tables.examples.country'></span><code>
+    },
+    "shopping_cart": [
+      {
+        "sku": "9919023",
+        "product_code": "123456789999",
+        "category": 201,
+        "name": </code><span class='token string' data-i18n='[html]tables.examples.product1'></span><code>,
+        "description": </code><span class='token string' data-i18n='[html]tables.examples.description1'></span><code>,
+        "unit_cost": 1999.99,
+        "quantity": 1
+      },
+      {
+        "sku": "0017273",
+        "category": 202,
+        "name": </code><span class='token string' data-i18n='[html]tables.examples.product2'></span><code>,
+        "description": </code><span class='token string' data-i18n='[html]tables.examples.description2'></span><code>,
+        "unit_cost": 29.90,
+        "quantity": 2,
+        "discount": 5.00
+      }
+    ]
+  }
 }</code></pre>
         </div>
       </div>
@@ -1903,7 +1909,8 @@ https://api.konduto.com/v1/orders/<strong>{order_id}</strong></code></pre>
             </li>
           </ul>
           <ul class="footer-nav__site">
-            <li><a href="https://www.konduto.com/how-it-works"><span data-i18n="[html]nav.how-it-works"></span></a></li>
+            <li><a href="http://eepurl.com/Yj1uX">Newsletter</a></li>
+            <li><a href="https://www.konduto.com/terms"><span data-i18n="[html]nav.terms"></span></a></li>
             <li><a href="https://www.konduto.com/pricing"><span data-i18n="[html]nav.pricing"></span></a></li>
             <li><a href="http://konduto.github.io"><span data-i18n="[html]nav.docs"></span></a></li>
             <li class="is-active"><a href="https://www.konduto.com/about"><span data-i18n="[html]nav.about"></span></a></li>
