@@ -38,7 +38,7 @@
             <li><a href="https://www.konduto.com/about"><span data-i18n="[html]nav.about"></span></a></li>
           </ul>
           <ul class="navbar-nav--secondary">
-            <li><a class="btn btn--signin js-popup-toggle" href="#signin"><span data-i18n="[html]nav.signin"></span></a></li>
+            <li><a class="btn btn--signin js-popup-toggle" href="https://www.konduto.com/"><span data-i18n="[html]nav.signin"></span></a></li>
           </ul>
         </nav>
       </div>
@@ -1924,116 +1924,6 @@ https://api.konduto.com/v1/orders/<strong>{order_id}</strong></code></pre>
         </div>
       </div>
     </footer>
-
-    <!-- POPUPS -->
-    <div class="popup mfp-with-anim mfp-hide" id="signin">
-      <div class="popup-body">
-        <section class="session session--login">
-          <div class="section-heading">
-            <img alt="Logo konduto 2" src="https://d2utunj9b046ue.cloudfront.net/assets/logo-konduto-2-224e4fed2011b69fea15d765f02adb38.png" />
-            <h1 class="section-title">Sign in to Konduto</h1>
-            <p>Don't have an account? <a class="js-popup-toggle" href="#signup">Sign Up</a></p>
-          </div>
-          <div class="section-body">
-            <form action="#" class="form" method="post" role="form">
-              <fieldset>
-                <div class="form-row">
-                  <hr>
-                  <div class="form-field"><input autocapitalize="off" autocorrect="off" class="form-input" id="form-id--email" name="form-id--email" placeholder="Email" spellcheck="false" tabindex="1" type="email" value=""></div>
-                </div>
-                <div class="form-row">
-                  <div class="form-field"><input class="form-input" id="form-id--password" name="form-id--password" placeholder="Password" type="password" value=""></div>
-                </div>
-                <div class="form-row">
-                  <div class="form-field"><button class="btn btn--primary btn--block" type="submit">Sign in</button></div>
-                </div>
-                <div class="form-note"><a class="js-popup-toggle" href="#forgot">I forgot my password</a></div>
-              </fieldset>
-            </form>
-          </div>
-        </section>
-      </div>
-    </div>
-    <div class="popup mfp-with-anim mfp-hide" id="signup">
-      <div class="popup-body">
-        <section class="session session--signup">
-          <div class="section-heading">
-            <h1 class="section-title">We are in Beta<br><b>but you can get early access!</b></h1>
-            <p>Subscribe today to get early access to Konduto.</p>
-          </div>
-          <div class="section-body">
-            <form action="#" class="form" id="theformen" method="post" role="form">
-              <fieldset>
-                <div class="form-row">
-                  <hr>
-                  <div class="form-field"><input class="form-input" id="form-id--name" name="form-id--name" placeholder="First Name" tabindex="1" type="text" value=""></div>
-                  <div class="form-field"><input class="form-input" id="form-id--email" name="form-id--surname" placeholder="Last Name" tabindex="2" type="text" value=""></div>
-                </div>
-                <div class="form-row">
-                  <div class="form-field"><input class="form-input" id="form-id--password" name="form-id--company" placeholder="Company" tabindex="3" value=""></div>
-                </div>
-                <div class="form-row">
-                  <div class="form-field"><input class="form-input" id="form-id--password" name="form-id--email" placeholder="Email" tabindex="4" type="email" value=""></div>
-                </div>
-                <div class="form-row">
-                  <div class="form-field"><button class="btn btn--primary btn--block" id="signup-btn" type="submit">Subscribe!</button></div>
-                </div>
-                <div class="form-row">
-                  <div class="form-field">
-                    <div id="thankyou"></div>
-                  </div>
-                </div>
-              </fieldset>
-            </form>
-          </div>
-        </section>
-      </div>
-    </div>
-    <div class="popup mfp-with-anim mfp-hide" id="forgot">
-      <div class="popup-body">
-        <section class="session session--login">
-          <div class="section-heading">
-            <h1 class="section-title">Forgot Password?</h1>
-            <p>No problem, We'll send you a link to reset your password. Be sure to use your personal email.</p>
-          </div>
-          <div class="section-body">
-            <form action="#" class="form" method="post" role="form">
-              <fieldset>
-                <div class="form-row">
-                  <hr>
-                  <div class="form-field"><input autocapitalize="off" autocorrect="off" class="form-input" id="form-id--email" name="form-id--email" placeholder="Email" spellcheck="false" tabindex="1" type="email" value=""></div>
-                </div>
-                <div class="form-row">
-                  <div class="form-field"><button class="btn btn--primary btn--block" type="submit">Reset Password</button></div>
-                </div>
-                <div class="form-note">Remember your password? <a class="js-popup-toggle" href="#signin">Signin here</a></div>
-              </fieldset>
-            </form>
-          </div>
-        </section>
-      </div>
-    </div>
-    <div class="popup mfp-with-anim mfp-hide" id="thanks">
-      <div class="popup-body">
-        <section class="session session--thanks">
-          <div class="section-heading">
-            <img alt="Logo konduto 2" src="https://d2utunj9b046ue.cloudfront.net/assets/logo-konduto-2-224e4fed2011b69fea15d765f02adb38.png" />
-            <h1 class="section-title">Thanks for letting us know!</h1>
-          </div>
-          <div class="section-body">
-            <form action="#" class="form" method="post" role="form">
-              <fieldset>
-                <div class="form-row"></div>
-                <hr>
-                <div class="form-field">
-                  <p>We'll be in contact soon about your Beta.</p>
-                </div>
-              </fieldset>
-            </form>
-          </div>
-        </section>
-      </div>
-    </div>
     <!--[if (gte IE 6)&(lte IE 8)]>
     <script src="http://s3.amazonaws.com/nwapi/nwmatcher/nwmatcher-1.2.5-min.js"></script><script src="https://d2utunj9b046ue.cloudfront.net/javascripts/selectivizr/selectivizr.js"></script><![endif]-->
     <!--[if lt IE 9]><script src="https://d2utunj9b046ue.cloudfront.net/javascripts/html5shiv/dist/html5shiv-printshiv.js"></script><![endif]-->
@@ -2042,7 +1932,8 @@ https://api.konduto.com/v1/orders/<strong>{order_id}</strong></code></pre>
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-      ga('create', 'UA-47132225-3', 'konduto.github.io');
+
+      ga('create', 'UA-47132225-1', 'auto');
       ga('send', 'pageview');
     </script>
   </body>
