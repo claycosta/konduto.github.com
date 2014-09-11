@@ -17,6 +17,14 @@
     "requirements": "Nosso serviço usa o comportamento do visitante para analisar padrões de navegação e detectar fraudes. Você precisará adicionar um código <strong>JavaScript</strong> ao seu site e marcar suas páginas, para que possamos ver os seus visitantes, e deverá enviar pedidos para nossa <strong>API REST</strong>, para que nós possamos fazer a análise.",
     "feedback": "Nós estamos melhorando constantemente este documento e agradecemos qualquer sugestão enviada. Você pode mandar uma mensagem para <a href='mailto:oi@konduto.com?subject=Documentação'>oi@konduto.com</a> com suas perguntas e sugestões de como melhora-lo."
   },
+  "sdks": {
+    "title": "Bibliotecas e Integrações",
+    "summary": "Nós disponibilizamos bibliotecas para ajudar com o desenvolvimento, bem como plugins para as plataformas mais comuns de e-commerce. Você encontrará abaixo uma lista com as integrações disponíveis até o momento, que estão hospedadas em nosso Github<a href='https://github.com/konduto' target='_blank'>Github</a>.",
+    "feedback": "Se você não vê a biblioteca da sua linguage ou o seu plugin, por favor entre em contato através do email <a href='mailto:oi@konduto.com'>oi@konduto.com</a>, nós adoraríamos saber o que você usa!",
+    "php": "<a href='https://github.com/konduto/php-sdk'>https://github.com/konduto/php-sdk</a>",
+    "java": "<a href='https://github.com/konduto/java-sdk'>https://github.com/konduto/java-sdk</a>",
+    "magento": "<a href='http://www.magentocommerce.com/magento-connect/konduto-fraud-detection-service.html'>Disponível no Magento Connect</a>"
+  },
   "snippet": {
     "title": "Código JavaScript",
     "summary": "Nós capturamos o comportamento de compra do cliente para detectar atividades fraudulentas. Você deve colar um código JavaScript no final do seu site para que nós possamos receber os dados de navegação e analisa-los.",
@@ -74,15 +82,15 @@
     "summary": "Você pode mandar pedidos usando o método <strong>POST</strong> e passando um JSON no corpo da requisição.",
     "description": "A chamada consiste em um objeto raiz que contém informações relacionadas ao pedido, bem como os objetos <code>customer</code>, <code>billing</code> e <code>shipping</code> e as listas <code>payment</code> e <code>shopping_cart</code>.",
     "root_obj": {
-      "title": "O Objeto Raiz"
+      "title": "Objeto Raiz"
     },
     "customer_obj": {
-      "title": "O Objeto 'Customer'",
+      "title": "Objeto 'Customer'",
       "summary": "Este objeto deve ser usado para enviar informações sobre a pessoa que está fazendo a compra, que na maioria dos casos é aquele que está logado em seu sistema.",
       "description": "Para passar informações sobre o portador do cartão ou o destinatário do produto você deve usar o objeto billing e shipping, respectivamente."
     },
     "payment_arr": {
-      "title": "A Lista 'Payment'",
+      "title": "Lista 'Payment'",
       "summary": "Esta lista de objetos deve ser usado para enviar informações sobre os meios de pagamentos usados na compra.",
       "description": "Você pode mandar um pedido que contém múltiplos meios de pagamento, como compras com dois cartões de crédito.",
       "payment_methods": "Atualmente nós suportamos apenas compras com cartão de crédito. Consulte com o support a respeito de outros meios de pagamento para análise.",
@@ -90,17 +98,17 @@
       "sha1_disclaimer": "Nossa API não aceita o envio de números de cartões abertos. Se você não estiver usando nossos SDKs você deve fazer um hash do número de cartão de crédito do cliente usando SHA1 antes de submeter a compra para nós.<br><br>Não é necessário fazer hash um se você estiver usando um dos nossos SDKs, pois eles já fazem isso. Por favor note que os campos bin e last4 não devem ser enviados em forma de hash."
     },
     "billing_obj": {
-      "title": "O Objeto 'Billing'",
+      "title": "Objeto 'Billing'",
       "summary": "Este objeto deve conter informações do titular do cartão. É o mesmo nome e endereço que consta na fatura. ",
       "description": ""
     },
     "shipping_obj": {
-      "title": "O Objeto 'Shipping'",
+      "title": "Objeto 'Shipping'",
       "summary": "Este objeto deve conter informações do destinatário que vai receber os produtos. Não há necessidade de enviá-lo caso você forneça um serviço ou download de software.",
       "description": ""
     },
     "cart_arr": {
-      "title": "A Lista do Carrinho ('Shopping Cart')",
+      "title": "Lista do Carrinho ('Shopping Cart')",
       "summary": "Esta lista de objetos contém uma lista dos produtos que foram comprados neste pedido. Não existe limite para a quantidade de objetos que esta lista aceita. ",
       "description": ""
     }

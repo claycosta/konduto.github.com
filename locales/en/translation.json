@@ -17,6 +17,11 @@
     "requirements": "Our service uses the visitor's behavior to analyze browsing patterns and detect fraud. You will need to add a <strong>JavaScript</strong> snippet to your website and tag your pages, so we can see your visitors, and call our <strong>REST API</strong> to send purchases, so we can analyze them.",
     "feedback": "We are constantly improving this document and we appreciate any feedback you have. You can drop us a line at <a href='mailto:hi@konduto.com?subject=Documentation feedback'>hi@konduto.com</a> with questions and suggestions about how to improve it."
   },
+  "sdks": {
+    "title": "SDKs and Integrations",
+    "summary": "We offer SDKs to help with the development effort as well as plugin integrations with common e-commerce platforms. Below you will find a list of the integrations available to date, which are hosted on our <a href='https://github.com/konduto' target='_blank'>Github</a> page.",
+    "feedback": "If you don't see your SDK or platform listed here please drop us a line at <a href='mailto:hi@konduto.com'>hi@konduto.com</a>, we'd love to hear from you!"
+  },
   "snippet": {
     "title": "JavaScript snippet",
     "summary": "We capture the customer's buying behavior to spot fraudulent activities. You will need to paste a JavaScript snippet at the bottom of your website so we can receive this data and analyze it.",
@@ -73,15 +78,15 @@
     "summary": "You can send new transactions using the <strong>POST</strong> method and passing a JSON in the request's body.",
     "description": "The request consists of a root object containing information related to the order as well as a <code>customer</code>, <code>billing</code> and <code>shipping</code> objects and the <code>payment</code> and <code>shopping_cart</code> arrays.",
     "root_obj": {
-      "title": "The Root Object"
+      "title": "Root Object"
     },
     "customer_obj": {
-      "title": "The Customer Object",
+      "title": "Customer Object",
       "summary": "This object should be used to send information about the person making the purchase, which most often is the one logged into your system.",
       "description": "To pass information about the cardholder or the recipient please use the billing and shipping objects, respectively."
     },
     "payment_arr": {
-      "title": "The Payment Array",
+      "title": "Payment Array",
       "summary": "This array of objects should be used to send information about the payment method used to make the purchase. ",
       "description": "You can send a transaction that contains multiple payment methods, such as purchases with two different credit cards. ",
       "payment_methods": "Currently we only support credit card transactions, so you should check with support about using Konduto with other payment types.",
@@ -89,17 +94,17 @@
       "sha1_disclaimer": "Our API <strong>does not</strong> accept plain text credit card numbers. If you are not using one of our SDKs you must hash the customer's card number with SHA1 before submitting the order.<br><br>There's no need to hash the values if you are using our SDK, as it already does that. Please note that <code>bin</code> and <code>last4</code> must not be hashed."
     },
     "billing_obj": {
-      "title": "The Billing Object",
+      "title": "Billing Object",
       "summary": "This object should contain information from the cardholder. It's the same name and address their bank has on file.",
       "description": ""
     },
     "shipping_obj": {
-      "title": "The Shipping Object",
+      "title": "Shipping Object",
       "summary": "This object should contain information from the recipient that will receive the goods. There's no need to send it if you are providing a service or a software download. ",
       "description": ""
     },
     "cart_arr": {
-      "title": "The Shopping Cart Array",
+      "title": "Shopping Cart Array",
       "summary": "This contains an array of objects which list the items that were purchased in this order. There are no limits to the number of objects this array receives.",
       "description": ""
     }

@@ -15,10 +15,11 @@
     <link rel="stylesheet" type="text/css" href="assets/css/docs.css">
     <link rel="stylesheet" type="text/css" href="assets/css/prism.css">
     <link rel="stylesheet" type="text/css" href="assets/css/base.css">
-    <link href="//d2utunj9b046ue.cloudfront.net/assets/favicon-7f2ba2ee096dfbd382bfddd7b0b3e70c.png" rel="shortcut icon" type="image/x-icon" />
+    <link href="assets/images/favicon.png" rel="shortcut icon" type="image/x-icon" />
     <!-- SCRIPTS -->
-    <script src="//d2utunj9b046ue.cloudfront.net/assets/vendor-4ce53c67837ba9380cb0eae431321bb9.js"></script>
-    <script src="//d2utunj9b046ue.cloudfront.net/assets/application-22b5dfa50d06382d6fa3dafcdd98c6a8.js"></script>
+    <script src="assets/js/vendor.js"></script>
+    <script src="assets/js/application.js"></script>
+    <script>if(!window.jQuery){document.write('<script src="assets/js/jquery.min.js"><\/script>');}</script>
     <script src="assets/i18next/i18next-1.7.3.min.js"></script>
     <script src="assets/js/docs.js"></script>
     <script src="assets/js/prism.js"></script>
@@ -45,10 +46,8 @@
       </div>
     </header>
 
-    <section class="hero"></section>
-
-
     <!-- START CONTENT -->
+    <section class="hero"></section>
     <section><div class="container-fluid" id="content">
 
       <!-- INTRO -->
@@ -67,10 +66,19 @@
           <h4>Contents</h4>
           <ol>
             <li><a href="#n-intro" class="index"><span data-i18n="[html]intro.title"></span></a></li>
+            <li><a href="#n-sdks" class="index"><span data-i18n="[html]sdks.title"></span></a></li>
             <li><a href="#n-snippet" class="index"><span data-i18n="[html]snippet.title"></span></a></li>
             <li><a href="#n-tags" class="index"><span data-i18n="[html]tags.title"></span></a></li>
             <li><a href="#n-api" class="index"><span data-i18n="[html]api.title"></span></a></li>
             <li><a href="#n-post" class="index"><span data-i18n="[html]post.title"></span></a></li>
+              <ul>
+                <li><a href="#n-post-root" class="index"><span data-i18n="[html]post.root_obj.title"></span></a></li>
+                <li><a href="#n-post-customer" class="index"><span data-i18n="[html]post.customer_obj.title"></span></a></li>
+                <li><a href="#n-post-payment" class="index"><span data-i18n="[html]post.payment_arr.title"></span></a></li>
+                <li><a href="#n-post-billing" class="index"><span data-i18n="[html]post.billing_obj.title"></span></a></li>
+                <li><a href="#n-post-shipping" class="index"><span data-i18n="[html]post.shipping_obj.title"></span></a></li>
+                <li><a href="#n-post-cart" class="index"><span data-i18n="[html]post.cart_arr.title"></span></a></li>
+              </ul>
             <li><a href="#n-put" class="index"><span data-i18n="[html]put.title"></span></a></li>
             <li><a href="#n-get" class="index"><span data-i18n="[html]get.title"></span></a></li>
             <li><a href="#n-tables" class="index"><span data-i18n="[html]extras.tables_title"></span></a></li>
@@ -79,10 +87,29 @@
       </div>
       <!-- END INTRO -->
 
+      <!-- SDKS -->
+      <div class="row" id="n-sdks">
+        <div class="col-sm-7">
+          <h3>2. <span data-i18n="[html]sdks.title"></span></h3>
+          <span data-i18n="[html]sdks.summary"></span>
+          <br /><br />
+          <span data-i18n="[html]sdks.feedback"></span>
+        </div>
+        <div class="col-sm-5 lightgrey">
+          <h4>PHP</h4>
+          PHP 5.3.2+<br><a href='https://github.com/konduto/php-sdk'>https://github.com/konduto/php-sdk</a>
+          <h4>Java</h4>
+          Java 7<br><a href='https://github.com/konduto/java-sdk'>https://github.com/konduto/java-sdk</a>
+          <h4>Magento</h4>
+          Magento 1.5+<br><a href='http://www.magentocommerce.com/magento-connect/konduto-fraud-detection-service.html'>Available on Magento Connect</a>
+        </div>
+      </div>
+      <!-- END SDKS -->
+
       <!-- SNIPPET -->
       <div class="row" id="n-snippet">
         <div class="col-sm-7">
-          <h3>2. <span data-i18n="[html]snippet.title"></span></h3>
+          <h3>3. <span data-i18n="[html]snippet.title"></span></h3>
           <span data-i18n="[html]snippet.summary"></span>
           <br /><br />
           <span data-i18n="[html]snippet.description"></span>
@@ -116,7 +143,7 @@
       <!-- TAGS -->
       <div class="row" id="n-tags">
         <div class="col-sm-7">
-          <h3>3. <span data-i18n="[html]tags.title"></span></h3>
+          <h3>4. <span data-i18n="[html]tags.title"></span></h3>
           <span data-i18n="[html]tags.summary"></span>
           <br /><br />
           <span data-i18n="[html]tags.description"></span>
@@ -201,7 +228,7 @@
       <!-- REST API -->
       <div class="row" id="n-api">
         <div class="col-sm-7">
-          <h3>4. <span data-i18n="[html]api.title"></span></h3>
+          <h3>5. <span data-i18n="[html]api.title"></span></h3>
           <span data-i18n="[html]api.summary"></span>
           <br /><br />
           <span data-i18n="[html]api.description"></span>
@@ -214,7 +241,7 @@
       <!-- GETTING STARTED -->
       <div class="row" id="n-getting-started">
         <div class="col-sm-7">
-          <h4>4.1 <span data-i18n="[html]api.getting_started.title"></span></h4>
+          <h4>5.1 <span data-i18n="[html]api.getting_started.title"></span></h4>
           <span data-i18n="[html]api.getting_started.api_key"></span>
           <br /><br />
           <span data-i18n="[html]api.getting_started.authentication"></span>
@@ -240,7 +267,7 @@
       <!-- STATUS CODES -->
       <div class="row" id="n-codes">
         <div class="col-sm-7">
-          <h4>4.2 <span data-i18n="[html]api.status_codes.title"></span></h4>
+          <h4>5.2 <span data-i18n="[html]api.status_codes.title"></span></h4>
           <span data-i18n="[html]api.status_codes.summary"></span>
         </div>
         <div class="col-sm-5 lightgrey">
@@ -261,7 +288,7 @@
       <!-- SANDBOX RESPONSES -->
       <div class="row" id="n-codes">
         <div class="col-sm-7">
-          <h4>4.3 <span data-i18n="[html]api.sandbox.title"></span></h4>
+          <h4>5.3 <span data-i18n="[html]api.sandbox.title"></span></h4>
           <span data-i18n="[html]api.sandbox.summary"></span>
         </div>
         <div class="col-sm-5 lightgrey">
@@ -295,7 +322,7 @@
       <!-- SUCCESSFUL -->
       <div class="row" id="n-success">
         <div class="col-sm-7">
-          <h4>4.4 <span data-i18n="[html]api.response.success--title"></span></h4>
+          <h4>5.4 <span data-i18n="[html]api.response.success--title"></span></h4>
           <span data-i18n="[html]api.response.success--summary"></span>
           <br /><br />
           <!-- START SUCCESS RESPONSE TABLE -->
@@ -509,7 +536,7 @@
   "status": "ok",
   "order": {
     "id": <span id="order_id_8"></span>
-    "visitor": "da39a3ee5e6b4....f95601890afd80709",
+    "visitor": "da39a3ee5e6b5....f95601890afd80709",
     "timestamp": 1389047680,
     "score": 0.75,
     "recommendation": "review",
@@ -562,7 +589,7 @@
       <!-- FAIL -->
       <div class="row" id="n-fail">
         <div class="col-sm-7">
-          <h4>4.5 <span data-i18n="[html]api.response.fail--title"></span></h4>
+          <h4>5.5 <span data-i18n="[html]api.response.fail--title"></span></h4>
           <span data-i18n="[html]api.response.fail--summary"></span>
           <br /><br />
           <table class="table table-condensed table-striped">
@@ -635,7 +662,7 @@
       <!-- POST -->
       <div class="row" id="n-post">
         <div class="col-sm-7">
-          <h3>5. <span data-i18n="[html]post.title"></span></h3>
+          <h3>6. <span data-i18n="[html]post.title"></span></h3>
           <span data-i18n="[html]post.summary"></span>
           <br /><br />
           <span data-i18n="[html]post.description"></span>
@@ -645,9 +672,9 @@
       <!-- END POST -->
 
       <!-- ROOT OBJ -->
-      <div class="row">
+      <div class="row" id="n-post-root">
         <div class="col-sm-7">
-          <h4>5.1 <span data-i18n="[html]post.root_obj.title"></span></h4>
+          <h4>6.1 <span data-i18n="[html]post.root_obj.title"></span></h4>
           <table class="table table-condensed table-striped">
             <thead>
               <tr>
@@ -764,9 +791,9 @@ https://api.konduto.com/v1/orders</code></pre>
       <!-- END ROOT OBJ -->
 
       <!-- CUSTOMER OBJ -->
-      <div class="row" id="customer">
+      <div class="row" id="n-post-customer">
         <div class="col-sm-7">
-          <h4>5.2 <span data-i18n="[html]post.customer_obj.title"></span></h4>
+          <h4>6.2 <span data-i18n="[html]post.customer_obj.title"></span></h4>
           <span data-i18n="[html]post.customer_obj.summary"></span>
           <br /><br />
           <span data-i18n="[html]post.customer_obj.description"></span>
@@ -859,15 +886,10 @@ https://api.konduto.com/v1/orders</code></pre>
       </div>
       <!-- END CUSTOMER OBJ -->
 
-      <div class="row" id="payment">&nbsp;
-        <div class="col-sm-7"></div>
-        <div class="col-sm-5 lightgrey hidden-xs"></div>
-      </div>
-
       <!-- PAYMENT ARR -->
-      <div class="row">
+      <div class="row" id="n-post-payment">
         <div class="col-sm-7">
-          <h4>5.3 <span data-i18n="[html]post.payment_arr.title"></span></h4>
+          <h4>6.3 <span data-i18n="[html]post.payment_arr.title"></span></h4>
           <span data-i18n="[html]post.payment_arr.summary"></span>
           <br /><br />
           <span data-i18n="[html]post.payment_arr.description"></span>
@@ -954,15 +976,10 @@ https://api.konduto.com/v1/orders</code></pre>
       </div>
       <!-- END PAYMENT ARR -->
 
-      <div class="row" id="billing">&nbsp;
-        <div class="col-sm-7"></div>
-        <div class="col-sm-5 lightgrey hidden-xs"></div>
-      </div>
-
       <!-- BILLING OBJ -->
-      <div class="row">
+      <div class="row" id="n-post-billing">
         <div class="col-sm-7">
-          <h4>5.4 <span data-i18n="[html]post.billing_obj.title"></span></h4>
+          <h4>6.4 <span data-i18n="[html]post.billing_obj.title"></span></h4>
           <span data-i18n="[html]post.billing_obj.summary"></span>
           <br /><br />
           <table class="table table-condensed table-striped">
@@ -1053,15 +1070,10 @@ https://api.konduto.com/v1/orders</code></pre>
       </div>
       <!-- END BILLING OBJ -->
 
-      <div class="row" id="shipping">&nbsp;
-        <div class="col-sm-7"></div>
-        <div class="col-sm-5 lightgrey hidden-xs"></div>
-      </div>
-
       <!-- SHIPPING OBJ -->
-      <div class="row">
+      <div class="row" id="n-post-shipping">
         <div class="col-sm-7">
-          <h4>5.5 <span data-i18n="[html]post.shipping_obj.title"></span></h4>
+          <h4>6.5 <span data-i18n="[html]post.shipping_obj.title"></span></h4>
           <span data-i18n="[html]post.shipping_obj.summary"></span>
           <br /><br />
           <table class="table table-condensed table-striped">
@@ -1152,15 +1164,10 @@ https://api.konduto.com/v1/orders</code></pre>
       </div>
       <!-- END SHIPPING OBJ -->
 
-      <div class="row" id="cart">&nbsp;
-        <div class="col-sm-7"></div>
-        <div class="col-sm-5 lightgrey hidden-xs"></div>
-      </div>
-
       <!-- CART ARR -->
-      <div class="row">
+      <div class="row" id="n-post-cart">
         <div class="col-sm-7">
-          <h4>5.6 <span data-i18n="[html]post.cart_arr.title"></span></h4>
+          <h4>6.6 <span data-i18n="[html]post.cart_arr.title"></span></h4>
           <span data-i18n="[html]post.cart_arr.summary"></span>
           <br /><br />
           <table class="table table-condensed table-striped">
@@ -1271,7 +1278,7 @@ https://api.konduto.com/v1/orders</code></pre>
       <!-- PUT -->
       <div class="row" id="n-put">
         <div class="col-sm-7">
-          <h3>6. <span data-i18n="[html]put.title"></span></h3>
+          <h3>7. <span data-i18n="[html]put.title"></span></h3>
           <span data-i18n="[html]put.summary"></span>
           <br /><br />
           <span data-i18n="[html]put.description"></span>
@@ -1325,7 +1332,7 @@ https://api.konduto.com/v1/orders/<strong>{order_id}</strong></code></pre>
       <!-- GET -->
       <div class="row" id="n-get">
         <div class="col-sm-7">
-          <h3>7. <span data-i18n="[html]get.title"></span></h3>
+          <h3>8. <span data-i18n="[html]get.title"></span></h3>
           <span data-i18n="[html]get.summary"></span>
         </div>
         <div class="col-sm-5 lightgrey">
@@ -1451,7 +1458,7 @@ https://api.konduto.com/v1/orders/<strong>{order_id}</strong></code></pre>
       <!-- TABLES INTRO -->
       <div class="row" id="n-tables">
         <div class="col-sm-7">
-          <h3>8. <span data-i18n="[html]extras.tables_title"></span></h3>
+          <h3>9. <span data-i18n="[html]extras.tables_title"></span></h3>
           <span data-i18n="[html]extras.tables_summary"></span>
         </div>
         <div class="col-sm-5 lightgrey hidden-xs"></div>
@@ -1461,7 +1468,7 @@ https://api.konduto.com/v1/orders/<strong>{order_id}</strong></code></pre>
       <!-- CURRENCIES -->
       <div class="row">
         <div class="col-sm-7">
-          <h4>8.1 <span data-i18n="[html]extras.currency--table"></span></h4>
+          <h4>9.1 <span data-i18n="[html]extras.currency--table"></span></h4>
           <table class="table table-condensed table-striped">
             <thead>
               <tr>
@@ -1523,7 +1530,7 @@ https://api.konduto.com/v1/orders/<strong>{order_id}</strong></code></pre>
       <!-- CATEGORIES -->
       <div class="row" id="n-categories">
         <div class="col-sm-7">
-          <h4>8.2 <span data-i18n="[html]extras.categories--table"></span></h4>
+          <h4>9.2 <span data-i18n="[html]extras.categories--table"></span></h4>
           <table class="table table-condensed">
             <thead>
               <tr>
@@ -1928,14 +1935,7 @@ https://api.konduto.com/v1/orders/<strong>{order_id}</strong></code></pre>
     <!--[if (gte IE 6)&(lte IE 8)]>
     <script src="http://s3.amazonaws.com/nwapi/nwmatcher/nwmatcher-1.2.5-min.js"></script><script src="https://d2utunj9b046ue.cloudfront.net/javascripts/selectivizr/selectivizr.js"></script><![endif]-->
     <!--[if lt IE 9]><script src="https://d2utunj9b046ue.cloudfront.net/javascripts/html5shiv/dist/html5shiv-printshiv.js"></script><![endif]-->
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-      ga('create', 'UA-47132225-1', 'auto');
-      ga('send', 'pageview');
-    </script>
+    <script src="assets/js/analytics.js"></script>
+    <script src="assets/js/olark.js"></script>
   </body>
 </html>

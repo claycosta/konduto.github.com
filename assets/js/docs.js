@@ -1,7 +1,6 @@
 /* i18next */
 $(document).ready(function() {
   i18n.init({
-//    lng: navigator.language,
     fallbackLng:'en',
     useCookie:true,
     detectLngQS:'lang'
