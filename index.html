@@ -70,6 +70,13 @@
             <li><a href="#n-snippet" class="index"><span data-i18n="[html]snippet.title"></span></a></li>
             <li><a href="#n-tags" class="index"><span data-i18n="[html]tags.title"></span></a></li>
             <li><a href="#n-api" class="index"><span data-i18n="[html]api.title"></span></a></li>
+              <ul>
+                <li><a href="#n-api-started" class="index"><span data-i18n="[html]api.getting_started.title"></span></a></li>
+                <li><a href="#n-api-status" class="index"><span data-i18n="[html]api.status_codes.title"></span></a></li>
+                <li><a href="#n-api-sandbox" class="index"><span data-i18n="[html]api.sandbox.title"></span></a></li>
+                <li><a href="#n-api-success" class="index"><span data-i18n="[html]api.response.success--title"></span></a></li>
+                <li><a href="#n-api-fail" class="index"><span data-i18n="[html]api.response.fail--title"></span></a></li>
+              </ul>
             <li><a href="#n-post" class="index"><span data-i18n="[html]post.title"></span></a></li>
               <ul>
                 <li><a href="#n-post-root" class="index"><span data-i18n="[html]post.root_obj.title"></span></a></li>
@@ -239,7 +246,7 @@
       <!-- END REST API -->
 
       <!-- GETTING STARTED -->
-      <div class="row" id="n-getting-started">
+      <div class="row" id="n-api-started">
         <div class="col-sm-7">
           <h4>5.1 <span data-i18n="[html]api.getting_started.title"></span></h4>
           <span data-i18n="[html]api.getting_started.api_key"></span>
@@ -265,7 +272,7 @@
       <!-- GETTING ENDED (get it?) -->
 
       <!-- STATUS CODES -->
-      <div class="row" id="n-codes">
+      <div class="row" id="n-api-status">
         <div class="col-sm-7">
           <h4>5.2 <span data-i18n="[html]api.status_codes.title"></span></h4>
           <span data-i18n="[html]api.status_codes.summary"></span>
@@ -286,7 +293,7 @@
       <!-- END STATUS CODES -->
 
       <!-- SANDBOX RESPONSES -->
-      <div class="row" id="n-codes">
+      <div class="row" id="n-api-sandbox">
         <div class="col-sm-7">
           <h4>5.3 <span data-i18n="[html]api.sandbox.title"></span></h4>
           <span data-i18n="[html]api.sandbox.summary"></span>
@@ -320,7 +327,7 @@
       <!-- END SANDBOX RESPONSES -->
 
       <!-- SUCCESSFUL -->
-      <div class="row" id="n-success">
+      <div class="row" id="n-api-success">
         <div class="col-sm-7">
           <h4>5.4 <span data-i18n="[html]api.response.success--title"></span></h4>
           <span data-i18n="[html]api.response.success--summary"></span>
@@ -587,7 +594,7 @@
       <!-- END SUCCESSFUL -->
 
       <!-- FAIL -->
-      <div class="row" id="n-fail">
+      <div class="row" id="n-api-fail">
         <div class="col-sm-7">
           <h4>5.5 <span data-i18n="[html]api.response.fail--title"></span></h4>
           <span data-i18n="[html]api.response.fail--summary"></span>
@@ -728,6 +735,12 @@
                 </td>
               </tr>
               <tr>
+                <td class="center-bold">analyze</td>
+                <td><em>(<span data-i18n="[html]optional"></span>)</em><br />
+                  <span data-i18n="[html]tables.root_obj.analyze"></span>
+                </td>
+              </tr>
+              <tr>
                 <td class="center-bold">customer<br /></td>
                 <td><em>(<span data-i18n="[html]required"></span>)</em><br />
                   <span data-i18n="[html]tables.root_obj.customer"></span><br />
@@ -778,6 +791,7 @@
      "currency": </code><span class='token string' data-i18n='[html]tables.examples.currency'></span><code>,
      "installments": 2,
      "ip": </code><span class='token string' data-i18n='[html]tables.examples.ip'></span><code>,
+     "analyze": true,
      "customer": {..},
      "payment": [..],
      "billing": {..},
@@ -868,6 +882,7 @@ https://api.konduto.com/v1/orders</code></pre>
      "currency": </code><span class='token string' data-i18n='[html]tables.examples.currency'></span><code>,
      "installments": 2,
      "ip": </code><span class='token string' data-i18n='[html]tables.examples.ip'></span><code>,
+     "analyze": true,
      "customer": {
        "id": "28372",
        "name": </code><span class='token string' data-i18n='[html]tables.examples.name'></span><code>,

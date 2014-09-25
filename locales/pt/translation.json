@@ -51,7 +51,7 @@
     "response_example": "Exemplo de resposta",
     "working_example": "Este exemplo funciona! Cole isto em seu terminal para enviar um pedido para o nosso ambiente de testes.",
     "getting_started": {
-      "title": "Começando a usa a API",
+      "title": "Começando a usar a API",
       "api_key": "Você vai precisar de uma chave de API para autenticar as requisições. Para facilitar, os exemplos abaixo já estão populados com uma chave que funciona, assim você só precisa copiar e colar para ver como funciona.",
       "authentication": "Nós usamos <a href='https://en.wikipedia.org/wiki/Basic_access_authentication'>HTTP Basic Auth</a> para autenticar os lojistas. A chave de API precisa ser passada como seu nome de usuário (username), e nós não pedimos senha.",
       "endpoints": "Recursos e URLs da API",
@@ -240,6 +240,7 @@
       "currency": "Código da moeda com 3 letras (<a href='https://pt.wikipedia.org/wiki/ISO_4217'>ISO-4712</a>).<br><strong>Exatamente 3 chars, string.</strong>",
       "installments": "Número de parcelas do pagamento.<br><strong>Max. 3 dígitos, número.</strong>",
       "ip": "Endereço IPv4 do cliente<br><strong>Max. 15 chars, string.</strong>",
+      "analyze": "Se <code>false</code> o sistema levará em conta a transação nas próximas análises mas não devolve uma recomendação e você não é cobrado.<br><strong>Boolean. Se não enviado o padrão é <code>true</code>.</strong>",
       "customer": "Objeto que contém os detalhes do cliente.",
       "payment": "Lista que contém os meios de pagamento.",
       "billing": "Objeto que contém o endereço de cobrança.",

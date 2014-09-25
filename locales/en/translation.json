@@ -235,6 +235,7 @@
       "currency": "Currency code with 3 letters (<a href='http://en.wikipedia.org/wiki/ISO_4217'>ISO-4712</a>).<br><strong>Exactly 3 chars, string.</strong>",
       "installments": "Number of installments in the payment plan.<br><strong>Max. 3 digits, number.</strong>",
       "ip": "Customer's IPv4 address.<br><strong>Max. 15 chars, string.</strong>",
+      "analyze": "If <code>false</code> we take the transaction into account in future analyses but we don't reply with a recommendation and you are not billed.<br><strong>Boolean, defaults to true.</strong>",
       "customer": "Object containing the customer details.",
       "payment": "Array containing the payment methods.",
       "billing": "Object containing the billing information.",
