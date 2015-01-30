@@ -30,7 +30,10 @@
     "summary": "Nós capturamos o comportamento de compra do cliente para detectar atividades fraudulentas. Você deve colar um código JavaScript no final do seu site para que nós possamos receber os dados de navegação e analisa-los.",
     "description": "Este código não afeta a performance do seu site e é invisível para o seu visitante. Entre outras ações ele cria um identificador único para cada visita, o qual você deve recuperar antes de enviar a transação para análise.",
     "install": "Cole isto logo antes da tag de fechamento do <code>&lt;/body&gt;</code>:",
-    "recover": "Pegue o id do visitante com o método <code>getKondutoID()</code>:"
+    "recover": "Pegue o id do visitante com o método <code>getKondutoID()</code>:",
+    "set_customer": "Ou você pode mandar o seu próprio ID com <code>setKondutoCustomerID()</code>:",
+    "public_key": "Defina a sua chave pública para sabermos quem você é",
+    "customer_id": "Optionalmente, define o customer_id também"
   },
   "tags": {
     "title": "Marcação de páginas",
@@ -179,8 +182,8 @@
       "javascript": "Flag indicando se o cliente tem JavaScript habilitados",
       "language": "Idioma do navegador do cliente",
       "platform": "Tipo de dispositivo pelo cliente",
-      "recommendation": "Ação recomendada para este pedido",
-      "score": "Score da transação entre <code>0</code> e <code>1</code>",
+      "recommendation": "Ação recomendada para este pedido. Pode ser <code>APPROVE</code>, <code>REVIEW</code> ou <code>DECLINE</code>.<br/><br/>Para transações que não foram analisadas o valor <code>NONE</code> é retornado (ver parâmetro <b>order.analyze</b>).",
+      "score": "Score da transação entre <code>0</code> e <code>1</code>.<br/><br/>Para transações que não foram analisadas o valor <code>-1</code> é retornado (ver parâmetro <b>order.analyze</b>).",
       "state": "Estado  detectado",
       "status": "Mensagem de status da chamada. Retorna <code>ok</code> quando bem sucedida e <code>error</code> quando falhou.",
       "timestamp": "Hora da transação em Epoch do Unix",
@@ -311,7 +314,7 @@
       "country": "&quot;BR&quot;",
       "zip": "&quot; 01001-001&quot;",
       "ip": "&quot;189.68.156.100&quot;",
-      "product1": "&quot;Camiseta Verde&quot;",
+      "product1": "Camiseta Verde&quot;",
       "description1": "&quot;Camiseta masculina verde tamanho M&quot;",
       "product2": "&quot;Par de meias amarelas&quot;",
       "description2": "&quot;Par de meias amarelas tamanho único&quot;",
